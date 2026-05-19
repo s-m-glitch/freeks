@@ -218,6 +218,25 @@
     color:var(--ink-soft);
     line-height:1.6;max-width:42ch;margin-bottom:40px;letter-spacing:-.01em;
   }
+  .detail-quals{
+    font-family:var(--mono);
+    margin-bottom:36px;
+  }
+  .detail-quals-label{
+    font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-muted);
+    margin-bottom:12px;
+  }
+  .detail-quals-row{
+    font-size:14px;color:var(--ink);
+    line-height:1.7;letter-spacing:-.01em;
+    display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
+  }
+  .detail-quals-row .who{
+    font-style:italic;color:var(--ink-muted);font-weight:400;
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    min-width:52px;
+  }
   .detail-meta{
     display:flex;gap:40px;flex-wrap:wrap;
     padding-top:24px;border-top:1px solid var(--rule);
@@ -401,6 +420,11 @@
         <div class="detail-num">Healdsburg, California</div>
         <h3 class="detail-title serif">Running <em>Healdsburg.</em></h3>
         <p class="detail-desc">Three days of running in Sonoma's wine country with a coach who's sweat on nearly every road and trail in the Bay Area. Stay at the beautiful Hotel Healdsburg. Yoga one afternoon, a vineyard tour the next.</p>
+        <div class="detail-quals">
+          <div class="detail-quals-label">Qualifying times</div>
+          <div class="detail-quals-row"><span class="who">Men</span>sub 3:20 marathon, sub 1:30 half marathon, sub 19 5k</div>
+          <div class="detail-quals-row"><span class="who">Women</span>sub 3:45 marathon, sub 1:40 half marathon, sub 21:30 5k</div>
+        </div>
         <div class="detail-meta">
           <div>When<span>Jul 2026</span></div>
           <div>Duration<span>3 nights</span></div>
