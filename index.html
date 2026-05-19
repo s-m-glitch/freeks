@@ -96,13 +96,12 @@
     padding-top:max(26px, env(safe-area-inset-top));
     padding-left:max(36px, env(safe-area-inset-left));
     padding-right:max(36px, env(safe-area-inset-right));
-    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    display:flex;justify-content:center;align-items:center;
     color:#ede6d4;
   }
   .hero-nav .mark{
     font-family:var(--mono);font-weight:500;
     font-size:14px;letter-spacing:.04em;text-transform:uppercase;
-    justify-self:center;
   }
   .hero-nav .mark em{font-style:italic;font-weight:400;opacity:.85}
 
@@ -154,18 +153,32 @@
       padding-left:max(22px, env(safe-area-inset-left));
       padding-right:max(22px, env(safe-area-inset-right));
     }
-    .hero-trips{padding:72px 22px 80px}
-    .hero-trips li{padding:10px 0}
-    .hero-trips h2{font-size:clamp(28px,7.8vw,52px);line-height:1.06}
-    .hero-trips .date{font-size:9px;top:-1.8em;margin-left:10px;letter-spacing:.1em}
+    .hero-trips{padding:80px 24px 72px;justify-content:center}
+    .hero-trips ol{display:flex;flex-direction:column;gap:6px}
+    .hero-trips li{padding:6px 0}
+    .hero-trips h2{
+      font-size:clamp(22px,5.8vw,34px);
+      line-height:1.1;
+      display:block;
+    }
+    /* Stack date as caption below title — no more superscript collisions */
+    .hero-trips .date{
+      display:block;
+      position:static;
+      top:auto;
+      margin:6px 0 0;
+      font-size:10px;
+      letter-spacing:.14em;
+      color:#a8a18f;
+      opacity:.85;
+      vertical-align:baseline;
+    }
     /* On touch, dimming the unhovered items strands the user — keep all visible */
     .hero-trips ol:hover h2{opacity:1}
   }
   @media (max-width:380px){
     .hero{min-height:520px}
-    .hero-trips{padding:64px 20px 64px}
-    .hero-trips h2{font-size:26px}
-    .hero-trips .date{display:block;top:0;margin-left:0;margin-top:2px}
+    .hero-trips{padding:64px 22px 56px}
   }
 
   /* ---------- SECTION COMMON ---------- */
