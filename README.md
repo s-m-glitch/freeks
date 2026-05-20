@@ -1,4 +1,4 @@
-# Practice Elsewhere — Landing Page
+# 34O Elsewhere — Landing Page
 
 A single-file static site. Just `index.html`, no build step.
 
