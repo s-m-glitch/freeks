@@ -1,4 +1,4 @@
-# 34O Elsewhere — Landing Page
+# 34 Rabbit Holes — Landing Page
 
 A single-file static site. Just `index.html`, no build step.
 
