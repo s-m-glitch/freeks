@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email } = req.body || {};
+  const { name, email, interests } = req.body || {};
 
   if (!email || typeof email !== 'string' || !email.includes('@')) {
     return res.status(400).json({ error: 'Valid email required' });
@@ -27,6 +27,7 @@ export default async function handler(req, res) {
 
   const cleanName = name ? String(name).trim().slice(0, 200) : '';
   const cleanEmail = String(email).trim().slice(0, 200);
+  const cleanInterests = interests ? String(interests).trim().slice(0, 500) : '';
 
   const resendKey = process.env.RESEND_API_KEY;
   const notifyEmail = process.env.NOTIFY_EMAIL;
@@ -35,10 +36,10 @@ export default async function handler(req, res) {
 
   const results = await Promise.allSettled([
     resendKey && notifyEmail
-      ? notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail })
+      ? notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail, cleanInterests })
       : Promise.reject(new Error('resend-not-configured')),
     sheetsUrl
-      ? appendToSheet({ sheetsUrl, cleanName, cleanEmail })
+      ? appendToSheet({ sheetsUrl, cleanName, cleanEmail, cleanInterests })
       : Promise.reject(new Error('sheets-not-configured')),
   ]);
 
@@ -51,15 +52,16 @@ export default async function handler(req, res) {
   return res.status(200).json({ ok: true });
 }
 
-async function notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail }) {
+async function notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail, cleanInterests }) {
   const displayName = cleanName || cleanEmail;
   const subject = `New waitlist signup — ${displayName}`;
   const textBody = [
     `New 'Stay Updated' signup.`,
     '',
-    `Name:    ${cleanName || '(not provided)'}`,
-    `Email:   ${cleanEmail}`,
-  ].join('\n');
+    `Name:      ${cleanName || '(not provided)'}`,
+    `Email:     ${cleanEmail}`,
+    cleanInterests ? `Interests: ${cleanInterests}` : null,
+  ].filter(Boolean).join('\n');
 
   const htmlBody = `
     <div style="font-family:system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.55;color:#222;max-width:560px">
@@ -67,6 +69,7 @@ async function notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, c
       <table style="border-collapse:collapse;font-size:14px">
         <tr><td style="padding:4px 18px 4px 0;color:#666">Name</td><td><strong>${escapeHtml(cleanName || '(not provided)')}</strong></td></tr>
         <tr><td style="padding:4px 18px 4px 0;color:#666">Email</td><td><a href="mailto:${escapeHtml(cleanEmail)}" style="color:#8a4a31">${escapeHtml(cleanEmail)}</a></td></tr>
+        ${cleanInterests ? `<tr><td style="padding:4px 18px 4px 0;color:#666;vertical-align:top">Interests</td><td>${escapeHtml(cleanInterests)}</td></tr>` : ''}
       </table>
     </div>`;
 
@@ -92,7 +95,7 @@ async function notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, c
   }
 }
 
-async function appendToSheet({ sheetsUrl, cleanName, cleanEmail }) {
+async function appendToSheet({ sheetsUrl, cleanName, cleanEmail, cleanInterests }) {
   const r = await fetch(sheetsUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -100,6 +103,7 @@ async function appendToSheet({ sheetsUrl, cleanName, cleanEmail }) {
       kind: 'waitlist',
       name: cleanName,
       email: cleanEmail,
+      interests: cleanInterests,
       source: 'Stay Updated',
     }),
   });

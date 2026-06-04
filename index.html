@@ -784,7 +784,7 @@
   },{threshold:.12, rootMargin:'0px 0px -60px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Waitlist submission → Beehiiv via /api/subscribe
+  // Waitlist submission → /api/subscribe
   const waitlistForm = document.getElementById('waitlist-form');
   if (waitlistForm) {
     waitlistForm.addEventListener('submit', async (e) => {
@@ -794,9 +794,13 @@
       submit.disabled = true;
       submit.innerHTML = 'Submitting…';
 
+      const interests = Array.from(waitlistForm.querySelectorAll('.chip.active'))
+        .map(c => c.textContent.trim());
+
       const payload = {
         name: waitlistForm.name.value.trim(),
         email: waitlistForm.email.value.trim(),
+        interests: interests.join(', '),
       };
 
       try {
