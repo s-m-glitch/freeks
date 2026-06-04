@@ -1,4 +1,4 @@
-# 34 Rabbit Holes — Landing Page
+# freaks — Landing Page
 
 A single-file static site. Just `index.html`, no build step.
 
