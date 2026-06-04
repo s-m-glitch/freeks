@@ -4,40 +4,46 @@
   "title": "Design System: freaks",
   "extensions": {
     "colorMeta": {
-      "terracotta": {
+      "pink": {
         "role": "primary",
-        "displayName": "Terracotta",
-        "canonical": "#cd6038",
-        "tonalRamp": ["#2c1207", "#451c0e", "#612817", "#7d3520", "#9c4327", "#cd6038", "#dd8460", "#ecb8a0"]
+        "displayName": "Pink (deep)",
+        "canonical": "#cf0f59",
+        "tonalRamp": ["#36031a", "#560529", "#760a3a", "#97104b", "#c20f56", "#cf0f59", "#ff3d80", "#ffa6c2"]
       },
-      "terracotta-surface": {
+      "pink-bright": {
         "role": "primary",
-        "displayName": "Terracotta Surface",
-        "canonical": "#9c4327",
-        "tonalRamp": ["#2c1207", "#451c0e", "#612817", "#7d3520", "#9c4327", "#bd5736", "#d98561", "#edbda6"]
+        "displayName": "Electric Pink",
+        "canonical": "#ff3d80",
+        "tonalRamp": ["#3a0c1f", "#5e1132", "#871945", "#b21a55", "#e01466", "#ff3d80", "#ff7aa6", "#ffc2d6"]
       },
       "bg": {
         "role": "neutral",
-        "displayName": "Near-Black",
-        "canonical": "#14110f",
-        "tonalRamp": ["#0d0b0a", "#14110f", "#1d1916", "#2a251f", "#3a342c", "#56504552", "#8a8276", "#b8b0a4"]
+        "displayName": "Lemon (ground)",
+        "canonical": "#fafbe4",
+        "tonalRamp": ["#16151a", "#33321f", "#55542f", "#7e7d44", "#a9a85e", "#d2d199", "#eceac0", "#fafbe4"]
+      },
+      "bg-raised": {
+        "role": "neutral",
+        "displayName": "Mist (ground)",
+        "canonical": "#f4f7f8",
+        "tonalRamp": ["#16161a", "#2c2e30", "#46494c", "#6c7072", "#9aa0a3", "#cfd6d9", "#e8edee", "#f4f7f8"]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Cool Off-White",
-        "canonical": "#f2ece1",
-        "tonalRamp": ["#3a352c", "#56503f", "#7a7256", "#8a8276", "#b8b0a4", "#d4ccbe", "#f2ece1", "#fbf7ef"]
+        "displayName": "Near-Black Ink",
+        "canonical": "#16151a",
+        "tonalRamp": ["#0d0b0a", "#16151a", "#2c2a30", "#46434c", "#54515a", "#6c6972", "#9a98a0", "#cfcdc9"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero trip titles laid over the photograph as a title card." },
+      "display": { "displayName": "Display", "purpose": "Hero trip titles over the dark photographic threshold." },
       "headline": { "displayName": "Headline", "purpose": "Philosophy statement and waitlist heading." },
       "title": { "displayName": "Title", "purpose": "Per-trip detail title." },
       "body": { "displayName": "Body", "purpose": "Prose, capped ~62ch, text-wrap pretty." },
-      "label": { "displayName": "Label", "purpose": "Sentence-case eyebrows, field labels, meta keys. Never a tracked-uppercase block." }
+      "label": { "displayName": "Label", "purpose": "Sentence-case eyebrows, field labels, meta keys (ink-dim/faint). Never a tracked-uppercase block." }
     },
     "shadows": [
-      { "name": "print-frame", "value": "inset 0 0 0 1px rgba(242,236,225,0.12)", "purpose": "Hairline frame around photographs, gallery-print style. The only 'elevation' on images." }
+      { "name": "print-frame", "value": "inset 0 0 0 1px rgba(22,21,26,0.12)", "purpose": "Hairline frame around photographs, gallery-print style. The only 'elevation' on images." }
     ],
     "motion": [
       { "name": "ease-cinematic", "value": "cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "House ease-out for reveals, hover, and the hero cross-fade." },
@@ -56,78 +62,78 @@
       "name": "Gallery Index Title",
       "kind": "custom",
       "refersTo": "display",
-      "description": "Signature hero list item: bold grotesque trip title, obsession word in terracotta, tabular date.",
+      "description": "Signature hero list item: bold grotesque trip title, obsession word in electric pink, tabular date. Over the dark photographic threshold.",
       "html": "<a class=\"ds-trip\"><span class=\"ds-trip__title\"><span class=\"ds-t\">Running</span> Healdsburg</span><span class=\"ds-trip__date\">Jul 17–19</span></a>",
-      "css": ".ds-trip{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;text-decoration:none;color:#f2ece1;padding:7px 0;cursor:pointer;transition:opacity .5s cubic-bezier(.2,.7,.2,1)}.ds-trip__title{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,82px);line-height:.98;letter-spacing:-.03em}.ds-t{color:#cd6038}.ds-trip__date{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:#b8b0a4;font-variant-numeric:tabular-nums}.ds-trip:hover{opacity:1}"
+      "css": ".ds-trip{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;text-decoration:none;color:#f4f3f1;padding:7px 0;cursor:pointer;transition:opacity .5s cubic-bezier(.2,.7,.2,1)}.ds-trip__title{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,82px);line-height:.98;letter-spacing:-.03em}.ds-t{color:#ff3d80}.ds-trip__date{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:rgba(244,243,241,.72);font-variant-numeric:tabular-nums}.ds-trip:hover{opacity:1}"
     },
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Solid terracotta pill for primary actions (Request to book, Join the waitlist).",
+      "description": "Solid deep-pink near-square pill. One of only two resting uses of pink.",
       "html": "<button class=\"ds-btn-primary\">Request to book <span class=\"ds-arrow\">→</span></button>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;background:#cd6038;color:#fff;border:none;border-radius:999px;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:15px;font-weight:600;padding:16px 26px;cursor:pointer;transition:background .25s ease}.ds-btn-primary:hover{background:#e06d42}.ds-btn-primary .ds-arrow{transition:transform .3s cubic-bezier(.2,.7,.2,1)}.ds-btn-primary:hover .ds-arrow{transform:translateX(5px)}"
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;background:#cf0f59;color:#fff;border:none;border-radius:3px;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:15px;font-weight:600;padding:16px 26px;cursor:pointer;transition:background .25s ease}.ds-btn-primary:hover{background:#ff3d80}.ds-btn-primary .ds-arrow{transition:transform .3s cubic-bezier(.2,.7,.2,1)}.ds-btn-primary:hover .ds-arrow{transform:translateX(5px)}"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Outlined pill for the hero nav and secondary actions on dark grounds.",
+      "description": "Outlined near-square pill for the hero nav and secondary actions.",
       "html": "<a class=\"ds-btn-ghost\">Join the waitlist</a>",
-      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#f2ece1;border:1px solid rgba(242,236,225,.22);border-radius:999px;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;text-decoration:none;cursor:pointer;transition:background .3s ease,color .3s ease,border-color .3s ease}.ds-btn-ghost:hover{background:#f2ece1;color:#14110f;border-color:#f2ece1}"
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#16151a;border:1px solid rgba(22,21,26,.2);border-radius:3px;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;text-decoration:none;cursor:pointer;transition:background .3s ease,color .3s ease,border-color .3s ease}.ds-btn-ghost:hover{background:#16151a;color:#fafbe4;border-color:#16151a}"
     },
     {
       "name": "Interest Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Multi-select interest pill on the dark form panel.",
+      "description": "Multi-select interest pill (near-square), flat on the ground. Active state fills ink, not pink.",
       "html": "<button class=\"ds-chip\">Running</button><button class=\"ds-chip ds-chip--active\">Painting</button>",
-      "css": ".ds-chip{padding:10px 16px;min-height:44px;border:1px solid rgba(242,236,225,.22);border-radius:999px;background:transparent;color:#b8b0a4;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}.ds-chip:hover{border-color:#f2ece1;color:#f2ece1}.ds-chip--active{background:#cd6038;color:#fff;border-color:#cd6038}"
+      "css": ".ds-chip{padding:10px 16px;min-height:44px;border:1px solid rgba(22,21,26,.2);border-radius:3px;background:transparent;color:#54515a;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}.ds-chip:hover{border-color:#16151a;color:#16151a}.ds-chip--active{background:#16151a;color:#fafbe4;border-color:#16151a}"
     },
     {
       "name": "Underline Field",
       "kind": "input",
       "refersTo": "input-field",
-      "description": "Boxless field on the dark form panel: off-white text over a bottom rule, label above.",
+      "description": "Boxless field flat on the ground: ink text over a bottom rule, label above.",
       "html": "<div class=\"ds-field\"><label class=\"ds-field__label\">Email</label><input class=\"ds-field__input\" placeholder=\"freak@somewhere.com\"></div>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;padding:18px 0;border-bottom:1px solid rgba(242,236,225,.12)}.ds-field__label{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;color:#8a8276}.ds-field__input{background:transparent;border:none;outline:none;color:#f2ece1;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:500;font-size:20px;padding:4px 0}.ds-field__input::placeholder{color:rgba(242,236,225,.5)}.ds-field:focus-within{border-bottom-color:#cd6038}"
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;padding:18px 0;border-bottom:1px solid rgba(22,21,26,.12)}.ds-field__label{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;color:#6c6972}.ds-field__input{background:transparent;border:none;outline:none;color:#16151a;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:500;font-size:20px;padding:4px 0}.ds-field__input::placeholder{color:#6c6972}.ds-field:focus-within{border-bottom-color:#cf0f59}"
     }
   ],
   "narrative": {
-    "northStar": "The Gallery After Dark",
-    "overview": "freaks is a near-black room hung with cinematic prints. Photography is the light source: full-bleed, grayscale-leaning frames under a heavy scrim, with the trip names set as bold type laid over the image like a title card. The rest of the page is a darkened gallery, charcoal walls, off-white text, hairline-framed photographs, and a single warm light that is terracotta. Terracotta marks the obsession word in every trip name, every link, every primary action, and the one terracotta room (the waitlist). Hierarchy comes from one grotesque typeface pushed across weights, not from decoration; numbers are tabular and exact; surfaces are flat.",
+    "northStar": "The Daylight Gallery",
+    "overview": "freaks is a daylit gallery painted in two soft tones, pale lemon and cool mist, entered through and closed by a dark photographic threshold. The page opens on a full-bleed, scrimmed photograph with the trip names over it (the dark hero), settles into the bright two-tone gallery (lemon and mist sections alternating, photographs framed like prints, near-black type), and closes on a dark footer that bookends the hero. Color is held in reserve: one electric pink appears only twice at rest, the obsession word in a trip title and the primary action button. Everywhere else is grounds and ink.",
     "keyCharacteristics": [
-      "Near-black gallery ground; photography is the light",
-      "One warm light: terracotta as structural voice, not accent dust",
+      "Two soft grounds, pale lemon (primary) and cool mist (alternating)",
+      "Dark photographic threshold at both ends: the hero and the footer bookend the page",
+      "Pink used twice at rest only: the obsession mark and the primary CTA",
       "A single grotesque (Bricolage Grotesque) across weights, no serif, no mono",
       "Photographs framed like prints (hairline inset); flat surfaces, no shadows",
-      "The obsession word is terracotta + heavy weight; the place is off-white",
-      "Specificity as luxury: real names, real times, tabular benchmarks"
+      "Near-square 3px corners; specificity and tabular numbers as the luxury"
     ],
     "rules": [
-      { "name": "The One Light Rule", "body": "Terracotta is the only chroma. It may appear generously, marking obsessions, links, actions, and the one terracotta room, but a second accent hue is never introduced.", "section": "colors" },
-      { "name": "The Two-Ground Rule", "body": "Surfaces are either a near-black ground or the single terracotta room, no third surface, no gradient between. On the terracotta room the form sits on an inset near-black panel so inputs stay legible.", "section": "colors" },
-      { "name": "The Obsession-in-Terracotta Rule", "body": "In any trip title, the thing you're obsessed with is terracotta at weight 700 and the place is off-white. Terracotta + weight marks the obsession, replacing the old serif-italic convention.", "section": "typography" },
+      { "name": "The Two-Highlights Rule", "body": "Pink appears at rest in exactly two places: the obsession word in a trip title (bright) and the primary action button (deep). Everywhere else, including eyebrows, links, benchmark labels, and active chips, is ink. Pink may additionally carry interaction states (focus ring, link hover).", "section": "colors" },
+      { "name": "The Two-Grounds-and-Bookends Rule", "body": "The body alternates two soft grounds, lemon and mist; the hero and footer are the one dark tone, bookending the page. No third ground color, no pink surface. Sections separate by ground and space, never by a rule or gradient.", "section": "colors" },
+      { "name": "The Obsession-in-Pink Rule", "body": "In any trip title, the thing you're obsessed with is bright pink at weight 700 and the place is ink/off-white. One of only two resting uses of pink; always large display type.", "section": "typography" },
       { "name": "The Tabular-Truth Rule", "body": "All comparable numbers (benchmarks, distances, times, dates, prices) use tabular figures. The data is the proof of seriousness; it aligns.", "section": "typography" },
-      { "name": "The Print-on-Black Rule", "body": "Photographs are framed like gallery prints with a 1px inset hairline, never a drop shadow. For separation, change ground temperature or frame; do not lift.", "section": "elevation" }
+      { "name": "The Print-Frame Rule", "body": "Photographs are framed like gallery prints with a 1px inset hairline, never a drop shadow. For separation, change ground or frame; do not lift.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep the page near-black with one terracotta room and one terracotta light.",
-      "Do mark the obsession word in terracotta + weight 700; keep the place off-white.",
+      "Do carry the page on two soft grounds (lemon primary, mist alternating) and bookend it with the dark hero and footer.",
+      "Do keep pink to exactly two resting uses: the obsession mark and the primary CTA.",
+      "Do mark the obsession word in bright pink + weight 700; keep the place in ink/off-white.",
       "Do use a single typeface (Bricolage Grotesque) across weights.",
       "Do frame photographs like prints with a hairline inset, and keep surfaces flat.",
       "Do set every comparable number in tabular figures.",
-      "Do lead with specificity: name the expert, the hotel, the trail, the exact time.",
-      "Do inset the form on a dark panel when it sits on the terracotta surface."
+      "Do keep corners near-square: 3px pills, 10px modal."
     ],
     "donts": [
-      "Don't reintroduce the editorial-typographic lane: no serif italics, no monospaced tracked labels, no hairline-rule eyebrows over every section, no warm cream paper.",
-      "Don't add a second accent hue or a second typeface.",
+      "Don't let pink leak back into eyebrows, links, surfaces, or active chips at rest; those are ink.",
+      "Don't drift into the warm/dark register (orange-on-black reads Halloween / Strava) or back into the editorial-typographic lane: no serif italics, no mono labels, no hairline-rule eyebrows, no cream paper.",
+      "Don't add a second accent hue, a third ground color, or a second typeface.",
+      "Don't round the pills back into full lozenges; the angular 3px corner is the brand.",
       "Don't build a generic travel-operator layout: card grids, star ratings, 'book now' clutter, stock-smile photography.",
       "Don't drift into hustle/retreat-bro wellness, corporate SaaS scaffolding, or mass-luxury influencer travel.",
-      "Don't use em dashes in copy; en dashes for numeric ranges only.",
-      "Don't put body or placeholder text directly on the mid-terracotta surface; use the dark panel or full off-white.",
-      "Don't drop shadows for depth; use temperature, framing, or the inset panel."
+      "Don't use em dashes in copy; en dashes for numeric ranges only."
     ]
   }
 }
