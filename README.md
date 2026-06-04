@@ -8,26 +8,26 @@ A single-file static site. Just `index.html`, no build step.
 
 ### 1. Drag and drop (easiest, ~30 seconds)
 1. Go to https://vercel.com/new
-2. Drag this entire `practice-elsewhere` folder onto the page
+2. Drag this entire `34-rabbit-holes` folder onto the page
 3. Click **Deploy**
 
-You'll get a URL like `practice-elsewhere-xyz.vercel.app` immediately. Custom domains can be added from the project's Domains tab.
+You'll get a URL like `34-rabbit-holes-xyz.vercel.app` immediately. Custom domains can be added from the project's Domains tab.
 
 ### 2. Vercel CLI
 ```bash
 npm i -g vercel        # one-time install
-cd practice-elsewhere
+cd 34-rabbit-holes
 vercel                 # follow prompts → preview URL
 vercel --prod          # promote to production
 ```
 
 ### 3. GitHub auto-deploy
 ```bash
-cd practice-elsewhere
+cd 34-rabbit-holes
 git init
 git add .
 git commit -m "Initial commit"
-gh repo create practice-elsewhere --public --source=. --push
+gh repo create 34-rabbit-holes --public --source=. --push
 ```
 Then connect the repo at https://vercel.com/new and Vercel will redeploy on every push.
 
