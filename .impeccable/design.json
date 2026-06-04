@@ -7,134 +7,127 @@
       "terracotta": {
         "role": "primary",
         "displayName": "Terracotta",
-        "canonical": "#8a4a31",
-        "tonalRamp": ["#2a1610", "#3f2117", "#5a2f20", "#71402c", "#8a4a31", "#a8654a", "#c08b73", "#ddb9ab"]
+        "canonical": "#cd6038",
+        "tonalRamp": ["#2c1207", "#451c0e", "#612817", "#7d3520", "#9c4327", "#cd6038", "#dd8460", "#ecb8a0"]
       },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Paper",
-        "canonical": "#ece7dc",
-        "tonalRamp": ["#1a1815", "#34302a", "#56514a", "#7a746b", "#a39c8c", "#c8c1b3", "#e3ddd0", "#f4f0e8"]
+      "terracotta-surface": {
+        "role": "primary",
+        "displayName": "Terracotta Surface",
+        "canonical": "#9c4327",
+        "tonalRamp": ["#2c1207", "#451c0e", "#612817", "#7d3520", "#9c4327", "#bd5736", "#d98561", "#edbda6"]
       },
-      "paper-stone": {
+      "bg": {
         "role": "neutral",
-        "displayName": "Paper Stone",
-        "canonical": "#d9cfbb",
-        "tonalRamp": ["#211d16", "#3a342a", "#5c5443", "#827960", "#a89c80", "#c4b89c", "#d9cfbb", "#ece5d6"]
+        "displayName": "Near-Black",
+        "canonical": "#14110f",
+        "tonalRamp": ["#0d0b0a", "#14110f", "#1d1916", "#2a251f", "#3a342c", "#56504552", "#8a8276", "#b8b0a4"]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Ink",
-        "canonical": "#1a1815",
-        "tonalRamp": ["#0e0d0b", "#1a1815", "#3b3631", "#56514a", "#6e6862", "#908a82", "#b0aaa0", "#d4cfc6"]
-      },
-      "cream": {
-        "role": "neutral",
-        "displayName": "Cream",
-        "canonical": "#ede6d4",
-        "tonalRamp": ["#3a352c", "#56503f", "#7a7256", "#a39c7f", "#c4bca0", "#d8d0bd", "#ede6d4", "#f8f4ea"]
+        "displayName": "Cool Off-White",
+        "canonical": "#f2ece1",
+        "tonalRamp": ["#3a352c", "#56503f", "#7a7256", "#8a8276", "#b8b0a4", "#d4ccbe", "#f2ece1", "#fbf7ef"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero trip titles, set as a cinematic title sequence over the photograph." },
+      "display": { "displayName": "Display", "purpose": "Hero trip titles laid over the photograph as a title card." },
       "headline": { "displayName": "Headline", "purpose": "Philosophy statement and waitlist heading." },
-      "title": { "displayName": "Title", "purpose": "Per-trip detail titles." },
-      "body": { "displayName": "Body", "purpose": "Monospaced long-form copy; the field-journal voice. Cap measures near 90ch." },
-      "label": { "displayName": "Label", "purpose": "Tracked uppercase eyebrows, field labels, metadata keys, chips. Short phrases only." }
+      "title": { "displayName": "Title", "purpose": "Per-trip detail title." },
+      "body": { "displayName": "Body", "purpose": "Prose, capped ~62ch, text-wrap pretty." },
+      "label": { "displayName": "Label", "purpose": "Sentence-case eyebrows, field labels, meta keys. Never a tracked-uppercase block." }
     },
-    "shadows": [],
+    "shadows": [
+      { "name": "print-frame", "value": "inset 0 0 0 1px rgba(242,236,225,0.12)", "purpose": "Hairline frame around photographs, gallery-print style. The only 'elevation' on images." }
+    ],
     "motion": [
-      { "name": "ease-cinematic", "value": "cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "House ease-out. Hero cross-fades, reveals, and CTA transitions all use it." },
-      { "name": "hero-crossfade", "value": "opacity 1.4s cubic-bezier(0.2,0.7,0.2,1)", "purpose": "Trip image swap behind the hero title sequence." },
-      { "name": "hero-pan", "value": "transform 16s ease-out", "purpose": "Slow 1.04x scale pan on the active hero image." },
-      { "name": "reveal", "value": "opacity 1.1s, transform 1.1s, cubic-bezier(0.2,0.7,0.2,1)", "purpose": "Scroll-in reveal. NOTE: currently gates content visibility; needs a reduced-motion + no-JS visible default." },
-      { "name": "cta-invert", "value": "all 0.35s ease", "purpose": "Ghost button fill inversion on hover." }
+      { "name": "ease-cinematic", "value": "cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "House ease-out for reveals, hover, and the hero cross-fade." },
+      { "name": "hero-crossfade", "value": "opacity 1.4s cubic-bezier(0.2,0.7,0.2,1)", "purpose": "Trip image swap behind the gallery index." },
+      { "name": "hero-push", "value": "transform 18s ease-out", "purpose": "Slow 1.05x scale push on the active hero image." },
+      { "name": "reveal", "value": "opacity 1s, transform 1s, cubic-bezier(0.2,0.7,0.2,1)", "purpose": "Scroll-in reveal. Visible by default; JS-gated entrance with a transition-free safety net." }
     ],
     "breakpoints": [
-      { "name": "tablet", "value": "880px" },
+      { "name": "wide", "value": "880px" },
       { "name": "mobile", "value": "780px" },
-      { "name": "small", "value": "520px" },
-      { "name": "tiny", "value": "380px" }
+      { "name": "small", "value": "520px" }
     ]
   },
   "components": [
     {
+      "name": "Gallery Index Title",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Signature hero list item: bold grotesque trip title, obsession word in terracotta, tabular date.",
+      "html": "<a class=\"ds-trip\"><span class=\"ds-trip__title\"><span class=\"ds-t\">Running</span> Healdsburg</span><span class=\"ds-trip__date\">Jul 17–19</span></a>",
+      "css": ".ds-trip{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;text-decoration:none;color:#f2ece1;padding:7px 0;cursor:pointer;transition:opacity .5s cubic-bezier(.2,.7,.2,1)}.ds-trip__title{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,82px);line-height:.98;letter-spacing:-.03em}.ds-t{color:#cd6038}.ds-trip__date{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:#b8b0a4;font-variant-numeric:tabular-nums}.ds-trip:hover{opacity:1}"
+    },
+    {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Cream-on-ink submit for the waitlist and booking modal.",
-      "html": "<button class=\"ds-btn-primary\">Stay updated <span class=\"ds-arrow\">→</span></button>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:14px;background:#ede6d4;color:#1a1815;border:none;cursor:pointer;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:18px 30px;transition:background .3s ease}.ds-btn-primary:hover{background:#fff}.ds-btn-primary .ds-arrow{transition:transform .3s ease}.ds-btn-primary:hover .ds-arrow{transform:translateX(6px)}"
+      "description": "Solid terracotta pill for primary actions (Request to book, Join the waitlist).",
+      "html": "<button class=\"ds-btn-primary\">Request to book <span class=\"ds-arrow\">→</span></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;background:#cd6038;color:#fff;border:none;border-radius:999px;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:15px;font-weight:600;padding:16px 26px;cursor:pointer;transition:background .25s ease}.ds-btn-primary:hover{background:#e06d42}.ds-btn-primary .ds-arrow{transition:transform .3s cubic-bezier(.2,.7,.2,1)}.ds-btn-primary:hover .ds-arrow{transform:translateX(5px)}"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Outlined 'Request to book' CTA on paper; inverts to solid ink on hover.",
-      "html": "<a class=\"ds-btn-ghost\">Request to book <span class=\"ds-arrow\">→</span></a>",
-      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:14px;background:transparent;border:1px solid #1a1815;color:#1a1815;text-decoration:none;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:16px 28px;cursor:pointer;transition:all .35s ease}.ds-btn-ghost:hover{background:#1a1815;color:#ece7dc}.ds-btn-ghost .ds-arrow{transition:transform .35s ease}.ds-btn-ghost:hover .ds-arrow{transform:translateX(6px)}"
+      "description": "Outlined pill for the hero nav and secondary actions on dark grounds.",
+      "html": "<a class=\"ds-btn-ghost\">Join the waitlist</a>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#f2ece1;border:1px solid rgba(242,236,225,.22);border-radius:999px;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;text-decoration:none;cursor:pointer;transition:background .3s ease,color .3s ease,border-color .3s ease}.ds-btn-ghost:hover{background:#f2ece1;color:#14110f;border-color:#f2ece1}"
     },
     {
       "name": "Interest Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Multi-select interest toggle on the ink waitlist ground.",
+      "description": "Multi-select interest pill on the dark form panel.",
       "html": "<button class=\"ds-chip\">Running</button><button class=\"ds-chip ds-chip--active\">Painting</button>",
-      "css": ".ds-chip{padding:11px 16px;min-height:38px;border:1px solid #3a352f;background:transparent;color:#bdb5a2;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all .25s ease}.ds-chip:hover{border-color:#7a7367;color:#ede6d4}.ds-chip--active{background:#ede6d4;color:#1a1815;border-color:#ede6d4}"
+      "css": ".ds-chip{padding:10px 16px;min-height:44px;border:1px solid rgba(242,236,225,.22);border-radius:999px;background:transparent;color:#b8b0a4;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}.ds-chip:hover{border-color:#f2ece1;color:#f2ece1}.ds-chip--active{background:#cd6038;color:#fff;border-color:#cd6038}"
     },
     {
       "name": "Underline Field",
       "kind": "input",
       "refersTo": "input-field",
-      "description": "Boxless field: cream mono text over a single bottom rule, tracked uppercase label above.",
+      "description": "Boxless field on the dark form panel: off-white text over a bottom rule, label above.",
       "html": "<div class=\"ds-field\"><label class=\"ds-field__label\">Email</label><input class=\"ds-field__input\" placeholder=\"freak@somewhere.com\"></div>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #3a352f}.ds-field__label{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#a39c8c;font-weight:500}.ds-field__input{background:transparent;border:none;outline:none;color:#ede6d4;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-weight:300;font-size:20px;letter-spacing:-.02em;padding:6px 0}.ds-field__input::placeholder{color:#7a7367;font-style:italic}.ds-field__input:focus{border-bottom:0}.ds-field:focus-within{border-bottom-color:#8a4a31}"
-    },
-    {
-      "name": "Cinematic Trip Title",
-      "kind": "custom",
-      "refersTo": "display",
-      "description": "Signature hero list item: serif title with italic obsession word, mono superscript date.",
-      "html": "<h2 class=\"ds-trip\"><em>Running</em> Healdsburg<span class=\"ds-trip__date\">Jul 17-19</span></h2>",
-      "css": ".ds-trip{font-family:Fraunces,'Lyon Display',Times,serif;font-weight:400;font-size:clamp(42px,6vw,96px);line-height:1.02;letter-spacing:-.035em;color:#ede6d4;display:inline;position:relative;cursor:pointer;transition:opacity .55s cubic-bezier(.2,.7,.2,1)}.ds-trip em{font-style:italic}.ds-trip__date{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#c8c0ad;vertical-align:super;position:relative;top:-1.5em;margin-left:16px;opacity:.82}"
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;padding:18px 0;border-bottom:1px solid rgba(242,236,225,.12)}.ds-field__label{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;color:#8a8276}.ds-field__input{background:transparent;border:none;outline:none;color:#f2ece1;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:500;font-size:20px;padding:4px 0}.ds-field__input::placeholder{color:rgba(242,236,225,.5)}.ds-field:focus-within{border-bottom-color:#cd6038}"
     }
   ],
   "narrative": {
-    "northStar": "The Cinematic Field Journal",
-    "overview": "freaks reads like the opening frames of an A24 film bound into a serious obsessive's logbook. The mood is cinematic: a full-bleed, grayscale-leaning photograph fills the first viewport, dimmed under a vignette and a film-grain overlay, with the trip names set as a hovering title sequence over the frame. Then the page settles into the field-journal half of its identity, warm paper stock, hairline rules, monospaced detail set in the cadence of a runner's training log. The serif supplies the cinema; the mono supplies the documentation. The system makes the right person recognize themselves and the wrong person move on: it states the bar plainly and trusts the reader to react.",
+    "northStar": "The Gallery After Dark",
+    "overview": "freaks is a near-black room hung with cinematic prints. Photography is the light source: full-bleed, grayscale-leaning frames under a heavy scrim, with the trip names set as bold type laid over the image like a title card. The rest of the page is a darkened gallery, charcoal walls, off-white text, hairline-framed photographs, and a single warm light that is terracotta. Terracotta marks the obsession word in every trip name, every link, every primary action, and the one terracotta room (the waitlist). Hierarchy comes from one grotesque typeface pushed across weights, not from decoration; numbers are tabular and exact; surfaces are flat.",
     "keyCharacteristics": [
-      "Cinematic full-bleed hero, photograph as the design, grain and vignette doing the mood work",
-      "Two-temperature palette: warm paper by day, near-black ink by night, one terracotta voice",
-      "Serif display (cinema) against monospaced body (field notes), no third typeface",
-      "Sharp corners, hairline rules, no shadows, no cards",
-      "Specificity as luxury: real names, real times, real benchmarks",
-      "One obsession per surface; long scroll, deliberate pacing"
+      "Near-black gallery ground; photography is the light",
+      "One warm light: terracotta as structural voice, not accent dust",
+      "A single grotesque (Bricolage Grotesque) across weights, no serif, no mono",
+      "Photographs framed like prints (hairline inset); flat surfaces, no shadows",
+      "The obsession word is terracotta + heavy weight; the place is off-white",
+      "Specificity as luxury: real names, real times, tabular benchmarks"
     ],
     "rules": [
-      { "name": "The One Voice Rule", "body": "Terracotta is the only chroma in the system and appears on a sliver of any screen: links, the mark, selection. Everything else is paper or ink. Never introduce a second accent hue.", "section": "colors" },
-      { "name": "The Two-Temperature Rule", "body": "Every section is either paper (daylight, documentary) or ink (night, cinema). There is no in-between gray surface. Transitions are hard cuts across a hairline rule, never gradients.", "section": "colors" },
-      { "name": "The Italic-Obsession Rule", "body": "In display and title type, the thing you're obsessed with is serif italic and the place is roman. Italics mark the obsession, not arbitrary emphasis.", "section": "typography" },
-      { "name": "The Caps-Are-Labels-Only Rule", "body": "Uppercase is reserved for short tracked labels, eyebrows, and metadata keys. Body copy is never caps; mono body never goes above weight 300.", "section": "typography" },
-      { "name": "The No-Shadow Rule", "body": "Surfaces are flat. If something needs to feel separate, change its temperature (paper vs. ink) or rule it off, never drop a shadow. Grain and vignette are atmosphere, not elevation.", "section": "elevation" }
+      { "name": "The One Light Rule", "body": "Terracotta is the only chroma. It may appear generously, marking obsessions, links, actions, and the one terracotta room, but a second accent hue is never introduced.", "section": "colors" },
+      { "name": "The Two-Ground Rule", "body": "Surfaces are either a near-black ground or the single terracotta room, no third surface, no gradient between. On the terracotta room the form sits on an inset near-black panel so inputs stay legible.", "section": "colors" },
+      { "name": "The Obsession-in-Terracotta Rule", "body": "In any trip title, the thing you're obsessed with is terracotta at weight 700 and the place is off-white. Terracotta + weight marks the obsession, replacing the old serif-italic convention.", "section": "typography" },
+      { "name": "The Tabular-Truth Rule", "body": "All comparable numbers (benchmarks, distances, times, dates, prices) use tabular figures. The data is the proof of seriousness; it aligns.", "section": "typography" },
+      { "name": "The Print-on-Black Rule", "body": "Photographs are framed like gallery prints with a 1px inset hairline, never a drop shadow. For separation, change ground temperature or frame; do not lift.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep terracotta to a sliver (links, mark, selection). Its scarcity is the brand.",
-      "Do set every surface as either warm paper or near-black ink, separated by hairline rules.",
-      "Do set body copy in IBM Plex Mono weight 300 and cap measures near 90ch.",
-      "Do mark the obsession in serif italic and the place in roman.",
+      "Do keep the page near-black with one terracotta room and one terracotta light.",
+      "Do mark the obsession word in terracotta + weight 700; keep the place off-white.",
+      "Do use a single typeface (Bricolage Grotesque) across weights.",
+      "Do frame photographs like prints with a hairline inset, and keep surfaces flat.",
+      "Do set every comparable number in tabular figures.",
       "Do lead with specificity: name the expert, the hotel, the trail, the exact time.",
-      "Do ship real cinematic photography full-bleed; the photograph is the design.",
-      "Do keep corners at 0px and surfaces flat."
+      "Do inset the form on a dark panel when it sits on the terracotta surface."
     ],
     "donts": [
+      "Don't reintroduce the editorial-typographic lane: no serif italics, no monospaced tracked labels, no hairline-rule eyebrows over every section, no warm cream paper.",
+      "Don't add a second accent hue or a second typeface.",
       "Don't build a generic travel-operator layout: card grids, star ratings, 'book now' clutter, stock-smile photography.",
-      "Don't drift into hustle/retreat-bro wellness: countdown timers, neon gradients, transformation promises.",
-      "Don't fall into corporate SaaS scaffolding: feature grids, big-number hero metrics, gradient-on-white, buzzword copy.",
-      "Don't chase mass-luxury influencer travel: over-filtered aspiration, conspicuous logos, FOMO marketing.",
-      "Don't add a second accent hue or a third typeface; two families, one chroma.",
+      "Don't drift into hustle/retreat-bro wellness, corporate SaaS scaffolding, or mass-luxury influencer travel.",
       "Don't use em dashes in copy; en dashes for numeric ranges only.",
-      "Don't set placeholder or label text so light it fails 4.5:1.",
-      "Don't round corners, drop shadows, or use a card."
+      "Don't put body or placeholder text directly on the mid-terracotta surface; use the dark panel or full off-white.",
+      "Don't drop shadows for depth; use temperature, framing, or the inset panel."
     ]
   }
 }

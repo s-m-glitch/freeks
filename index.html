@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>freaks: for the obsessed</title>
 <meta name="description" content="freaks is for the obsessed. Expert-led, luxury long-weekends built around the things you actually care about: running, writing, painting, energy, fossil hunting." />
-<meta name="theme-color" content="#ece7dc" />
+<meta name="theme-color" content="#14110f" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -19,580 +19,376 @@
 <meta name="twitter:description" content="Expert-led, luxury long-weekends for people who travel to go deeper into the things they love." />
 
 <!-- Favicon (inline SVG, no extra request) -->
-<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231a1815'/><text x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='22' font-weight='500' text-anchor='middle' fill='%23ede6d4'>f</text></svg>" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%2314110f'/><text x='16' y='24' font-family='Arial,sans-serif' font-size='24' font-weight='800' text-anchor='middle' fill='%23cd6038'>f</text></svg>" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --paper: #ece7dc;
-    --paper-warm: #e3ddd0;
-    --paper-stone: #d9cfbb;
-    --ink: #1a1815;
-    --ink-deep: #0e0d0b;
-    --ink-soft: #3b3631;
-    --ink-muted: #595550;
-    --rule: #c8c1b3;
-    --accent: #8a4a31;
-    /* On-dark (cinema/night) palette — used on hero, waitlist, footer, modal */
-    --cream: #ede6d4;
-    --on-dark: #bdb5a2;        /* body text on ink, ~8.6:1 */
-    --on-dark-muted: #a39c8c;  /* labels on ink, ~6.4:1 */
-    --on-dark-faint: #8f897a;  /* placeholders / meta on ink, ~5.0:1 */
-    --field-line: #3a352f;
-    --hairline-dark: #2a2723;
+    /* Gallery Black — committed dark, terracotta as the structural voice */
+    --bg: #14110f;            /* near-black body */
+    --bg-raised: #1d1916;     /* raised charcoal for alternating sections */
+    --bg-deep: #0d0b0a;       /* footer / deepest */
+    --ink: #f2ece1;           /* cool off-white, primary text (~15.7:1 on bg) */
+    --ink-dim: #b8b0a4;       /* secondary text (~8.7:1) */
+    --ink-faint: #8a8276;     /* labels / meta (~4.9:1) */
+    --terracotta: #cd6038;    /* voice: type, marks, links, fills (~4.8:1 on bg) */
+    --terracotta-surface: #9c4327; /* the one terracotta surface (waitlist) */
+    --line: rgba(242,236,225,0.12);
+    --line-strong: rgba(242,236,225,0.22);
     --max: 1320px;
-    --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    --serif: 'Fraunces', 'Lyon Display', 'Times New Roman', Times, serif;
+    --sans: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    /* Semantic z-index scale */
+    --z-base: 1;
+    --z-hero-content: 10;
+    --z-hero-nav: 20;
+    --z-modal-backdrop: 100;
+    --z-modal: 110;
+    --z-grain: 9000;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    font-family:var(--mono);
-    background:var(--paper);
+    font-family:var(--sans);
+    background:var(--bg);
     color:var(--ink);
     font-weight:400;
     -webkit-font-smoothing:antialiased;
     line-height:1.55;
     overflow-x:hidden;
-    font-feature-settings:"ss03","calt";
+    font-feature-settings:"ss01","cv01";
   }
 
-  /* Film grain overlay */
+  /* Subtle film grain — cinematic atmosphere on the dark ground */
   body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:9999;
-    opacity:.18;
-    mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    z-index:var(--z-grain);
+    opacity:.07;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
-  .serif{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
-  .serif em{font-style:italic;font-weight:400}
+  ::selection{background:var(--terracotta);color:#fff}
 
-  /* ---------- HERO (A24-style) ---------- */
+  h1,h2,h3,h4{font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+  .t{color:var(--terracotta)}                 /* the obsession mark */
+  strong{font-weight:700}
+
+  /* ---------- HERO ---------- */
   .hero{
     position:relative;
-    height:100vh;
-    height:100svh;
+    height:100vh;height:100svh;
     min-height:640px;
     overflow:hidden;
-    background:var(--ink-deep);
-    color:var(--cream);
+    background:var(--bg-deep);
+    color:var(--ink);
   }
-  .hero-bg{position:absolute;inset:0}
+  .hero-bg{position:absolute;inset:0;z-index:var(--z-base)}
   .hero-bg .bg{
     position:absolute;inset:0;
     background-size:cover;background-position:center;
     opacity:0;
-    transition:opacity 1.4s cubic-bezier(.2,.7,.2,1), transform 16s ease-out;
-    filter:grayscale(.22) brightness(.55) contrast(1.1) saturate(.88);
+    transition:opacity 1.4s cubic-bezier(.2,.7,.2,1), transform 18s ease-out;
+    filter:grayscale(.32) brightness(.46) contrast(1.08) saturate(.82);
   }
-  .hero-bg .bg.active{opacity:1;transform:scale(1.04)}
-
-  .hero-vignette{
-    position:absolute;inset:0;pointer-events:none;
+  .hero-bg .bg.active{opacity:1;transform:scale(1.05)}
+  /* Heavy gallery scrim so type reads as a print over the frame */
+  .hero-scrim{
+    position:absolute;inset:0;pointer-events:none;z-index:var(--z-base);
     background:
-      linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.3) 45%, rgba(0,0,0,0) 75%),
-      linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,.45) 100%);
+      linear-gradient(180deg, rgba(13,11,10,.55) 0%, rgba(13,11,10,.1) 30%, rgba(13,11,10,.35) 62%, rgba(13,11,10,.92) 100%),
+      linear-gradient(90deg, rgba(13,11,10,.65) 0%, rgba(13,11,10,.15) 50%, rgba(13,11,10,0) 80%);
   }
 
   .hero-nav{
-    position:absolute;top:0;left:0;right:0;z-index:20;
-    padding:26px 36px;
-    padding-top:max(26px, env(safe-area-inset-top));
-    padding-left:max(36px, env(safe-area-inset-left));
-    padding-right:max(36px, env(safe-area-inset-right));
-    display:flex;justify-content:center;align-items:center;
-    color:var(--cream);
+    position:absolute;top:0;left:0;right:0;z-index:var(--z-hero-nav);
+    padding:34px clamp(22px,4vw,52px);
+    padding-top:max(34px, env(safe-area-inset-top));
+    display:flex;justify-content:space-between;align-items:center;
   }
-  .hero-nav .mark{
-    font-family:var(--serif);font-style:italic;font-weight:500;
-    font-size:36px;letter-spacing:-.04em;
+  .wordmark{
+    font-weight:800;font-size:clamp(22px,2vw,28px);
+    letter-spacing:-.04em;color:var(--ink);line-height:1;
   }
-  .hero-nav .mark em{font-style:italic;font-weight:400;opacity:.85}
-  .hero-nav .mark-accent{color:var(--accent)}
+  .hero-nav .nav-cta{
+    font-weight:600;font-size:13px;letter-spacing:.01em;
+    color:var(--ink);text-decoration:none;
+    padding:10px 18px;border:1px solid var(--line-strong);border-radius:999px;
+    transition:background .3s ease,color .3s ease,border-color .3s ease;
+  }
+  .hero-nav .nav-cta:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
-  .hero-trips{
-    position:absolute;inset:0;z-index:10;
-    display:flex;flex-direction:column;justify-content:center;
-    padding:90px 36px 110px;
+  .hero-content{
+    position:absolute;inset:0;z-index:var(--z-hero-content);
+    display:flex;flex-direction:column;justify-content:flex-end;
     max-width:var(--max);margin:0 auto;
+    padding:0 clamp(22px,4vw,52px) clamp(40px,7vh,84px);
   }
-  .hero-trips ol{list-style:none}
-  .hero-trips li{
-    display:block;padding:6px 0;
+  .hero-kicker{
+    font-size:clamp(14px,1.3vw,16px);font-weight:500;color:var(--ink-dim);
+    max-width:30ch;margin-bottom:clamp(24px,4vh,44px);line-height:1.45;
+  }
+  .hero-index{list-style:none}
+  .hero-index li{display:block}
+  .hero-index a{
+    display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
+    text-decoration:none;color:var(--ink);
+    padding:clamp(4px,.7vh,9px) 0;
     -webkit-tap-highlight-color:transparent;
+    transition:opacity .5s cubic-bezier(.2,.7,.2,1);
   }
-  .hero-trips a{color:inherit;text-decoration:none;display:block;cursor:pointer}
-  .hero-trips h2{
-    font-family:var(--serif);font-weight:400;
-    font-size:clamp(42px,6vw,96px);
-    line-height:1.02;letter-spacing:-.035em;
-    color:var(--cream);
-    transition:opacity .55s cubic-bezier(.2,.7,.2,1);
-    display:inline;
-    position:relative;
+  .hero-index .title{
+    font-size:clamp(34px,5.4vw,82px);
+    line-height:.98;letter-spacing:-.03em;font-weight:700;
   }
-  .hero-trips h2 em{font-style:italic;font-weight:400}
-  .hero-trips .date{
-    font-family:var(--mono);
-    font-size:clamp(10px,.8vw,12px);
-    font-weight:500;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:#c8c0ad;
-    vertical-align:super;
-    position:relative;
-    top:-1.5em;
-    margin-left:16px;
-    margin-right:4px;
-    display:inline-block;
-    opacity:.82;
+  .hero-index .date{
+    font-size:clamp(11px,.85vw,13px);font-weight:600;
+    letter-spacing:.04em;color:var(--ink-dim);
+    font-variant-numeric:tabular-nums;white-space:nowrap;
   }
-  /* dim non-hovered on hover */
-  .hero-trips ol:hover h2{opacity:.22}
-  .hero-trips ol:hover li:hover h2{opacity:1}
+  /* dim siblings on hover/focus-within of the list */
+  .hero-index:hover a{opacity:.34}
+  .hero-index:hover a:hover{opacity:1}
+  .hero-index a:focus-visible{opacity:1;outline:2px solid var(--terracotta);outline-offset:6px;border-radius:2px}
+  .hero-index:focus-within a{opacity:.34}
+  .hero-index:focus-within a:focus{opacity:1}
 
   @media (max-width:780px){
     .hero{min-height:560px}
-    .hero-nav{
-      padding:18px 22px;
-      padding-top:max(18px, env(safe-area-inset-top));
-      padding-left:max(22px, env(safe-area-inset-left));
-      padding-right:max(22px, env(safe-area-inset-right));
-    }
-    .hero-trips{padding:80px 24px 72px;justify-content:center}
-    .hero-trips ol{display:flex;flex-direction:column;gap:6px}
-    .hero-trips li{padding:6px 0}
-    .hero-trips h2{
-      font-size:clamp(22px,5.8vw,34px);
-      line-height:1.1;
-      display:block;
-    }
-    /* Stack date as caption below title — no more superscript collisions */
-    .hero-trips .date{
-      display:block;
-      position:static;
-      top:auto;
-      margin:6px 0 0;
-      font-size:10px;
-      letter-spacing:.14em;
-      color:#a8a18f;
-      opacity:.85;
-      vertical-align:baseline;
-    }
-    /* On touch, dimming the unhovered items strands the user — keep all visible */
-    .hero-trips ol:hover h2{opacity:1}
-  }
-  @media (max-width:380px){
-    .hero{min-height:520px}
-    .hero-trips{padding:64px 22px 56px}
+    .hero-content{padding-bottom:48px}
+    .hero-index a{gap:4px 14px}
+    .hero-index .title{font-size:clamp(30px,8.5vw,42px);line-height:1.04}
+    .hero-index:hover a{opacity:1}   /* don't strand touch users */
   }
 
-  /* ---------- SECTION COMMON ---------- */
+  /* ---------- SECTION SCAFFOLD ---------- */
   section{position:relative}
-  .container{max-width:var(--max);margin:0 auto;padding:0 36px}
-  @media (max-width:780px){.container{padding:0 22px}}
-
-  .section-label{
-    font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
-    color:var(--ink-muted);
-    display:flex;align-items:center;gap:14px;
-    margin-bottom:48px;
-  }
-  .section-label::before{
-    content:"";width:34px;height:1px;background:currentColor;opacity:.5;
+  .container{max-width:var(--max);margin:0 auto;padding:0 clamp(22px,4vw,52px)}
+  .eyebrow{
+    font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--terracotta);
+    margin-bottom:22px;
   }
 
   /* ---------- PHILOSOPHY ---------- */
-  .philosophy{
-    padding:170px 0 170px;background:var(--paper-warm);
-    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-  }
-  .philosophy-inner{margin:0 auto;padding:0 36px}
+  .philosophy{padding:clamp(90px,15vh,180px) 0;background:var(--bg-raised)}
   .philosophy-headline{
-    font-family:var(--serif);font-weight:400;
-    font-size:clamp(38px,5vw,76px);
-    line-height:1.02;letter-spacing:-.03em;
-    margin-bottom:54px;
+    font-size:clamp(32px,5vw,68px);line-height:1.04;letter-spacing:-.03em;
+    margin-bottom:clamp(28px,4vw,48px);max-width:18ch;
   }
-  .philosophy-headline em{font-style:italic;font-weight:400}
   .philosophy-body{
-    font-family:var(--mono);font-weight:300;
-    font-size:clamp(17px,1.55vw,22px);
-    line-height:1.55;letter-spacing:-.012em;
-    color:var(--ink-soft);
-    max-width:90ch;
+    font-size:clamp(17px,1.4vw,21px);line-height:1.6;color:var(--ink-dim);
+    max-width:62ch;text-wrap:pretty;
   }
   .philosophy-body p + p{margin-top:1.1em}
-  .philosophy-body strong{font-weight:600;font-style:italic}
-  @media (max-width:780px){
-    .philosophy{padding:90px 0}
-    .philosophy-inner{padding:0 22px}
-    .philosophy-headline{margin-bottom:36px}
-  }
-  @media (max-width:380px){
-    .philosophy{padding:70px 0}
-    .philosophy-headline{font-size:30px}
-  }
+  .philosophy-body strong{color:var(--ink);font-weight:700}
 
   /* ---------- TRIP DETAIL ---------- */
-  .trip-detail{padding:140px 0 140px;border-top:1px solid var(--rule)}
-  .trip-detail.tint{background:var(--paper-stone)}
-  .trip-detail .section-label{margin-bottom:64px}
-  .trip-detail .detail-grid{
-    display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center;
+  .trip-detail{padding:clamp(80px,12vh,150px) 0}
+  .detail-grid{
+    display:grid;grid-template-columns:0.95fr 1fr;gap:clamp(32px,5vw,80px);align-items:center;
   }
-  .detail-img{
-    aspect-ratio:4/5;background-size:cover;background-position:center;
-    filter:grayscale(.15) contrast(1.02);
-    position:relative;overflow:hidden;
-    background-color:var(--paper-stone);
+  .detail-figure{
+    position:relative;aspect-ratio:4/5;overflow:hidden;
+    background:var(--bg-raised);
+    background-size:cover;background-position:center;
+    filter:grayscale(.18) contrast(1.04) brightness(.94);
   }
-  .detail-img::after{
+  .detail-figure::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(0,0,0,.25));
-  }
-  .detail-num{
-    font-family:var(--mono);font-style:italic;font-weight:400;
-    font-size:13px;color:var(--ink-muted);margin-bottom:24px;letter-spacing:.02em;
+    box-shadow:inset 0 0 0 1px var(--line);
   }
   .detail-title{
-    font-family:var(--serif);font-weight:400;
-    font-size:clamp(36px,4.4vw,64px);
-    line-height:1;letter-spacing:-.035em;margin-bottom:30px;
+    font-size:clamp(34px,4.6vw,64px);line-height:1;letter-spacing:-.03em;
+    margin-bottom:24px;
   }
-  .detail-title em{font-style:italic}
   .detail-desc{
-    font-family:var(--mono);font-weight:300;
-    font-size:clamp(16px,1.3vw,19px);
-    color:var(--ink-soft);
-    line-height:1.6;max-width:90ch;margin-bottom:40px;letter-spacing:-.01em;
+    font-size:clamp(16px,1.25vw,19px);line-height:1.6;color:var(--ink-dim);
+    max-width:54ch;margin-bottom:36px;text-wrap:pretty;
   }
-  .detail-desc a{
-    color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;
-    text-underline-offset:3px;transition:opacity .2s;
+  .detail-desc a{color:var(--terracotta);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+  .detail-desc a:hover{text-decoration-thickness:2px}
+
+  .benchmarks{margin-bottom:36px}
+  .benchmarks h4{
+    font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink-faint);
+    margin-bottom:14px;
   }
-  .detail-desc a:hover{opacity:.7}
-  .detail-quals{
-    font-family:var(--mono);
-    margin-bottom:36px;
+  .benchmark-row{
+    display:flex;gap:16px;align-items:baseline;
+    padding:10px 0;border-top:1px solid var(--line);
+    font-variant-numeric:tabular-nums;
   }
-  .detail-quals-label{
-    font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--ink-muted);
-    margin-bottom:12px;
+  .benchmark-row .who{
+    min-width:64px;font-weight:600;font-size:13px;color:var(--terracotta);
   }
-  .detail-quals-row{
-    font-size:14px;color:var(--ink);
-    line-height:1.7;letter-spacing:-.01em;
-    display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
-  }
-  .detail-quals-row .who{
-    font-style:italic;color:var(--ink-muted);font-weight:400;
-    font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-    min-width:52px;
-  }
+  .benchmark-row .marks{font-size:15px;color:var(--ink);line-height:1.5}
+
   .detail-meta{
-    display:flex;gap:40px;flex-wrap:wrap;
-    padding-top:24px;border-top:1px solid var(--rule);
-    font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);
+    display:flex;gap:clamp(20px,3vw,44px);flex-wrap:wrap;
+    padding-top:26px;border-top:1px solid var(--line-strong);
   }
-  .detail-meta div span{
-    display:block;
-    font-family:var(--mono);font-style:italic;font-weight:400;
-    font-size:15px;color:var(--ink);
-    margin-top:6px;letter-spacing:-.01em;text-transform:none;
-  }
-  .detail-cta{
-    display:inline-flex;align-items:center;gap:14px;
-    margin-top:40px;
-    padding:16px 28px;
-    background:transparent;
-    border:1px solid var(--ink);
-    color:var(--ink);
-    text-decoration:none;
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
-    transition:all .35s ease;
-    cursor:pointer;
-  }
-  .detail-cta:hover{background:var(--ink);color:var(--paper)}
-  .detail-cta .arrow{transition:transform .35s}
-  .detail-cta:hover .arrow{transform:translateX(6px)}
-  .itinerary-link{
-    display:inline-flex;align-items:center;gap:8px;
-    color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
-    font-family:var(--mono);font-size:13px;letter-spacing:-.005em;
-    transition:opacity .2s;
-  }
-  .itinerary-link:hover{opacity:.7}
-  .detail-actions{
-    display:flex;align-items:center;gap:20px;
-    margin-top:40px;
-  }
-  .detail-actions .detail-cta{margin-top:0}
-
-  /* ---------- DETAIL ITINERARY ---------- */
-  .detail-itinerary{
-    margin-top:112px;padding-top:64px;
-    border-top:1px solid var(--rule);
-  }
-  .detail-itinerary .itinerary-label{
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);
-    margin-bottom:48px;
-  }
-  .itinerary-days{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:64px;
-  }
-  .itin-day h4{
-    font-family:var(--serif);font-style:italic;font-weight:400;
-    font-size:clamp(24px,2.2vw,32px);
-    margin-bottom:28px;color:var(--ink);
-  }
-  .itin-list{list-style:none;display:flex;flex-direction:column;gap:18px}
-  .itin-list li{
-    display:grid;grid-template-columns:64px 1fr;gap:14px;
-    font-family:var(--mono);font-weight:300;
-    font-size:14px;color:var(--ink-soft);line-height:1.5;
-  }
-  .itin-time{
-    font-style:italic;font-size:12px;color:var(--ink-muted);
-    letter-spacing:.02em;padding-top:1px;
-  }
-  .itin-activity a{
-    color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
-    transition:opacity .2s;
-  }
-  .itin-activity a:hover{opacity:.7}
-
-  @media (max-width:780px){
-    .trip-detail{padding:80px 0}
-    .trip-detail .section-label{margin-bottom:40px}
-    .trip-detail .detail-grid{grid-template-columns:1fr;gap:32px}
-    .detail-img{aspect-ratio:5/4}
-    .detail-meta{gap:24px 32px}
-    .detail-cta{width:100%;justify-content:center;padding:18px 28px}
-    .detail-actions{flex-direction:column;align-items:stretch;gap:20px}
-    .detail-actions .itinerary-link{align-self:flex-start}
-    .detail-itinerary{margin-top:72px;padding-top:48px}
-    .itinerary-days{grid-template-columns:1fr;gap:48px}
-  }
-  @media (max-width:380px){
-    .trip-detail{padding:64px 0}
-    .detail-quals-row{flex-direction:column;gap:2px}
+  .detail-meta .label{font-size:12px;font-weight:600;color:var(--ink-faint);letter-spacing:.02em}
+  .detail-meta .value{
+    display:block;margin-top:6px;font-size:17px;font-weight:600;color:var(--ink);
+    font-variant-numeric:tabular-nums;
   }
 
-  /* ---------- WAITLIST ---------- */
-  .waitlist{
-    padding:160px 0 160px;
-    background:var(--ink);color:var(--cream);
-    border-top:1px solid var(--hairline-dark);
+  .detail-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:40px}
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;cursor:pointer;
+    font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.01em;
+    padding:16px 26px;border-radius:999px;border:1px solid transparent;
+    text-decoration:none;transition:transform .25s ease,background .25s ease,color .25s ease,border-color .25s ease;
   }
-  .waitlist .section-label{color:var(--on-dark-muted)}
-  .waitlist .section-label::before{background:var(--on-dark-muted)}
-  .waitlist-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-  .waitlist h2{
-    font-family:var(--serif);font-weight:400;
-    font-size:clamp(36px,4.6vw,64px);
-    line-height:1.02;letter-spacing:-.03em;margin-bottom:28px;
+  .btn .arrow{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .btn:hover .arrow{transform:translateX(5px)}
+  .btn-primary{background:var(--terracotta);color:#fff}
+  .btn-primary:hover{background:#e06d42}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .text-link{
+    display:inline-flex;align-items:center;gap:8px;color:var(--ink-dim);
+    text-decoration:none;font-weight:600;font-size:14px;
+    border-bottom:1px solid var(--line-strong);padding-bottom:2px;
+    transition:color .25s ease,border-color .25s ease;
   }
-  .waitlist h2 em{font-style:italic}
-  .waitlist p{color:var(--on-dark);font-size:14px;line-height:1.7;max-width:46ch;letter-spacing:-.005em}
+  .text-link:hover{color:var(--ink);border-color:var(--ink)}
 
-  form{display:flex;flex-direction:column;gap:0}
-  .field{
-    padding:22px 0;border-bottom:1px solid var(--field-line);
-    display:flex;flex-direction:column;gap:8px;
-  }
-  .field label{
-    font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-muted);font-weight:500;
-  }
-  .field input{
-    background:transparent;border:none;outline:none;
-    color:var(--cream);font-family:var(--mono);font-weight:300;
-    font-size:16px;padding:6px 0;letter-spacing:-.02em;
-    width:100%;
-  }
-  @media (min-width:600px){.field input{font-size:20px}}
-  .field input::placeholder{color:var(--on-dark-faint);font-style:italic}
-  .interests{padding:24px 0 28px;border-bottom:1px solid var(--field-line)}
-  .interests-label{
-    font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--on-dark-muted);margin-bottom:16px;font-weight:500;
-  }
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{
-    padding:11px 16px;border:1px solid var(--field-line);
-    color:var(--on-dark);
-    font-family:var(--mono);
-    font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-    cursor:pointer;transition:all .25s;user-select:none;background:transparent;font-weight:500;
-    min-height:38px;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .chip:hover{border-color:#7a7367;color:var(--cream)}
-  .chip.active{background:var(--cream);color:var(--ink);border-color:var(--cream)}
-
-  .submit{
-    margin-top:36px;
-    display:inline-flex;align-items:center;gap:14px;
-    padding:18px 30px;
-    background:var(--cream);color:var(--ink);border:none;cursor:pointer;
-    font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
-    transition:all .3s;align-self:flex-start;font-family:var(--mono);
-  }
-  .submit:hover{background:#fff}
-  .submit .arrow{transition:transform .3s}
-  .submit:hover .arrow{transform:translateX(6px)}
+  /* ---------- ITINERARY ---------- */
+  .itinerary{margin-top:clamp(72px,10vh,112px);padding-top:clamp(40px,6vh,64px);border-top:1px solid var(--line-strong)}
+  .itinerary > .eyebrow{color:var(--ink-faint)}
+  .itin-days{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(32px,4vw,64px)}
+  .itin-day h4{font-size:clamp(22px,2.4vw,30px);font-weight:700;letter-spacing:-.02em;margin-bottom:24px}
+  .itin-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+  .itin-list li{display:grid;grid-template-columns:62px 1fr;gap:14px;font-size:14.5px;color:var(--ink-dim);line-height:1.5}
+  .itin-time{font-weight:600;font-size:13px;color:var(--ink-faint);font-variant-numeric:tabular-nums;padding-top:1px}
+  .itin-act a{color:var(--terracotta);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
 
   @media (max-width:880px){
-    .waitlist{padding:100px 0}
-    .waitlist-inner{grid-template-columns:1fr;gap:50px}
+    .detail-grid{grid-template-columns:1fr;gap:36px}
+    .detail-figure{aspect-ratio:5/4}
+    .itin-days{grid-template-columns:1fr;gap:44px}
   }
   @media (max-width:520px){
-    .waitlist{padding:72px 0}
-    .submit{width:100%;justify-content:center;padding:20px 28px}
+    .detail-actions{flex-direction:column;align-items:stretch}
+    .btn{justify-content:center}
+    .benchmark-row{flex-direction:column;gap:2px}
   }
+
+  /* ---------- WAITLIST (terracotta surface, dark form panel) ---------- */
+  .waitlist{padding:clamp(90px,15vh,180px) 0;background:var(--terracotta-surface);color:var(--ink)}
+  .waitlist .eyebrow{color:var(--ink)}
+  .waitlist-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px);align-items:center}
+  .waitlist h2{font-size:clamp(34px,4.8vw,64px);line-height:1.02;letter-spacing:-.03em;margin-bottom:20px;max-width:14ch}
+  .waitlist .lede{font-size:17px;line-height:1.6;color:var(--ink);max-width:42ch;text-wrap:pretty}
+
+  /* The form sits on a dark inset panel so inputs and placeholders stay legible
+     against the saturated terracotta surface. */
+  .form-panel{background:var(--bg);border-radius:18px;padding:clamp(26px,3.4vw,40px)}
+  form{display:flex;flex-direction:column}
+  .field{padding:18px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .field label{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink-faint)}
+  .field input,.field textarea{
+    background:transparent;border:none;outline:none;color:var(--ink);
+    font-family:var(--sans);font-size:18px;font-weight:500;width:100%;padding:4px 0;
+  }
+  @media (min-width:600px){.field input{font-size:20px}}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(242,236,225,.5);font-weight:400}
+  .field textarea{resize:vertical;min-height:60px;line-height:1.5}
+  .field:focus-within{border-bottom-color:var(--terracotta)}
+  .field:focus-within label{color:var(--ink-dim)}
+
+  .interests{padding:22px 0;border-bottom:1px solid var(--line)}
+  .interests-label{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink-faint);margin-bottom:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{
+    padding:10px 16px;min-height:44px;border:1px solid var(--line-strong);border-radius:999px;
+    background:transparent;color:var(--ink-dim);
+    font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;
+    transition:background .2s ease,color .2s ease,border-color .2s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .chip:hover{border-color:var(--ink);color:var(--ink)}
+  .chip.active{background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+  .chip:focus-visible{outline:2px solid var(--terracotta);outline-offset:3px}
+
+  .submit{
+    margin-top:30px;align-self:flex-start;
+    display:inline-flex;align-items:center;gap:12px;cursor:pointer;
+    background:var(--terracotta);color:#fff;border:none;border-radius:999px;
+    font-family:var(--sans);font-size:15px;font-weight:600;padding:17px 30px;
+    transition:transform .25s ease,background .25s ease;
+  }
+  .submit:hover:not(:disabled){background:#e06d42}
+  .submit .arrow{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .submit:hover:not(:disabled) .arrow{transform:translateX(5px)}
+  .submit:disabled{opacity:.7;cursor:wait}
+  .form-status{margin-top:16px;font-size:14px;font-weight:600;color:var(--ink);min-height:1.2em}
+
+  @media (max-width:880px){.waitlist-grid{grid-template-columns:1fr;gap:44px}}
+  @media (max-width:520px){.submit{width:100%;justify-content:center}.form-panel{padding:24px 20px}}
 
   /* ---------- FOOTER ---------- */
-  footer{
-    background:var(--ink);color:var(--on-dark-muted);
-    padding:60px 0 36px;border-top:1px solid var(--hairline-dark);
-  }
-  .foot-row{
-    display:grid;grid-template-columns:2fr 1fr;gap:40px;
-    padding-bottom:50px;border-bottom:1px solid var(--hairline-dark);
-  }
-  .foot-mark{
-    font-family:var(--serif);font-style:italic;font-weight:500;
-    font-size:22px;color:var(--cream);margin-bottom:14px;letter-spacing:-.03em;
-  }
-  .foot-mark em{font-style:italic;font-weight:400;opacity:.85}
-  .foot-tag{font-size:13px;line-height:1.65;max-width:60ch;letter-spacing:-.005em}
-  .foot-col h4{
-    font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--on-dark-muted);margin-bottom:18px;font-weight:500;
-  }
-  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-  .foot-col a{color:var(--on-dark);text-decoration:none;font-size:13px;transition:color .25s;letter-spacing:-.005em}
-  .foot-col a:hover{color:var(--cream)}
-  .foot-base{
-    margin-top:36px;display:flex;justify-content:space-between;align-items:center;
-    font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-faint);
-    flex-wrap:wrap;gap:12px;
-  }
-  .foot-base .brand{text-transform:none;letter-spacing:0;font-family:var(--serif);font-style:italic;font-size:12px}
-  @media (max-width:880px){.foot-row{grid-template-columns:1fr 1fr;gap:36px}}
+  footer{background:var(--bg-deep);color:var(--ink-dim);padding:64px 0 40px}
+  .foot-row{display:grid;grid-template-columns:2fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+  .foot-mark{font-weight:800;font-size:24px;letter-spacing:-.04em;color:var(--ink);margin-bottom:14px}
+  .foot-tag{font-size:15px;line-height:1.6;color:var(--ink-dim);max-width:42ch}
+  .foot-col h4{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink-faint);margin-bottom:16px}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot-col a{color:var(--ink-dim);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s ease}
+  .foot-col a:hover{color:var(--terracotta)}
+  .foot-base{margin-top:32px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-faint)}
+  .foot-base .brand{font-weight:700;color:var(--ink-dim)}
   @media (max-width:520px){.foot-row{grid-template-columns:1fr}}
 
-  /* ---------- REVEAL ANIMATIONS ---------- */
-  /* Revealed is the DEFAULT. The entrance only applies once JS adds `.js`
-     to <html>, so no-JS / crawler / social-preview renders ship visible. */
+  /* ---------- REVEAL ---------- */
+  /* Visible by default; entrance only after JS adds `.js` to <html>. */
   .reveal{opacity:1;transform:none}
-  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
   .js .reveal.in{opacity:1;transform:none}
 
-  ::selection{background:var(--accent);color:var(--cream)}
+  /* ---------- FOCUS ---------- */
+  a:focus-visible,button:focus-visible,.chip:focus-visible{outline:2px solid var(--terracotta);outline-offset:3px;border-radius:2px}
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-  /* ---------- REQUEST TO BOOK MODAL ---------- */
-  .modal{position:fixed;inset:0;z-index:100;display:none}
+  /* ---------- MODAL ---------- */
+  .modal{position:fixed;inset:0;z-index:var(--z-modal);display:none}
   .modal.open{display:flex;align-items:center;justify-content:center;padding:24px}
-  .modal-backdrop{
-    position:absolute;inset:0;background:rgba(26,24,21,0.72);
-    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
-  }
+  .modal-backdrop{position:absolute;inset:0;z-index:var(--z-modal-backdrop);background:rgba(13,11,10,.78);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
   .modal-card{
-    position:relative;z-index:1;
-    background:var(--ink);color:var(--cream);
-    width:100%;max-width:560px;
-    padding:48px 40px 36px;
-    border:1px solid var(--hairline-dark);
-    max-height:90vh;overflow-y:auto;
+    position:relative;z-index:var(--z-modal);
+    background:var(--bg-raised);color:var(--ink);
+    width:100%;max-width:540px;padding:44px 40px 34px;border-radius:14px;
+    border:1px solid var(--line);max-height:90vh;overflow-y:auto;
     animation:modalIn .35s cubic-bezier(.2,.7,.2,1);
   }
-  @keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-  .modal-close{
-    position:absolute;top:14px;right:18px;
-    background:none;border:none;color:var(--on-dark-muted);
-    font-size:26px;font-family:var(--mono);font-weight:300;
-    cursor:pointer;line-height:1;padding:6px 10px;
-    transition:color .2s;
-  }
-  .modal-close:hover{color:var(--cream)}
-  .modal-label{
-    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--on-dark-muted);margin-bottom:14px;
-  }
-  .modal-title{
-    font-family:var(--serif);font-weight:400;
-    font-size:clamp(32px,3.8vw,44px);
-    letter-spacing:-.03em;line-height:1.02;margin-bottom:6px;
-  }
-  .modal-title em{font-style:italic}
-  .modal-trip{
-    font-family:var(--mono);font-size:13px;font-style:italic;
-    color:var(--on-dark-muted);margin-bottom:24px;letter-spacing:.01em;
-  }
-  #book-form{display:flex;flex-direction:column;gap:0}
-  #book-form .field textarea{
-    background:transparent;border:none;outline:none;
-    color:var(--cream);font-family:var(--mono);font-weight:300;
-    font-size:16px;letter-spacing:-.01em;line-height:1.5;
-    padding:6px 0 0;resize:vertical;min-height:60px;
-  }
-  #book-form .field textarea::placeholder{color:var(--on-dark-faint);font-style:italic}
-  .modal-submit{
-    margin-top:28px;
-    display:inline-flex;align-items:center;justify-content:center;gap:14px;
-    padding:18px 28px;width:100%;
-    background:var(--cream);color:var(--ink);
-    border:none;cursor:pointer;
-    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
-    text-transform:uppercase;font-weight:500;
-    transition:opacity .25s;
-  }
-  .modal-submit:hover:not(:disabled){opacity:.8}
-  .modal-submit .arrow{transition:transform .35s}
-  .modal-submit:hover:not(:disabled) .arrow{transform:translateX(6px)}
-  .modal-submit:disabled{opacity:.6;cursor:wait}
-  .modal-fineprint{
-    margin-top:18px;
-    font-family:var(--mono);font-size:11px;font-style:italic;
-    color:var(--on-dark-faint);letter-spacing:.01em;text-align:center;
-  }
+  @keyframes modalIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--ink-faint);font-size:28px;font-weight:300;line-height:1;cursor:pointer;padding:6px 10px;transition:color .2s ease}
+  .modal-close:hover{color:var(--ink)}
+  .modal-eyebrow{font-size:13px;font-weight:600;color:var(--terracotta);margin-bottom:12px}
+  .modal-title{font-size:clamp(28px,3.4vw,38px);line-height:1.04;letter-spacing:-.03em;margin-bottom:6px}
+  .modal-trip{font-size:14px;font-weight:500;color:var(--ink-dim);margin-bottom:26px;font-variant-numeric:tabular-nums}
+  #book-form .field{border-bottom-color:var(--line)}
+  #book-form .field label{color:var(--ink-faint)}
+  #book-form .field input::placeholder,#book-form .field textarea::placeholder{color:var(--ink-faint)}
+  #book-form .field:focus-within{border-bottom-color:var(--terracotta)}
+  .modal-submit{margin-top:26px;width:100%;justify-content:center;background:var(--terracotta);color:#fff}
+  .modal-submit:hover:not(:disabled){background:#e06d42}
+  .modal-fineprint{margin-top:16px;font-size:13px;color:var(--ink-faint);text-align:center}
+  .modal-status{margin-top:14px;font-size:14px;font-weight:600;color:var(--ink);text-align:center;min-height:1.2em}
   body.modal-open{overflow:hidden}
-  @media (max-width:520px){
-    .modal-card{padding:40px 24px 28px}
-    .modal-close{top:8px;right:10px}
-  }
+  @media (max-width:520px){.modal-card{padding:38px 24px 28px}}
 
-  /* ---------- ACCESSIBILITY ---------- */
-  .visually-hidden{
-    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-  }
-  /* Visible keyboard focus. Fields use the underline; everything else gets a ring. */
-  a:focus-visible,button:focus-visible,.chip:focus-visible{
-    outline:2px solid var(--accent);outline-offset:3px;border-radius:1px;
-  }
-  .field input:focus-visible,#book-form textarea:focus-visible{outline:none}
-  .field:focus-within{border-bottom-color:var(--cream)}
-
-  /* Reduced motion: kill the pan, cross-fades, reveals, and modal entrance,
-     and guarantee all content is shown. */
+  /* ---------- REDUCED MOTION ---------- */
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{
-      animation-duration:.01ms !important;
-      animation-iteration-count:1 !important;
-      transition-duration:.01ms !important;
-      scroll-behavior:auto !important;
+      animation-duration:.01ms !important;animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;scroll-behavior:auto !important;
     }
     .js .reveal{opacity:1 !important;transform:none !important}
     .hero-bg .bg.active{transform:none !important}
@@ -605,40 +401,42 @@
 <!-- ============== HERO ============== -->
 <header class="hero">
   <h1 class="visually-hidden">freaks: expert-led, luxury long-weekends for the obsessed</h1>
-  <!-- First image loads eagerly (it's the LCP); the rest lazy-load on hover/tap via data-bg. -->
+  <!-- First image loads eagerly (LCP); the rest lazy-load on hover/focus/tap via data-bg. -->
   <div class="hero-bg">
-    <div class="bg active" data-trip="1" role="img" aria-label="Vineyard rows climbing toward golden Sonoma hills at first light" style="background-image:url('https://images.unsplash.com/photo-1634844252257-a26d95c7fa16?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="bg" data-trip="2" role="img" aria-label="Empty downtown Los Angeles boulevard in flat morning light" data-bg="url('https://images.unsplash.com/photo-1644022874903-e74eb675fc78?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="bg" data-trip="3" role="img" aria-label="Wooded Catskills ridgeline above Woodstock" data-bg="url('https://images.unsplash.com/photo-1507371341162-763b5e419408?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="bg" data-trip="6" role="img" aria-label="Mist over the Hudson Valley in autumn" data-bg="url('https://images.unsplash.com/photo-1560880944-796251b78b4c?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="bg" data-trip="4" role="img" aria-label="Open West Texas plain under a wide Permian Basin sky" data-bg="url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="bg" data-trip="5" role="img" aria-label="Gulf shoreline at low tide near Sarasota" data-bg="url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80')"></div>
+    <div class="bg active" data-trip="1" role="img" aria-label="Vineyard rows climbing toward golden Sonoma hills at first light" style="background-image:url('https://images.unsplash.com/photo-1634844252257-a26d95c7fa16?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="2" role="img" aria-label="Empty downtown Los Angeles boulevard in flat morning light" data-bg="url('https://images.unsplash.com/photo-1644022874903-e74eb675fc78?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="3" role="img" aria-label="Wooded Catskills ridgeline above Woodstock" data-bg="url('https://images.unsplash.com/photo-1507371341162-763b5e419408?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="6" role="img" aria-label="Mist over the Hudson Valley in autumn" data-bg="url('https://images.unsplash.com/photo-1560880944-796251b78b4c?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="4" role="img" aria-label="Open West Texas plain under a wide Permian Basin sky" data-bg="url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="5" role="img" aria-label="Gulf shoreline at low tide near Sarasota" data-bg="url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80')"></div>
   </div>
-  <div class="hero-vignette"></div>
+  <div class="hero-scrim"></div>
 
-  <div class="hero-nav">
-    <div class="mark"><span class="mark-accent">freaks</span></div>
-  </div>
+  <nav class="hero-nav">
+    <span class="wordmark">freaks</span>
+    <a class="nav-cta" href="#waitlist">Join the waitlist</a>
+  </nav>
 
-  <div class="hero-trips">
-    <ol>
-      <li data-trip="1"><a href="#healdsburg"><h2 class="serif"><em>Running</em> Healdsburg<span class="date">Jul 17-19</span></h2></a></li>
-      <li data-trip="2"><h2 class="serif"><em>Gravel</em> Los Angeles<span class="date">Sep 2026</span></h2></li>
-      <li data-trip="3"><h2 class="serif"><em>Painting</em> Woodstock<span class="date">Sep 2026</span></h2></li>
-      <li data-trip="6"><h2 class="serif"><em>Running</em> Hudson Valley<span class="date">Oct 2026</span></h2></li>
-      <li data-trip="4"><h2 class="serif"><em>Energy</em> Permian Basin<span class="date">Oct 2026</span></h2></li>
-      <li data-trip="5"><h2 class="serif"><em>Fossil Hunting</em> Sarasota<span class="date">Nov 2026</span></h2></li>
+  <div class="hero-content">
+    <p class="hero-kicker">Expert-led, luxury long-weekends for people who go deep on the things they love.</p>
+    <ol class="hero-index">
+      <li><a href="#healdsburg" data-trip="1"><span class="title"><span class="t">Running</span> Healdsburg</span><span class="date">Jul 17–19</span></a></li>
+      <li><a href="#waitlist" data-trip="2"><span class="title"><span class="t">Gravel</span> Los Angeles</span><span class="date">Sep 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="3"><span class="title"><span class="t">Painting</span> Woodstock</span><span class="date">Sep 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="6"><span class="title"><span class="t">Running</span> Hudson Valley</span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="4"><span class="title"><span class="t">Energy</span> Permian Basin</span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="5"><span class="title"><span class="t">Fossil Hunting</span> Sarasota</span><span class="date">Nov 2026</span></a></li>
     </ol>
   </div>
 </header>
 
 <!-- ============== PHILOSOPHY ============== -->
 <section id="philosophy" class="philosophy">
-  <div class="philosophy-inner reveal">
-    <h2 class="philosophy-headline">Expert-led, luxury-weekends <em>for the obsessed.</em></h2>
+  <div class="container reveal">
+    <h2 class="philosophy-headline">Built for the people who go all the way in.</h2>
     <div class="philosophy-body">
       <p>Born from dozens of road trips, destination races, and far too many hobbies, <strong>freaks</strong> creates expert-led, luxury long-weekends for people who want to go deep on their interests with fellow obsessives.</p>
-      <p>We handle the logistics, you hone your craft.</p>
+      <p>We handle the logistics. You hone your craft.</p>
     </div>
   </div>
 </section>
@@ -646,63 +444,65 @@
 <!-- ============== HEALDSBURG DETAIL ============== -->
 <section id="healdsburg" class="trip-detail">
   <div class="container">
-    <div class="section-label reveal">Healdsburg · Jul 17-19</div>
     <div class="detail-grid">
-      <div class="detail-img reveal" role="img" aria-label="Runner on a Sonoma fire road through dry-grass hills" data-bg="url('https://images.unsplash.com/photo-1634844252257-a26d95c7fa16?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="detail-text reveal">
-        <div class="detail-num">trail freaks</div>
-        <h3 class="detail-title serif">Running <em>Healdsburg.</em></h3>
+      <div class="detail-figure reveal" role="img" aria-label="Runner on a Sonoma fire road through dry-grass hills" data-bg="url('https://images.unsplash.com/photo-1634844252257-a26d95c7fa16?auto=format&fit=crop&w=1500&q=80')"></div>
+      <div class="reveal">
+        <p class="eyebrow">Trail freaks · Healdsburg</p>
+        <h2 class="detail-title"><span class="t">Running</span> Healdsburg</h2>
         <p class="detail-desc">Three days of running in Sonoma's wine country with <a href="https://www.instagram.com/_chrisbartholomew/" target="_blank" rel="noopener">Chris Bartholomew</a> (SFRC manager and ultra machine, who has sweat on nearly every road and trail in the Bay Area). Stay at the beautiful <a href="https://hotelhealdsburg.com/" target="_blank" rel="noopener">Hotel Healdsburg</a>. Run hard, eat well, go wine tasting.</p>
-        <div class="detail-quals">
-          <div class="detail-quals-label">Suggested benchmarks</div>
-          <div class="detail-quals-row"><span class="who">Men</span>sub 3:20 marathon, sub 1:30 half marathon, sub 19 5k</div>
-          <div class="detail-quals-row"><span class="who">Women</span>sub 3:45 marathon, sub 1:40 half marathon, sub 21:30 5k</div>
+
+        <div class="benchmarks">
+          <h4>Suggested benchmarks</h4>
+          <div class="benchmark-row"><span class="who">Men</span><span class="marks">sub 3:20 marathon, sub 1:30 half, sub 19:00 5k</span></div>
+          <div class="benchmark-row"><span class="who">Women</span><span class="marks">sub 3:45 marathon, sub 1:40 half, sub 21:30 5k</span></div>
         </div>
+
         <div class="detail-meta">
-          <div>When<span>Jul 17-19</span></div>
-          <div>Duration<span>3 nights</span></div>
-          <div>Group<span>8 runners</span></div>
-          <div>Price<span>$4,000 all-inclusive</span></div>
-          <div>Apply by<span>Jun 16</span></div>
+          <div><span class="label">When</span><span class="value">Jul 17–19</span></div>
+          <div><span class="label">Duration</span><span class="value">3 nights</span></div>
+          <div><span class="label">Group</span><span class="value">8 runners</span></div>
+          <div><span class="label">Price</span><span class="value">$4,000 all-in</span></div>
+          <div><span class="label">Apply by</span><span class="value">Jun 16</span></div>
         </div>
+
         <div class="detail-actions">
-          <a href="#healdsburg-itinerary" class="itinerary-link">Full itinerary <span class="arrow">↓</span></a>
-          <a href="#book-healdsburg" class="detail-cta" data-action="request-book" data-trip="Healdsburg · Jul 17-19, 2026">Request to book <span class="arrow">→</span></a>
+          <a href="#book-healdsburg" class="btn btn-primary" data-action="request-book" data-trip="Healdsburg · Jul 17-19, 2026">Request to book <span class="arrow">→</span></a>
+          <a href="#healdsburg-itinerary" class="text-link">See the full itinerary <span class="arrow">↓</span></a>
         </div>
       </div>
     </div>
 
-    <div class="detail-itinerary reveal" id="healdsburg-itinerary">
-      <div class="itinerary-label">Full itinerary</div>
-      <div class="itinerary-days">
+    <div class="itinerary reveal" id="healdsburg-itinerary">
+      <p class="eyebrow">The full itinerary</p>
+      <div class="itin-days">
         <div class="itin-day">
           <h4>Friday</h4>
           <ul class="itin-list">
-            <li><span class="itin-time">3:00pm</span><span class="itin-activity">Arrival</span></li>
-            <li><span class="itin-time">4:30pm</span><span class="itin-activity">Group workout #1: 5–8mi shakeout running tour of Healdsburg @ Fitch Mountain</span></li>
-            <li><span class="itin-time">—</span><span class="itin-activity">Dip in the Russian River</span></li>
-            <li><span class="itin-time">7:30pm</span><span class="itin-activity">Dinner at <a href="https://drycreekkitchen.com/" target="_blank" rel="noopener">Dry Creek Kitchen</a></span></li>
+            <li><span class="itin-time">3:00pm</span><span class="itin-act">Arrival</span></li>
+            <li><span class="itin-time">4:30pm</span><span class="itin-act">Group workout #1: 5–8mi shakeout running tour of Healdsburg @ Fitch Mountain</span></li>
+            <li><span class="itin-time">—</span><span class="itin-act">Dip in the Russian River</span></li>
+            <li><span class="itin-time">7:30pm</span><span class="itin-act">Dinner at <a href="https://drycreekkitchen.com/" target="_blank" rel="noopener">Dry Creek Kitchen</a></span></li>
           </ul>
         </div>
         <div class="itin-day">
           <h4>Saturday</h4>
           <ul class="itin-list">
-            <li><span class="itin-time">7:30am</span><span class="itin-activity">Coffee at <a href="https://blackoakcoffee.com/pages/healdsburg" target="_blank" rel="noopener">Black Oak Coffee Roasters</a></span></li>
-            <li><span class="itin-time">8:30am</span><span class="itin-activity">Group workout #2: 12–20mi long run @ Lake Sonoma</span></li>
-            <li><span class="itin-time">11:00am</span><span class="itin-activity">Smoothie at <a href="https://carmellacarmella.com/" target="_blank" rel="noopener">Carmella</a></span></li>
-            <li><span class="itin-time">12:30pm</span><span class="itin-activity">Lunch at <a href="https://www.troubadourhbg.com/" target="_blank" rel="noopener">Troubadour Bread and Bistro</a></span></li>
-            <li><span class="itin-time">2:30pm</span><span class="itin-activity">Optional 20-min shakeout &amp; form clinic: downhills + inclines</span></li>
-            <li><span class="itin-time">4:00pm</span><span class="itin-activity"><a href="https://www.flowerswinery.com/" target="_blank" rel="noopener">Flowers Vineyard</a> tour &amp; tasting</span></li>
-            <li><span class="itin-time">7:30pm</span><span class="itin-activity">Dinner at <a href="https://www.thematheson.com/" target="_blank" rel="noopener">The Matheson</a></span></li>
+            <li><span class="itin-time">7:30am</span><span class="itin-act">Coffee at <a href="https://blackoakcoffee.com/pages/healdsburg" target="_blank" rel="noopener">Black Oak Coffee Roasters</a></span></li>
+            <li><span class="itin-time">8:30am</span><span class="itin-act">Group workout #2: 12–20mi long run @ Lake Sonoma</span></li>
+            <li><span class="itin-time">11:00am</span><span class="itin-act">Smoothie at <a href="https://carmellacarmella.com/" target="_blank" rel="noopener">Carmella</a></span></li>
+            <li><span class="itin-time">12:30pm</span><span class="itin-act">Lunch at <a href="https://www.troubadourhbg.com/" target="_blank" rel="noopener">Troubadour Bread and Bistro</a></span></li>
+            <li><span class="itin-time">2:30pm</span><span class="itin-act">Optional shakeout &amp; form clinic: downhills + inclines</span></li>
+            <li><span class="itin-time">4:00pm</span><span class="itin-act"><a href="https://www.flowerswinery.com/" target="_blank" rel="noopener">Flowers Vineyard</a> tour &amp; tasting</span></li>
+            <li><span class="itin-time">7:30pm</span><span class="itin-act">Dinner at <a href="https://www.thematheson.com/" target="_blank" rel="noopener">The Matheson</a></span></li>
           </ul>
         </div>
         <div class="itin-day">
           <h4>Sunday</h4>
           <ul class="itin-list">
-            <li><span class="itin-time">7:30am</span><span class="itin-activity">Coffee at <a href="https://blackoakcoffee.com/pages/healdsburg" target="_blank" rel="noopener">Black Oak Coffee Roasters</a></span></li>
-            <li><span class="itin-time">8:30am</span><span class="itin-activity">Group workout #3: 5–8mi @ Armstrong Redwoods State Park</span></li>
-            <li><span class="itin-time">—</span><span class="itin-activity">Pastries at <a href="https://www.quailandcondor.com/" target="_blank" rel="noopener">Quail and Condor</a></span></li>
-            <li><span class="itin-time">12:00pm</span><span class="itin-activity">Departure</span></li>
+            <li><span class="itin-time">7:30am</span><span class="itin-act">Coffee at <a href="https://blackoakcoffee.com/pages/healdsburg" target="_blank" rel="noopener">Black Oak Coffee Roasters</a></span></li>
+            <li><span class="itin-time">8:30am</span><span class="itin-act">Group workout #3: 5–8mi @ Armstrong Redwoods State Park</span></li>
+            <li><span class="itin-time">—</span><span class="itin-act">Pastries at <a href="https://www.quailandcondor.com/" target="_blank" rel="noopener">Quail and Condor</a></span></li>
+            <li><span class="itin-time">12:00pm</span><span class="itin-act">Departure</span></li>
           </ul>
         </div>
       </div>
@@ -713,13 +513,14 @@
 <!-- ============== WAITLIST ============== -->
 <section id="waitlist" class="waitlist">
   <div class="container">
-    <div class="section-label reveal">Early access</div>
-    <div class="waitlist-inner">
+    <div class="waitlist-grid">
       <div class="reveal">
-        <h2 class="serif"><em>freaks</em> is just getting started.</h2>
-        <p>Luxury experiences for the <em>obsessed.</em></p>
+        <p class="eyebrow">Early access</p>
+        <h2>freaks is just getting started.</h2>
+        <p class="lede">Tell us what you're obsessed with. We'll bring you the trips worth clearing your calendar for.</p>
       </div>
-      <form class="reveal" id="waitlist-form">
+      <div class="form-panel reveal">
+      <form id="waitlist-form" novalidate>
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name" autocapitalize="words" required />
@@ -745,8 +546,10 @@
             <button type="button" class="chip">Photography</button>
           </div>
         </div>
-        <button class="submit" type="submit">Stay Updated <span class="arrow">→</span></button>
+        <button class="submit btn" type="submit">Join the waitlist <span class="arrow">→</span></button>
+        <p class="form-status" id="waitlist-status" role="status" aria-live="polite"></p>
       </form>
+      </div>
     </div>
   </div>
 </section>
@@ -757,12 +560,12 @@
     <div class="foot-row">
       <div>
         <div class="foot-mark">freaks</div>
-        <p class="foot-tag">Experiences built for the obsessed.</p>
+        <p class="foot-tag">Expert-led, luxury long-weekends for the obsessed.</p>
       </div>
       <div class="foot-col">
         <h4>Follow</h4>
         <ul>
-          <li><a href="#">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
     </div>
@@ -778,10 +581,10 @@
   <div class="modal-backdrop" data-close></div>
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="book-modal-title">
     <button class="modal-close" data-close aria-label="Close">×</button>
-    <div class="modal-label">Request to book</div>
-    <h2 class="modal-title serif" id="book-modal-title">Running <em>Healdsburg.</em></h2>
-    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $4,000 all-inclusive</p>
-    <form id="book-form">
+    <p class="modal-eyebrow">Request to book</p>
+    <h2 class="modal-title" id="book-modal-title"><span class="t">Running</span> Healdsburg</h2>
+    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $4,000 all-in</p>
+    <form id="book-form" novalidate>
       <input type="hidden" name="trip" value="Healdsburg · Jul 17-19, 2026" />
       <div class="field">
         <label for="book-name">Name</label>
@@ -799,96 +602,104 @@
         <label for="book-message">Anything we should know? (optional)</label>
         <textarea id="book-message" name="message" rows="3" placeholder="Pace, recent races, dietary needs, partner joining…"></textarea>
       </div>
-      <button class="modal-submit" type="submit">Send request <span class="arrow">→</span></button>
+      <button class="modal-submit btn" type="submit">Send request <span class="arrow">→</span></button>
+      <p class="modal-status" id="book-status" role="status" aria-live="polite"></p>
     </form>
     <p class="modal-fineprint">We'll be in touch within 24 hours.</p>
   </div>
 </div>
 
 <script>
-  // Hero hover/tap swap. Non-active images lazy-load their bg from data-bg
-  // the first time they're activated, so only the LCP image loads up front.
-  const trips = document.querySelectorAll('.hero-trips li');
+  // Hero swap. Non-active images lazy-load their bg from data-bg the first time
+  // they're activated (hover / focus / tap), so only the LCP image loads up front.
   const bgs = document.querySelectorAll('.hero-bg .bg');
   const loadBg = el => { if (el && el.dataset.bg && !el.style.backgroundImage) el.style.backgroundImage = el.dataset.bg; };
-  const activate = id => bgs.forEach(b=>{
-    if (b.dataset.trip===id) loadBg(b);
-    b.classList.toggle('active', b.dataset.trip===id);
+  const activate = id => bgs.forEach(b => {
+    if (b.dataset.trip === id) loadBg(b);
+    b.classList.toggle('active', b.dataset.trip === id);
   });
-  trips.forEach(t=>{
-    t.addEventListener('mouseenter',()=>activate(t.dataset.trip));
-    t.addEventListener('touchstart',()=>activate(t.dataset.trip),{passive:true});
+  document.querySelectorAll('.hero-index a').forEach(a => {
+    const id = a.dataset.trip;
+    a.addEventListener('mouseenter', () => activate(id));
+    a.addEventListener('focus', () => activate(id));
+    a.addEventListener('touchstart', () => activate(id), { passive: true });
   });
 
   // Chips
-  document.querySelectorAll('.chip').forEach(c=>{
-    c.addEventListener('click',()=>c.classList.toggle('active'));
+  document.querySelectorAll('.chip').forEach(c => {
+    c.addEventListener('click', () => {
+      const on = c.classList.toggle('active');
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    c.setAttribute('aria-pressed', 'false');
   });
 
-  // Reveal on scroll. Also lazy-loads any reveal element's data-bg (the detail image)
-  // as it nears the viewport. Content is visible by default (CSS); JS only adds the
-  // entrance. A safety net guarantees nothing stays hidden if the observer never fires
-  // (no IntersectionObserver support, a hidden tab, or a headless renderer).
+  // Reveal on scroll. Content is visible by default (CSS); JS only adds the
+  // entrance. A safety net guarantees nothing stays hidden if the observer never
+  // fires (no support, hidden tab, headless renderer); the fallback skips the
+  // transition so a transition-freezing renderer can't strand content either.
   const revealEls = document.querySelectorAll('.reveal');
   const revealNow = el => { loadBg(el); el.classList.add('in'); };
-  // Fallback reveal skips the transition entirely, so a renderer that freezes
-  // transitions can't strand content at opacity 0.
   const revealInstant = el => { loadBg(el); el.style.transition = 'none'; el.classList.add('in'); };
   if ('IntersectionObserver' in window) {
     let ioFired = false;
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ ioFired = true; revealNow(e.target); io.unobserve(e.target); }
-      });
-    },{threshold:.12, rootMargin:'0px 0px -60px 0px'});
-    revealEls.forEach(el=>io.observe(el));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { ioFired = true; revealNow(e.target); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
     setTimeout(() => { if (!ioFired) revealEls.forEach(revealInstant); }, 2500);
   } else {
     revealEls.forEach(revealInstant);
   }
 
-  // Waitlist submission → /api/subscribe
-  const waitlistForm = document.getElementById('waitlist-form');
-  if (waitlistForm) {
-    waitlistForm.addEventListener('submit', async (e) => {
+  // Form submission helper (waitlist + booking share the shape)
+  function wireForm(form, endpoint, statusEl, buildPayload, onSuccess) {
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const submit = waitlistForm.querySelector('.submit');
-      const original = submit.innerHTML;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const submit = form.querySelector('button[type="submit"]');
       submit.disabled = true;
-      submit.innerHTML = 'Submitting…';
-
-      const interests = Array.from(waitlistForm.querySelectorAll('.chip.active'))
-        .map(c => c.textContent.trim());
-
-      const payload = {
-        name: waitlistForm.name.value.trim(),
-        email: waitlistForm.email.value.trim(),
-        interests: interests.join(', '),
-      };
-
+      const label = submit.innerHTML;
+      submit.innerHTML = 'Sending…';
+      statusEl.textContent = '';
       try {
-        const r = await fetch('/api/subscribe', {
+        const r = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
+          body: JSON.stringify(buildPayload()),
         });
-        if (!r.ok) throw new Error('subscribe failed');
-        submit.innerHTML = "Thank you, we'll be in touch.";
+        if (!r.ok) throw new Error('request failed');
+        statusEl.textContent = "Thank you, we'll be in touch.";
+        submit.innerHTML = label;
+        onSuccess && onSuccess(submit, label);
       } catch (err) {
-        submit.innerHTML = 'Something went wrong. Try again?';
+        statusEl.textContent = 'Something went wrong. Please try again.';
         submit.disabled = false;
-        setTimeout(() => { submit.innerHTML = original; }, 4000);
+        submit.innerHTML = label;
       }
     });
   }
+
+  const waitlistForm = document.getElementById('waitlist-form');
+  wireForm(
+    waitlistForm,
+    '/api/subscribe',
+    document.getElementById('waitlist-status'),
+    () => ({
+      name: waitlistForm.name.value.trim(),
+      email: waitlistForm.email.value.trim(),
+      interests: Array.from(waitlistForm.querySelectorAll('.chip.active')).map(c => c.textContent.trim()).join(', '),
+    }),
+    (submit) => { submit.disabled = true; }
+  );
 
   // Request to Book modal
   const bookModal = document.getElementById('book-modal');
   const bookForm = document.getElementById('book-form');
   const bookTripInput = bookForm ? bookForm.querySelector('input[name="trip"]') : null;
-  const bookTripLabel = document.getElementById('book-modal-trip');
-
   let lastFocused = null;
+
   function openBookModal(trip) {
     if (!bookModal) return;
     lastFocused = document.activeElement;
@@ -896,22 +707,21 @@
     bookModal.classList.add('open');
     bookModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
-    setTimeout(() => {
-      const first = bookModal.querySelector('input[name="name"]');
-      if (first) first.focus();
-    }, 80);
+    setTimeout(() => { const f = bookModal.querySelector('input[name="name"]'); if (f) f.focus(); }, 80);
   }
   function closeBookModal() {
     if (!bookModal) return;
     bookModal.classList.remove('open');
     bookModal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
-    // Return focus to the control that opened the modal.
     if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
     lastFocused = null;
   }
-  // Keep Tab focus inside the dialog while it's open.
+  document.querySelectorAll('[data-action="request-book"]').forEach(el => {
+    el.addEventListener('click', (e) => { e.preventDefault(); openBookModal(el.dataset.trip); });
+  });
   if (bookModal) {
+    bookModal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeBookModal));
     bookModal.addEventListener('keydown', (e) => {
       if (e.key !== 'Tab') return;
       const focusable = [...bookModal.querySelectorAll('a[href],button,input,textarea,select,[tabindex]:not([tabindex="-1"])')]
@@ -922,61 +732,25 @@
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
   }
-
-  document.querySelectorAll('[data-action="request-book"]').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      openBookModal(el.dataset.trip);
-    });
-  });
-  if (bookModal) {
-    bookModal.querySelectorAll('[data-close]').forEach(el => {
-      el.addEventListener('click', closeBookModal);
-    });
-  }
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && bookModal && bookModal.classList.contains('open')) {
-      closeBookModal();
-    }
+    if (e.key === 'Escape' && bookModal && bookModal.classList.contains('open')) closeBookModal();
   });
 
-  if (bookForm) {
-    bookForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const submit = bookForm.querySelector('.modal-submit');
-      const original = submit.innerHTML;
-      submit.disabled = true;
-      submit.innerHTML = 'Sending…';
-
-      const payload = {
-        trip: bookForm.trip.value,
-        name: bookForm.name.value.trim(),
-        email: bookForm.email.value.trim(),
-        phone: bookForm.phone.value.trim(),
-        message: bookForm.message.value.trim(),
-      };
-
-      try {
-        const r = await fetch('/api/book-request', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        if (!r.ok) throw new Error('book request failed');
-        submit.innerHTML = "Thank you, we'll be in touch.";
-        setTimeout(() => {
-          closeBookModal();
-          bookForm.reset();
-          submit.disabled = false;
-          submit.innerHTML = original;
-        }, 2400);
-      } catch (err) {
-        submit.innerHTML = 'Something went wrong. Try again?';
-        submit.disabled = false;
-        setTimeout(() => { submit.innerHTML = original; }, 4000);
-      }
-    });
-  }
+  wireForm(
+    bookForm,
+    '/api/book-request',
+    document.getElementById('book-status'),
+    () => ({
+      trip: bookForm.trip.value,
+      name: bookForm.name.value.trim(),
+      email: bookForm.email.value.trim(),
+      phone: bookForm.phone.value.trim(),
+      message: bookForm.message.value.trim(),
+    }),
+    (submit, label) => {
+      setTimeout(() => { closeBookModal(); bookForm.reset(); document.getElementById('book-status').textContent = ''; submit.disabled = false; submit.innerHTML = label; }, 2400);
+    }
+  );
 </script>
 
 </body>

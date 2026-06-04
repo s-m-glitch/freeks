@@ -17,7 +17,7 @@ This project uses the **impeccable** design skill. Two root files carry the desi
 
 **Personality:** editorial, obsessive, cinematic. References: Satisfy Running and Monocle (editorial restraint, insider taste), A24 (cinematic, slightly cool mood). Warmth comes from craft and company, not exclamation points.
 
-**Creative North Star:** "The Cinematic Field Journal" — A24 opening titles bound into a serious obsessive's logbook.
+**Creative North Star:** "The Gallery After Dark" — a near-black room hung with cinematic prints, lit by a single terracotta light. (Redesigned from the earlier "Cinematic Field Journal" to leave the editorial-typographic lane: no serif, no mono, no rules, no cream.)
 
 **Design principles:**
 - Earn it, don't sell it — state the bar plainly, let people self-select.
