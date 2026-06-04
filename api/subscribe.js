@@ -1,5 +1,17 @@
-// Vercel serverless function that proxies waitlist signups to Beehiiv.
-// Reads BEEHIIV_PUBLICATION_ID and BEEHIIV_API_KEY from environment variables.
+// Vercel serverless function for "Stay Updated" waitlist submissions.
+//
+// Two side effects on success:
+//   1. Sends a notification email to NOTIFY_EMAIL via Resend.
+//   2. Appends a row to a Google Sheet via an Apps Script webhook.
+//
+// Both channels run in parallel; succeeds if at least one succeeds.
+// Returns 502 only if both fail.
+//
+// Env vars:
+//   RESEND_API_KEY        — Resend API key
+//   NOTIFY_EMAIL          — where to send notifications
+//   SHEETS_WEBHOOK_URL    — Apps Script web app deployment URL
+//   RESEND_FROM           — optional from address. Defaults to onboarding@resend.dev
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -13,44 +25,96 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Valid email required' });
   }
 
-  const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
-  const apiKey = process.env.BEEHIIV_API_KEY;
+  const cleanName = name ? String(name).trim().slice(0, 200) : '';
+  const cleanEmail = String(email).trim().slice(0, 200);
 
-  if (!publicationId || !apiKey) {
-    console.error('Missing BEEHIIV_PUBLICATION_ID or BEEHIIV_API_KEY env vars');
-    return res.status(500).json({ error: 'Server not configured' });
+  const resendKey = process.env.RESEND_API_KEY;
+  const notifyEmail = process.env.NOTIFY_EMAIL;
+  const sheetsUrl = process.env.SHEETS_WEBHOOK_URL;
+  const fromAddress = process.env.RESEND_FROM || 'onboarding@resend.dev';
+
+  const results = await Promise.allSettled([
+    resendKey && notifyEmail
+      ? notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail })
+      : Promise.reject(new Error('resend-not-configured')),
+    sheetsUrl
+      ? appendToSheet({ sheetsUrl, cleanName, cleanEmail })
+      : Promise.reject(new Error('sheets-not-configured')),
+  ]);
+
+  const failures = results.filter(r => r.status === 'rejected');
+  if (failures.length === results.length) {
+    console.error('All channels failed for waitlist submission', failures.map(f => f.reason && f.reason.message));
+    return res.status(502).json({ error: 'Could not record signup' });
   }
 
-  try {
-    const beehiivRes = await fetch(
-      `https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          email,
-          reactivate_existing: true,
-          send_welcome_email: true,
-          utm_source: '34o-landing',
-          custom_fields: name
-            ? [{ name: 'First Name', value: String(name).trim() }]
-            : [],
-        }),
-      }
-    );
+  return res.status(200).json({ ok: true });
+}
 
-    if (!beehiivRes.ok) {
-      const text = await beehiivRes.text();
-      console.error('Beehiiv API error', beehiivRes.status, text);
-      return res.status(502).json({ error: 'Subscription failed' });
-    }
+async function notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail }) {
+  const displayName = cleanName || cleanEmail;
+  const subject = `New waitlist signup — ${displayName}`;
+  const textBody = [
+    `New 'Stay Updated' signup.`,
+    '',
+    `Name:    ${cleanName || '(not provided)'}`,
+    `Email:   ${cleanEmail}`,
+  ].join('\n');
 
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('Subscribe handler error', err);
-    return res.status(500).json({ error: 'Internal error' });
+  const htmlBody = `
+    <div style="font-family:system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.55;color:#222;max-width:560px">
+      <p style="margin:0 0 16px">New <strong>Stay Updated</strong> signup.</p>
+      <table style="border-collapse:collapse;font-size:14px">
+        <tr><td style="padding:4px 18px 4px 0;color:#666">Name</td><td><strong>${escapeHtml(cleanName || '(not provided)')}</strong></td></tr>
+        <tr><td style="padding:4px 18px 4px 0;color:#666">Email</td><td><a href="mailto:${escapeHtml(cleanEmail)}" style="color:#8a4a31">${escapeHtml(cleanEmail)}</a></td></tr>
+      </table>
+    </div>`;
+
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${resendKey}`,
+    },
+    body: JSON.stringify({
+      from: fromAddress,
+      to: [notifyEmail],
+      reply_to: cleanEmail,
+      subject,
+      text: textBody,
+      html: htmlBody,
+    }),
+  });
+
+  if (!r.ok) {
+    const text = await r.text().catch(() => '');
+    throw new Error(`resend-${r.status}: ${text.slice(0, 200)}`);
   }
+}
+
+async function appendToSheet({ sheetsUrl, cleanName, cleanEmail }) {
+  const r = await fetch(sheetsUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      kind: 'waitlist',
+      name: cleanName,
+      email: cleanEmail,
+      source: 'Stay Updated',
+    }),
+  });
+
+  if (!r.ok) {
+    const text = await r.text().catch(() => '');
+    throw new Error(`sheets-${r.status}: ${text.slice(0, 200)}`);
+  }
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }

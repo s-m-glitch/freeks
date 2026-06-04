@@ -1,20 +1,18 @@
 // Vercel serverless function for "Request to Book" submissions.
 //
 // Two side effects on success:
-//   1. Adds the person to Beehiiv as a subscriber, tagged with the
-//      trip name via custom fields (so you can segment in Beehiiv).
-//   2. Sends a notification email to you via Resend so you can reply
-//      personally without checking a dashboard.
+//   1. Sends a notification email to NOTIFY_EMAIL via Resend (reply-to
+//      is set to the requester so you can hit reply directly).
+//   2. Appends a row to a Google Sheet via an Apps Script webhook.
 //
-// Env vars required:
-//   BEEHIIV_PUBLICATION_ID
-//   BEEHIIV_API_KEY
-//   RESEND_API_KEY
-//   NOTIFY_EMAIL          (where to send booking notifications)
-//   RESEND_FROM           (optional; from address. Defaults to onboarding@resend.dev)
+// Both channels run in parallel; succeeds if at least one succeeds.
+// Returns 502 only if both fail.
 //
-// If only one of Beehiiv/Resend is configured, the function still
-// succeeds as long as that one works. Returns 502 only if both fail.
+// Env vars:
+//   RESEND_API_KEY        — Resend API key
+//   NOTIFY_EMAIL          — where to send booking notifications
+//   SHEETS_WEBHOOK_URL    — Apps Script web app deployment URL
+//   RESEND_FROM           — optional from address. Defaults to onboarding@resend.dev
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -37,60 +35,27 @@ export default async function handler(req, res) {
   const cleanMessage = message ? String(message).trim().slice(0, 2000) : '';
   const cleanTrip = trip ? String(trip).trim().slice(0, 200) : 'Unknown trip';
 
-  const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
-  const beehiivKey = process.env.BEEHIIV_API_KEY;
   const resendKey = process.env.RESEND_API_KEY;
   const notifyEmail = process.env.NOTIFY_EMAIL;
+  const sheetsUrl = process.env.SHEETS_WEBHOOK_URL;
   const fromAddress = process.env.RESEND_FROM || 'onboarding@resend.dev';
 
-  const channelResults = await Promise.allSettled([
-    publicationId && beehiivKey
-      ? subscribeToBeehiiv({ publicationId, beehiivKey, cleanName, cleanEmail, cleanPhone, cleanTrip })
-      : Promise.reject(new Error('beehiiv-not-configured')),
+  const results = await Promise.allSettled([
     resendKey && notifyEmail
       ? notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail, cleanPhone, cleanMessage, cleanTrip })
       : Promise.reject(new Error('resend-not-configured')),
+    sheetsUrl
+      ? appendToSheet({ sheetsUrl, cleanName, cleanEmail, cleanPhone, cleanMessage, cleanTrip })
+      : Promise.reject(new Error('sheets-not-configured')),
   ]);
 
-  const failures = channelResults.filter(r => r.status === 'rejected');
-  if (failures.length === channelResults.length) {
+  const failures = results.filter(r => r.status === 'rejected');
+  if (failures.length === results.length) {
     console.error('All channels failed for booking request', failures.map(f => f.reason && f.reason.message));
     return res.status(502).json({ error: 'Could not record request' });
   }
 
   return res.status(200).json({ ok: true });
-}
-
-async function subscribeToBeehiiv({ publicationId, beehiivKey, cleanName, cleanEmail, cleanPhone, cleanTrip }) {
-  const customFields = [
-    { name: 'First Name', value: cleanName },
-    { name: 'Booking Interest', value: cleanTrip },
-  ];
-  if (cleanPhone) customFields.push({ name: 'Phone', value: cleanPhone });
-
-  const r = await fetch(
-    `https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${beehiivKey}`,
-      },
-      body: JSON.stringify({
-        email: cleanEmail,
-        reactivate_existing: true,
-        send_welcome_email: false,
-        utm_source: '34rh-book-request',
-        utm_medium: cleanTrip,
-        custom_fields: customFields,
-      }),
-    }
-  );
-
-  if (!r.ok) {
-    const text = await r.text().catch(() => '');
-    throw new Error(`beehiiv-${r.status}: ${text.slice(0, 200)}`);
-  }
 }
 
 async function notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, cleanEmail, cleanPhone, cleanMessage, cleanTrip }) {
@@ -135,6 +100,26 @@ async function notifyByEmail({ resendKey, notifyEmail, fromAddress, cleanName, c
   if (!r.ok) {
     const text = await r.text().catch(() => '');
     throw new Error(`resend-${r.status}: ${text.slice(0, 200)}`);
+  }
+}
+
+async function appendToSheet({ sheetsUrl, cleanName, cleanEmail, cleanPhone, cleanMessage, cleanTrip }) {
+  const r = await fetch(sheetsUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      kind: 'booking',
+      name: cleanName,
+      email: cleanEmail,
+      phone: cleanPhone,
+      message: cleanMessage,
+      trip: cleanTrip,
+    }),
+  });
+
+  if (!r.ok) {
+    const text = await r.text().catch(() => '');
+    throw new Error(`sheets-${r.status}: ${text.slice(0, 200)}`);
   }
 }
 
