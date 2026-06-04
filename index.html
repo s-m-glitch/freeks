@@ -485,6 +485,78 @@
   .reveal.in{opacity:1;transform:none}
 
   ::selection{background:var(--accent);color:#ede6d4}
+
+  /* ---------- REQUEST TO BOOK MODAL ---------- */
+  .modal{position:fixed;inset:0;z-index:100;display:none}
+  .modal.open{display:flex;align-items:center;justify-content:center;padding:24px}
+  .modal-backdrop{
+    position:absolute;inset:0;background:rgba(26,24,21,0.72);
+    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  }
+  .modal-card{
+    position:relative;z-index:1;
+    background:#1a1815;color:#ede6d4;
+    width:100%;max-width:560px;
+    padding:48px 40px 36px;
+    border:1px solid #2a2723;
+    max-height:90vh;overflow-y:auto;
+    animation:modalIn .35s cubic-bezier(.2,.7,.2,1);
+  }
+  @keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .modal-close{
+    position:absolute;top:14px;right:18px;
+    background:none;border:none;color:#a39c8c;
+    font-size:26px;font-family:var(--mono);font-weight:300;
+    cursor:pointer;line-height:1;padding:6px 10px;
+    transition:color .2s;
+  }
+  .modal-close:hover{color:#ede6d4}
+  .modal-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:#a39c8c;margin-bottom:14px;
+  }
+  .modal-title{
+    font-family:var(--mono);font-weight:300;
+    font-size:clamp(28px,3.5vw,40px);
+    letter-spacing:-.04em;line-height:1.04;margin-bottom:6px;
+  }
+  .modal-title em{font-style:italic}
+  .modal-trip{
+    font-family:var(--mono);font-size:13px;font-style:italic;
+    color:#a39c8c;margin-bottom:24px;letter-spacing:.01em;
+  }
+  #book-form{display:flex;flex-direction:column;gap:0}
+  #book-form .field textarea{
+    background:transparent;border:none;outline:none;
+    color:#ede6d4;font-family:var(--mono);font-weight:300;
+    font-size:16px;letter-spacing:-.01em;line-height:1.5;
+    padding:6px 0 0;resize:vertical;min-height:60px;
+  }
+  #book-form .field textarea::placeholder{color:#5a544c;font-style:italic}
+  .modal-submit{
+    margin-top:28px;
+    display:inline-flex;align-items:center;justify-content:center;gap:14px;
+    padding:18px 28px;width:100%;
+    background:#ede6d4;color:#1a1815;
+    border:none;cursor:pointer;
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:500;
+    transition:opacity .25s;
+  }
+  .modal-submit:hover:not(:disabled){opacity:.8}
+  .modal-submit .arrow{transition:transform .35s}
+  .modal-submit:hover:not(:disabled) .arrow{transform:translateX(6px)}
+  .modal-submit:disabled{opacity:.6;cursor:wait}
+  .modal-fineprint{
+    margin-top:18px;
+    font-family:var(--mono);font-size:11px;font-style:italic;
+    color:#5a544c;letter-spacing:.01em;text-align:center;
+  }
+  body.modal-open{overflow:hidden}
+  @media (max-width:520px){
+    .modal-card{padding:40px 24px 28px}
+    .modal-close{top:8px;right:10px}
+  }
 </style>
 </head>
 <body>
@@ -551,7 +623,7 @@
         </div>
         <div class="detail-actions">
           <a href="#healdsburg-itinerary" class="itinerary-link">Full itinerary <span class="arrow">↓</span></a>
-          <a href="#waitlist" class="detail-cta">Register interest <span class="arrow">→</span></a>
+          <a href="#book-healdsburg" class="detail-cta" data-action="request-book" data-trip="Healdsburg · Jul 17-19, 2026">Request to book <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -657,6 +729,38 @@
   </div>
 </footer>
 
+<!-- ============== REQUEST TO BOOK MODAL ============== -->
+<div class="modal" id="book-modal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="book-modal-title">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="modal-label">Request to book</div>
+    <h2 class="modal-title serif" id="book-modal-title">Running <em>Healdsburg.</em></h2>
+    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $4,000 all-inclusive</p>
+    <form id="book-form">
+      <input type="hidden" name="trip" value="Healdsburg · Jul 17-19, 2026" />
+      <div class="field">
+        <label for="book-name">Name</label>
+        <input id="book-name" name="name" type="text" placeholder="Your full name" autocomplete="name" autocapitalize="words" required />
+      </div>
+      <div class="field">
+        <label for="book-email">Email</label>
+        <input id="book-email" name="email" type="email" placeholder="you@somewhere.com" autocomplete="email" inputmode="email" autocapitalize="none" autocorrect="off" spellcheck="false" required />
+      </div>
+      <div class="field">
+        <label for="book-phone">Phone (optional)</label>
+        <input id="book-phone" name="phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel" />
+      </div>
+      <div class="field">
+        <label for="book-message">Anything we should know? (optional)</label>
+        <textarea id="book-message" name="message" rows="3" placeholder="Pace, recent races, dietary needs, partner joining…"></textarea>
+      </div>
+      <button class="modal-submit" type="submit">Send request <span class="arrow">→</span></button>
+    </form>
+    <p class="modal-fineprint">We'll be in touch within 24 hours.</p>
+  </div>
+</div>
+
 <script>
   // Hero hover/tap swap
   const trips = document.querySelectorAll('.hero-trips li');
@@ -703,6 +807,85 @@
         });
         if (!r.ok) throw new Error('subscribe failed');
         submit.innerHTML = "Thank you — we'll be in touch.";
+      } catch (err) {
+        submit.innerHTML = 'Something went wrong. Try again?';
+        submit.disabled = false;
+        setTimeout(() => { submit.innerHTML = original; }, 4000);
+      }
+    });
+  }
+
+  // Request to Book modal
+  const bookModal = document.getElementById('book-modal');
+  const bookForm = document.getElementById('book-form');
+  const bookTripInput = bookForm ? bookForm.querySelector('input[name="trip"]') : null;
+  const bookTripLabel = document.getElementById('book-modal-trip');
+
+  function openBookModal(trip) {
+    if (!bookModal) return;
+    if (trip && bookTripInput) bookTripInput.value = trip;
+    bookModal.classList.add('open');
+    bookModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    setTimeout(() => {
+      const first = bookModal.querySelector('input[name="name"]');
+      if (first) first.focus();
+    }, 80);
+  }
+  function closeBookModal() {
+    if (!bookModal) return;
+    bookModal.classList.remove('open');
+    bookModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  document.querySelectorAll('[data-action="request-book"]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openBookModal(el.dataset.trip);
+    });
+  });
+  if (bookModal) {
+    bookModal.querySelectorAll('[data-close]').forEach(el => {
+      el.addEventListener('click', closeBookModal);
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && bookModal && bookModal.classList.contains('open')) {
+      closeBookModal();
+    }
+  });
+
+  if (bookForm) {
+    bookForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submit = bookForm.querySelector('.modal-submit');
+      const original = submit.innerHTML;
+      submit.disabled = true;
+      submit.innerHTML = 'Sending…';
+
+      const payload = {
+        trip: bookForm.trip.value,
+        name: bookForm.name.value.trim(),
+        email: bookForm.email.value.trim(),
+        phone: bookForm.phone.value.trim(),
+        message: bookForm.message.value.trim(),
+      };
+
+      try {
+        const r = await fetch('/api/book-request', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!r.ok) throw new Error('book request failed');
+        submit.innerHTML = "Thank you — we'll be in touch.";
+        setTimeout(() => {
+          closeBookModal();
+          bookForm.reset();
+          submit.disabled = false;
+          submit.innerHTML = original;
+        }, 2400);
       } catch (err) {
         submit.innerHTML = 'Something went wrong. Try again?';
         submit.disabled = false;
