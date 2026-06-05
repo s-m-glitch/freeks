@@ -91,7 +91,7 @@ It is modeled on Aman (warm, calm, expensive restraint), Satisfy Running (stark 
 A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) carry the editorial body; one dark tone carries the hero and footer; one deep oxblood is the only chroma, used as a whisper. Values are sRGB hex; the project does not use OKLCH, so the frontmatter hex is canonical. All text/background pairings are verified to WCAG AA.
 
 ### Primary
-- **Oxblood** (`#743b2d`): The only chroma in the system, and used so sparingly it reads as restraint, not color. Permitted uses, and no others: the short rule before a label, the single obsession word in a trip/detail/modal title, inline-link underlines, the field focus rule, focus outlines, and the button-hover lift. Never a fill, never a surface, never body text.
+- **Oxblood** (`#743b2d`): The only chroma in the system, and used so sparingly it reads as restraint, not color. Permitted uses, and no others: the short rule before a label, inline-link underlines, the field focus rule, focus outlines, and the button-hover lift. Never a fill, never a surface, never body text, and (as of the latest pass) not on the obsession word, titles carry their emphasis by weight alone.
 
 ### Neutral — Grounds
 - **Bone** (`#f1eee7`): The warm off-white primary ground. Body default, philosophy, waitlist, modal.
@@ -120,7 +120,7 @@ A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) car
 ### Hierarchy
 - **Display** (300, `clamp(30px, 4.6vw, 66px)`, lh ~1.05, ls -0.02em): Hero trip titles. The obsession word steps up to 500 for a quiet weight contrast.
 - **Headline** (300, `clamp(30px, 4.4vw, 58px)`, lh 1.12): Philosophy and waitlist headings. Light, airy, generous.
-- **Title** (300, `clamp(34px, 4.4vw, 60px)`): Per-trip detail title; the obsession word in oxblood at weight 400.
+- **Title** (300, `clamp(34px, 4.4vw, 60px)`): Per-trip detail title; the obsession word steps up to weight 400 in ink (no color).
 - **Body** (400, `clamp(17px, 1.35vw, 20px)`, lh 1.7): Prose, capped ~60ch, `text-wrap: pretty`.
 - **Label** (500, 10–11px, ls 0.2em, UPPERCASE): Eyebrows, field labels, meta keys, nav, button text. The luxury signal. Often paired with a short oxblood rule (`.label--rule`).
 
