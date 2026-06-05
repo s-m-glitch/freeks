@@ -223,7 +223,7 @@
   .benchmark-row .marks{font-size:15px;color:var(--ink);line-height:1.5;font-weight:400}
 
   .detail-meta{
-    display:flex;gap:clamp(14px,1.7vw,24px);flex-wrap:nowrap;
+    display:flex;gap:clamp(10px,1.2vw,16px);flex-wrap:nowrap;
     padding-top:30px;border-top:1px solid var(--line-strong);
   }
   .detail-meta > div{white-space:nowrap}
@@ -412,7 +412,7 @@
       <h2 class="philosophy-headline">For the obsessed.</h2>
     </div>
     <div class="philosophy-body reveal">
-      <p>Born from dozens of road trips, destination races, and far too many hobbies, <strong class="fk">freeks</strong> creates expert-led, luxury long-weekends for people who want to go deep on their interests with fellow obsessives.</p>
+      <p>Born from dozens of road trips, destination races, and far too many hobbies, <strong class="fk">freeks</strong> creates expert-led, all-inclusive luxury long-weekends for people who want to go deep on their interests with fellow obsessives.</p>
       <p>We handle the logistics. You hone your craft.</p>
     </div>
   </div>
@@ -438,7 +438,7 @@
           <div><span class="key">When</span><span class="value">Jul 17–19</span></div>
           <div><span class="key">Duration</span><span class="value">3 nights</span></div>
           <div><span class="key">Group</span><span class="value">8 runners</span></div>
-          <div><span class="key">Price</span><span class="value">$3,500 all-in</span></div>
+          <div><span class="key">Price</span><span class="value">$3,500 all inclusive</span></div>
           <div><span class="key">Apply by</span><span class="value">Jun 16</span></div>
         </div>
 
@@ -522,6 +522,10 @@
             <button type="button" class="chip">Photography</button>
           </div>
         </div>
+        <div class="field">
+          <label for="suggestion">Suggest a dream expert or hobby</label>
+          <input id="suggestion" name="suggestion" type="text" placeholder="A coach, an artist, a discipline we should chase" autocapitalize="sentences" />
+        </div>
         <button class="submit btn" type="submit">Join the waitlist <span class="arrow">→</span></button>
         <p class="form-status" id="waitlist-status" role="status" aria-live="polite"></p>
       </form>
@@ -558,7 +562,7 @@
     <button class="modal-close" data-close aria-label="Close">×</button>
     <span class="label modal-label">Request to book</span>
     <h2 class="modal-title" id="book-modal-title"><span class="obsession">Running</span> Healdsburg</h2>
-    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $3,500 all-in</p>
+    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $3,500 all inclusive</p>
     <form id="book-form" novalidate>
       <input type="hidden" name="trip" value="Healdsburg · Jul 17-19, 2026" />
       <div class="field">
@@ -641,7 +645,8 @@
   const waitlistForm = document.getElementById('waitlist-form');
   wireForm(waitlistForm, '/api/subscribe', document.getElementById('waitlist-status'),
     () => ({ name: waitlistForm.name.value.trim(), email: waitlistForm.email.value.trim(),
-      interests: Array.from(waitlistForm.querySelectorAll('.chip.active')).map(c => c.textContent.trim()).join(', ') }),
+      interests: Array.from(waitlistForm.querySelectorAll('.chip.active')).map(c => c.textContent.trim()).join(', '),
+      suggestion: waitlistForm.suggestion.value.trim() }),
     (submit) => { submit.disabled = true; });
 
   // Request to Book modal
