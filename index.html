@@ -44,6 +44,14 @@
     --on-dark-faint: rgba(236,232,223,0.52);
     --dark-line: rgba(236,232,223,0.16);
 
+    /* Brand-name colors — "freeks" is a different color each place it appears */
+    --fk-magenta: #e88bbf;   /* hero wordmark (on dark) */
+    --fk-oxblood: #743b2d;   /* philosophy (on bone) */
+    --fk-forest:  #305d3b;   /* trip eyebrow (on stone) */
+    --fk-cobalt:  #2f4ec0;   /* waitlist (on bone) */
+    --fk-gold:    #e0b24e;   /* footer mark (on dark) */
+    --fk-teal:    #3fae9d;   /* footer copyright (on dark) */
+
     --max: 1340px;
     --sans: 'Switzer', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
@@ -78,6 +86,12 @@
 
   h1,h2,h3{font-weight:400;letter-spacing:-.015em;text-wrap:balance}
   .accent{color:var(--accent)}
+  .fk-magenta{color:var(--fk-magenta)}
+  .fk-oxblood{color:var(--fk-oxblood)}
+  .fk-forest{color:var(--fk-forest)}
+  .fk-cobalt{color:var(--fk-cobalt)}
+  .fk-gold{color:var(--fk-gold)}
+  .fk-teal{color:var(--fk-teal)}
   strong{font-weight:500;color:var(--ink)}
   a{color:inherit}
 
@@ -113,7 +127,7 @@
     display:flex;justify-content:space-between;align-items:center;
     color:var(--on-dark);
   }
-  .wordmark{font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:.02em;line-height:1;color:var(--accent-on-dark)}
+  .wordmark{font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:.02em;line-height:1;color:var(--fk-magenta)}
   .hero-nav .nav-link{
     font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
     color:var(--on-dark);text-decoration:none;
@@ -402,7 +416,7 @@
       <h2 class="philosophy-headline">For the obsessed.</h2>
     </div>
     <div class="philosophy-body reveal">
-      <p>Born from dozens of road trips, destination races, and far too many hobbies, <strong>freeks</strong> creates expert-led, luxury long-weekends for people who want to go deep on their interests with fellow obsessives.</p>
+      <p>Born from dozens of road trips, destination races, and far too many hobbies, <strong class="fk-oxblood">freeks</strong> creates expert-led, luxury long-weekends for people who want to go deep on their interests with fellow obsessives.</p>
       <p>We handle the logistics. You hone your craft.</p>
     </div>
   </div>
@@ -414,7 +428,7 @@
     <div class="detail-grid">
       <div class="detail-figure reveal" role="img" aria-label="Runner on a Sonoma fire road through dry-grass hills" data-bg="url('https://images.unsplash.com/photo-1634844252257-a26d95c7fa16?auto=format&fit=crop&w=1500&q=80')"></div>
       <div class="reveal">
-        <p class="label label--rule detail-label">Trail freeks · Healdsburg</p>
+        <p class="label label--rule detail-label">Trail <span class="fk-forest">freeks</span> · Healdsburg</p>
         <h2 class="detail-title"><span class="obsession">Running</span> Healdsburg</h2>
         <p class="detail-desc">Three days of running in Sonoma's wine country with <a href="https://www.instagram.com/_chrisbartholomew/" target="_blank" rel="noopener">Chris Bartholomew</a> (SFRC manager and ultra machine, who has sweat on nearly every road and trail in the Bay Area). Stay at the beautiful <a href="https://hotelhealdsburg.com/" target="_blank" rel="noopener">Hotel Healdsburg</a>. Run hard, eat well, go wine tasting.</p>
 
@@ -483,7 +497,7 @@
     <div class="waitlist-grid">
       <div class="reveal">
         <span class="label label--rule">Early access</span>
-        <h2><span class="accent">freeks</span> is just getting started.</h2>
+        <h2><span class="fk-cobalt">freeks</span> is just getting started.</h2>
         <p class="lede">Tell us what you're obsessed with. We'll bring you trips worthy of a summer Friday.</p>
       </div>
       <form class="reveal" id="waitlist-form" novalidate>
@@ -524,7 +538,7 @@
   <div class="container">
     <div class="foot-row">
       <div>
-        <div class="foot-mark">freeks</div>
+        <div class="foot-mark"><span class="fk-gold">freeks</span></div>
         <p class="foot-tag">Expert-led, luxury long-weekends for the obsessed.</p>
       </div>
       <div class="foot-col">
@@ -535,7 +549,7 @@
       </div>
     </div>
     <div class="foot-base">
-      <div>© freeks 2026</div>
+      <div>© <span class="fk-teal">freeks</span> 2026</div>
       <div>Built in California and on the road</div>
     </div>
   </div>

@@ -107,7 +107,9 @@ A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) car
 ### Named Rules
 **The Secret-Accent Rule.** Oxblood is the only color, and it is rationed. If you can spot more than two oxblood elements in a single viewport, you have used too much; pull it back. Its scarcity is the luxury.
 
-**The No-Bright-Surface Rule.** No surface is ever saturated or bright, no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography and the rationed oxblood.
+**The No-Bright-Surface Rule.** No surface is ever saturated or bright, no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography, the rationed oxblood, and the brand name (below).
+
+**The Rainbow-Name Exception.** The word **freeks** is the one deliberate place color runs free: it appears in a *different* hue every place it shows on the page, each chosen to read on its ground. Hero wordmark → light magenta `#e88bbf`; philosophy → deep oxblood `#743b2d`; trip eyebrow → forest green `#305d3b`; waitlist heading → cobalt `#2f4ec0`; footer mark → gold `#e0b24e`; footer copyright → teal `#3fae9d`. This is the brand's one playful signature against an otherwise monochrome system; color is permitted *only* on the name. Keep each occurrence a distinct hue and verify it against its background.
 
 ## 3. Typography
 
