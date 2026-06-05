@@ -91,7 +91,7 @@ It is modeled on Aman (warm, calm, expensive restraint), Satisfy Running (stark 
 A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) carry the editorial body; one dark tone carries the hero and footer; one deep oxblood is the only chroma, used as a whisper. Values are sRGB hex; the project does not use OKLCH, so the frontmatter hex is canonical. All text/background pairings are verified to WCAG AA.
 
 ### Primary
-- **Oxblood** (`#743b2d`): The only chroma in the system, and used so sparingly it reads as restraint, not color. Permitted uses, and no others: the short rule before a label, inline-link underlines, the field focus rule, focus outlines, and the button-hover lift. Never a fill, never a surface, never body text, and (as of the latest pass) not on the obsession word, titles carry their emphasis by weight alone.
+- **Oxblood** (`#743b2d`): The only chroma in the system, and used so sparingly it reads as restraint, not color. Permitted uses, and no others: inline-link underlines, the field focus rule, focus outlines, and the button-hover lift. Never a fill, never a surface, never body text, not on the obsession word (titles carry emphasis by weight alone), and not on the short label rule (now ink).
 
 ### Neutral — Grounds
 - **Bone** (`#f1eee7`): The warm off-white primary ground. Body default, philosophy, waitlist, modal.
