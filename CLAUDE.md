@@ -17,7 +17,7 @@ This project uses the **impeccable** design skill. Two root files carry the desi
 
 **Personality:** editorial, obsessive, cinematic. References: Satisfy Running and Monocle (editorial restraint, insider taste), A24 (cinematic, slightly cool mood). Warmth comes from craft and company, not exclamation points.
 
-**Creative North Star:** "The Daylight Gallery" — a daylit gallery in two soft grounds (pale lemon `#fafbe4` primary, cool mist `#f4f7f8` alternating), bookended by a dark photographic threshold (the hero and the footer). Type is Bricolage Grotesque (one family, all weights); corners near-square (3px). Pink (`#cf0f59` / bright `#ff3d80`) is used **selectively** — at rest only on the obsession word in a trip title and the primary CTA button; everything else is ink. (Evolved from "Cinematic Field Journal" → "Gallery After Dark" → "Chalk Gallery" → here.)
+**Creative North Star:** "The Cinematic Field Journal" — A24 opening titles bound into a serious obsessive's logbook.
 
 **Design principles:**
 - Earn it, don't sell it — state the bar plainly, let people self-select.
