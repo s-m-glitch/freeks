@@ -163,7 +163,10 @@
   @media (max-width:780px){
     .hero{min-height:600px}
     .hero-content{padding-bottom:56px}
-    .hero-index .title{font-size:clamp(27px,7.4vw,38px);line-height:1.12}
+    /* Keep each title + date on one line; the date never drops below. */
+    .hero-index a{flex-wrap:nowrap;gap:0 12px}
+    .hero-index .title{font-size:clamp(18px,5.2vw,30px);line-height:1.18;flex-shrink:1;min-width:0}
+    .hero-index .date{flex-shrink:0;font-size:10px;letter-spacing:.12em}
     .hero-index:hover a{opacity:1}
   }
 
