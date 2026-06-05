@@ -107,8 +107,8 @@ A light, cool two-tone palette: pale lemon and mist gray carry the page, near-bl
 - **Pink Bright** (`#ff3d80`): The electric mark. Used at rest **only** for the obsession word in trip titles (always large display) and as the button-hover lift.
 
 ### Neutral — Grounds
-- **Lemon** (`#fafbe4`): The pale-lemon primary ground. Cool, not a warm cream. Body default and the trip-detail section.
-- **Mist** (`#f4f7f8`): The cool light-gray alternating ground. Philosophy, waitlist, modal card.
+- **Lemon** (`#fafbe4`): The pale-lemon primary ground. Cool, not a warm cream. Body default, the philosophy section, and the waitlist.
+- **Mist** (`#f4f7f8`): The cool light-gray alternating ground. The trip-detail section and the modal card.
 - **Threshold Black** (`#0d0b0a` / `#16151a`): The dark tone. `#0d0b0a` behind the hero photograph; `#16151a` (`--ink-strong`) is the footer anchor.
 
 ### Neutral — Ink
@@ -119,7 +119,9 @@ A light, cool two-tone palette: pale lemon and mist gray carry the page, near-bl
 ### Named Rules
 **The Two-Highlights Rule.** Pink appears at rest in exactly two places: the obsession word in a trip title (bright) and the primary action button (deep). Everywhere else, including eyebrows, links, benchmark labels, and active chips, is ink. Pink may additionally carry interaction states (focus ring, link hover), because those are transient. Do not let pink leak back into eyebrows, surfaces, or body links at rest.
 
-**The Two-Grounds-and-Bookends Rule.** The body alternates two soft grounds, lemon and mist; the hero and footer are the one dark tone, bookending the page. There is no third ground color and no pink surface. Sections separate by ground and space, never by a rule or a gradient.
+**The Two-Grounds-and-Bookends Rule.** The body alternates two soft grounds, lemon and mist; the hero and footer are the one dark tone, bookending the page. Apart from the waitlist exception below, there is no third ground color and no surface gradient. Sections separate by ground and space, never by a rule or a gradient.
+
+**The One-Mesh-Moment Exception.** The waitlist, and only the waitlist, is a soft pastel gradient mesh (pale pink blooming through lavender into a light periwinkle, gently drifting), with ink heading text and the form on a frosted-glass card. It is the single sanctioned place where blue, a gradient, glassmorphism, and ambient motion appear. It is the emotional "something's coming" beat before the footer. Do not let any of these four (blue, gradient, glass, ambient motion) leak into another section; if a second mesh appears, the device stops being a moment and becomes a texture.
 
 ## 3. Typography
 
@@ -141,7 +143,7 @@ A light, cool two-tone palette: pale lemon and mist gray carry the page, near-bl
 
 ## 4. Elevation
 
-Flat by default. The system uses no decorative shadows and (now) no inset panels: forms sit flat on their ground. Depth is built three ways: the dark hero threshold and dark footer against the light body; photographs advancing off their grounds inside a hairline frame; and ground temperature shifting between lemon and mist. The booking modal uses a single soft backdrop-blur and a brief entrance, the only blur in the system. Corners are near-square: 3px on pills, 10px on the modal.
+Flat by default. The system uses no decorative shadows. Depth is built four ways: the dark hero threshold and dark footer against the light body; photographs advancing off their grounds inside a hairline frame; ground temperature shifting between lemon and mist; and the one frosted-glass form card floating on the waitlist mesh (the single sanctioned glassmorphism, justified by the need for legible inputs over a busy gradient). The booking modal uses a soft backdrop-blur and a brief entrance. Corners are near-square: 3px on pills, 10px on panels and the modal, 14px on the glass card.
 
 ### Named Rules
 **The Print-Frame Rule.** Photographs are framed like gallery prints, a 1px inset hairline (`box-shadow: inset 0 0 0 1px var(--line)`), never a drop shadow. If something needs separation, change its ground or frame it, do not lift it.
@@ -159,7 +161,7 @@ Flat by default. The system uses no decorative shadows and (now) no inset panels
 - **State:** Hover brightens border + text to ink. Active (`chip-active`) fills **ink** (near-black) with ground-colored text, not pink. Multi-select interest toggles; `aria-pressed` reflects state.
 
 ### Inputs / Fields
-- **Style:** No box, no panel. Transparent field over a single 1px bottom rule, ink text, label above. Flat on the section ground.
+- **Style:** Boxless. Transparent field over a single 1px bottom rule, ink text, label above. The waitlist set sits on the frosted-glass card (over the mesh); the booking-modal set sits on the mist modal card. Both keep ink text on a reliably light surface.
 - **Focus:** `:focus-within` shifts the bottom rule to pink and the label to ink-dim. Placeholders are ink-faint, verified ≥4.5:1 on the grounds.
 
 ### Navigation
