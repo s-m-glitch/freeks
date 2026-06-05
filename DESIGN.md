@@ -1,198 +1,177 @@
 ---
-name: freaks
+name: freeks
 description: Expert-led, luxury long-weekends for the obsessed.
 colors:
-  paper: "#ece7dc"
-  paper-warm: "#e3ddd0"
-  paper-stone: "#d9cfbb"
-  ink: "#1a1815"
-  ink-soft: "#3b3631"
-  ink-muted: "#6e6862"
-  rule: "#c8c1b3"
-  terracotta: "#8a4a31"
-  cream: "#ede6d4"
+  bg: "#f1eee7"
+  bg-alt: "#e8e3d8"
+  ink: "#1c1a16"
+  ink-dim: "#57534b"
+  ink-faint: "#656157"
+  accent: "#743b2d"
+  dark: "#100f0d"
+  on-dark: "#ece8df"
 typography:
   display:
-    fontFamily: "Fraunces, 'Lyon Display', 'Times New Roman', Times, serif"
-    fontSize: "clamp(42px, 6vw, 96px)"
-    fontWeight: 400
-    lineHeight: 1.02
-    letterSpacing: "-0.035em"
-  headline:
-    fontFamily: "Fraunces, 'Lyon Display', Times, serif"
-    fontSize: "clamp(38px, 5vw, 76px)"
-    fontWeight: 400
-    lineHeight: 1.02
-    letterSpacing: "-0.03em"
-  title:
-    fontFamily: "Fraunces, 'Lyon Display', Times, serif"
-    fontSize: "clamp(36px, 4.4vw, 64px)"
-    fontWeight: 400
-    lineHeight: 1
-    letterSpacing: "-0.035em"
-  body:
-    fontFamily: "'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
-    fontSize: "clamp(17px, 1.55vw, 22px)"
+    fontFamily: "'Switzer', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+    fontSize: "clamp(30px, 4.6vw, 66px)"
     fontWeight: 300
-    lineHeight: 1.55
-    letterSpacing: "-0.012em"
+    lineHeight: 1.05
+    letterSpacing: "-0.02em"
+  headline:
+    fontFamily: "'Switzer', system-ui, sans-serif"
+    fontSize: "clamp(30px, 4.4vw, 58px)"
+    fontWeight: 300
+    lineHeight: 1.12
+    letterSpacing: "-0.02em"
+  body:
+    fontFamily: "'Switzer', system-ui, sans-serif"
+    fontSize: "clamp(17px, 1.35vw, 20px)"
+    fontWeight: 400
+    lineHeight: 1.7
+    letterSpacing: "normal"
   label:
-    fontFamily: "'IBM Plex Mono', ui-monospace, Menlo, monospace"
+    fontFamily: "'Switzer', system-ui, sans-serif"
     fontSize: "11px"
     fontWeight: 500
     lineHeight: 1.4
-    letterSpacing: "0.12em"
+    letterSpacing: "0.2em"
+    textTransform: "uppercase"
 rounded:
   none: "0px"
 spacing:
-  gutter: "36px"
-  gutter-mobile: "22px"
-  section: "clamp(70px, 12vw, 170px)"
+  gutter: "clamp(24px, 4.5vw, 64px)"
+  section: "clamp(110px, 18vh, 210px)"
 components:
   button-primary:
-    backgroundColor: "{colors.cream}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "18px 30px"
-  button-primary-hover:
-    backgroundColor: "#ffffff"
-    textColor: "{colors.ink}"
-  button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "16px 28px"
-  button-ghost-hover:
     backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
+    textColor: "{colors.bg}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "18px 32px"
+  button-primary-hover:
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.on-dark}"
   chip:
     backgroundColor: "transparent"
-    textColor: "#bdb5a2"
-    typography: "{typography.label}"
+    textColor: "{colors.ink-dim}"
     rounded: "{rounded.none}"
-    padding: "11px 16px"
+    padding: "11px 18px"
   chip-active:
-    backgroundColor: "{colors.cream}"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.bg}"
   input-field:
     backgroundColor: "transparent"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.none}"
-    padding: "6px 0"
+    textColor: "{colors.ink}"
+    rounded: "0px"
+    padding: "2px 0"
 ---
 
-# Design System: freaks
+# Design System: freeks
 
 ## 1. Overview
 
-**Creative North Star: "The Cinematic Field Journal"**
+**Creative North Star: "The Quiet Expedition"**
 
-freaks reads like the opening frames of an A24 film bound into a serious obsessive's logbook. The mood is cinematic: a full-bleed, grayscale-leaning photograph fills the first viewport, dimmed under a directional vignette and a fixed film-grain overlay, with the trip names set as a hovering title sequence over the frame. Then the page settles into the field-journal half of its identity, warm paper stock, hairline rules, monospaced detail set in the cadence of a runner's training log: pace benchmarks, hour-by-hour itineraries, named hotels and restaurants and trails. The two registers share one voice. The serif supplies the cinema; the mono supplies the documentation.
+freeks reads like an expensive, understated travel house, an Aman that happens to be for obsessives. The page is built on deep restraint and cinematic photography. You enter through a dark film still (the hero): a full-bleed, dimmed photograph with the trip list set over it in a refined light-weight sans. Then the page opens into a calm, daylit editorial body on warm bone and stone, with enormous whitespace, hairline rules, and tracked-uppercase labels. It closes on a dark footer that bookends the hero. There is no bright color anywhere; the only chroma is a single deep oxblood, used so sparingly you almost miss it.
 
-The system is built to make the right person recognize themselves and the wrong person move on. It states the bar plainly (a sub-3:20 marathon, eight runners, $4,000 all-inclusive) and trusts the reader to react. Restraint here is a stance, not timidity: a tight two-temperature palette, sharp 0px corners everywhere, and generous vertical pacing that lets one obsession occupy the screen at a time.
+The voice is confident and spare: it states the bar plainly (a sub-3:20 marathon, eight runners, $4,000 all-in) and trusts the right person to recognize themselves. Hierarchy comes from scale, weight contrast within one typeface, and space, never from decoration or color. Numbers are tabular and exact. Corners are square; motion is slow and elegant.
 
-It explicitly rejects the generic travel-operator look (card grids, star ratings, "book now" clutter, stock-smile photography), hustle-retreat wellness energy (countdown urgency, neon gradients, transformation promises), corporate SaaS scaffolding (feature grids, big-number hero metrics, gradient-on-white), and mass-luxury influencer travel (over-filtered aspiration, conspicuous logos, FOMO). Warmth comes from craft and company, never from an exclamation point.
+It is modeled on Aman (warm, calm, expensive restraint), Satisfy Running (stark editorial, athletic), and A24 (cinematic, gallery-like). It rejects anything that reads loud or cheap: bright accents, the bygone electric-pink, gradient meshes, glassmorphism, generic SaaS scaffolding, generic travel-operator card grids, hustle-retreat energy, and influencer-luxury gloss. Luxury here is the absence of noise.
 
 **Key Characteristics:**
-- Cinematic full-bleed hero, photograph as the design, grain and vignette doing the mood work
-- Two-temperature palette: warm paper by day, near-black ink by night, one terracotta voice
-- Serif display (cinema) against monospaced body (field notes), no third typeface
-- Sharp corners, hairline rules, no shadows, no cards
-- Specificity as luxury: real names, real times, real benchmarks
-- One obsession per surface; long scroll, deliberate pacing
+- Cinematic dark film-still hero, light editorial body, dark footer (the page is bookended dark)
+- Warm bone + stone grounds; deep restraint and enormous whitespace
+- One refined sans (Switzer) across weights; light for display, medium tracked caps for labels
+- A single deep-oxblood accent, used so sparingly it is almost a secret
+- Square corners, hairline rules, flat surfaces, slow elegant motion
+- Specificity and tabular numbers as the luxury; no bright color anywhere
 
 ## 2. Colors
 
-A two-temperature palette: a warm paper range carries the daylight sections, a near-black ink range carries the cinematic hero, waitlist, and footer, and a single terracotta is the only chromatic voice in the system. Values are authored as sRGB hex; the project does not use OKLCH, so the frontmatter hex is canonical.
+A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) carry the editorial body; one dark tone carries the hero and footer; one deep oxblood is the only chroma, used as a whisper. Values are sRGB hex; the project does not use OKLCH, so the frontmatter hex is canonical. All text/background pairings are verified to WCAG AA.
 
 ### Primary
-- **Terracotta** (`#8a4a31`): The one saturated voice. Used sparingly: the wordmark, inline links, selection highlight, and the underline on itinerary references. Its rarity is the point; it never fills a surface.
+- **Oxblood** (`#743b2d`): The only chroma in the system, and used so sparingly it reads as restraint, not color. Permitted uses, and no others: the short rule before a label, the single obsession word in a trip/detail/modal title, inline-link underlines, the field focus rule, focus outlines, and the button-hover lift. Never a fill, never a surface, never body text.
 
-### Neutral — Warm Paper (daylight)
-- **Paper** (`#ece7dc`): The default body background. A warm off-white that reads as quality stock, not screen-white.
-- **Paper Warm** (`#e3ddd0`): The philosophy section ground, one step deeper to separate it from the body.
-- **Paper Stone** (`#d9cfbb`): The deepest paper tone, used to tint alternating trip-detail sections.
-- **Rule** (`#c8c1b3`): Hairline dividers and section separators on paper.
+### Neutral — Grounds
+- **Bone** (`#f1eee7`): The warm off-white primary ground. Body default, philosophy, waitlist, modal.
+- **Stone** (`#e8e3d8`): The deeper warm neutral. The trip-detail section.
+- **Dark** (`#100f0d`): The near-black film ground behind the hero photograph and the footer.
 
-### Neutral — Ink (night / cinema)
-- **Ink** (`#1a1815`): Primary text on paper, and the full background of the hero, waitlist, and footer.
-- **Ink Soft** (`#3b3631`): Long-form body copy on paper. Verified at ~8.8:1 on Paper Warm; the workhorse reading color.
-- **Ink Muted** (`#6e6862`): Small uppercase labels and metadata on paper. Use with care: at 10px on paper it sits right at the AA edge (~4.4:1).
-- **Cream** (`#ede6d4`): Text and primary-button fill on ink grounds. High contrast on dark (~12:1).
+### Neutral — Ink
+- **Ink** (`#1c1a16`): Warm charcoal, primary text (~14:1 on bone). Also the solid-button fill.
+- **Ink Dim** (`#57534b`): Secondary text, body copy (~6:1).
+- **Ink Faint** (`#656157`): Tracked-caps labels, meta, placeholders (~4.8:1, the floor on stone).
+- **On-Dark** (`#ece8df`) + dim/faint tints: warm off-white text on the dark hero and footer.
 
 ### Named Rules
-**The One Voice Rule.** Terracotta is the only chroma in the system and appears on a sliver of any screen, links, the mark, selection. Everything else is paper or ink. Never introduce a second accent hue; warmth is carried by the paper and the photography, not by adding color.
+**The Secret-Accent Rule.** Oxblood is the only color, and it is rationed. If you can spot more than two oxblood elements in a single viewport, you have used too much; pull it back. Its scarcity is the luxury.
 
-**The Two-Temperature Rule.** Every section is either paper (daylight, documentary) or ink (night, cinema). There is no in-between gray surface. Transitions between the two are hard cuts across a hairline rule, never gradients.
+**The No-Bright-Surface Rule.** No surface is ever saturated or bright, no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography and the rationed oxblood.
 
 ## 3. Typography
 
-**Display Font:** Fraunces (with Lyon Display, then Times fallback)
-**Body / Label Font:** IBM Plex Mono (with ui-monospace, SF Mono, Menlo)
+**Typeface:** Switzer (Fontshare), with system-ui fallback. One family, weights 300–600.
 
-**Character:** A high-contrast optical serif paired against a humanist monospace, cinema set against the typewriter. The serif runs at weight 400 with tight negative tracking and frequent italics for the obsession words (*Running*, *Gravel*, *obsessed*); the mono runs light (weight 300) for body and medium (500) for tracked uppercase labels. The pairing is the whole system; there is no third family.
+**Character:** A refined, contemporary grotesque, neutral enough to feel expensive, with enough warmth to avoid feeling corporate. Used the way luxury houses use a single custom sans: light weights at large sizes for display, medium for tracked-uppercase labels, regular for body. The contrast axis is weight, size, and space, not a second typeface.
 
 ### Hierarchy
-- **Display** (400, `clamp(42px, 6vw, 96px)`, lh 1.02, ls -0.035em): Hero trip titles set as a title sequence over the photograph.
-- **Headline** (400, `clamp(38px, 5vw, 76px)`, lh 1.02, ls -0.03em): The philosophy statement and waitlist heading.
-- **Title** (400, `clamp(36px, 4.4vw, 64px)`, lh 1, ls -0.035em): Per-trip detail titles.
-- **Body** (300, `clamp(17px, 1.55vw, 22px)`, lh 1.55, ls -0.012em): Monospaced long-form copy. Capped at ~90ch; mono runs wide, so keep measures generous but never edge-to-edge.
-- **Label** (500, 10–11px, ls 0.10–0.12em, UPPERCASE): Section eyebrows, field labels, metadata keys, chip text. Short phrases only.
+- **Display** (300, `clamp(30px, 4.6vw, 66px)`, lh ~1.05, ls -0.02em): Hero trip titles. The obsession word steps up to 500 for a quiet weight contrast.
+- **Headline** (300, `clamp(30px, 4.4vw, 58px)`, lh 1.12): Philosophy and waitlist headings. Light, airy, generous.
+- **Title** (300, `clamp(34px, 4.4vw, 60px)`): Per-trip detail title; the obsession word in oxblood at weight 400.
+- **Body** (400, `clamp(17px, 1.35vw, 20px)`, lh 1.7): Prose, capped ~60ch, `text-wrap: pretty`.
+- **Label** (500, 10–11px, ls 0.2em, UPPERCASE): Eyebrows, field labels, meta keys, nav, button text. The luxury signal. Often paired with a short oxblood rule (`.label--rule`).
 
 ### Named Rules
-**The Italic-Obsession Rule.** In display and title type, the *thing you're obsessed with* is set in serif italic and the *place* in roman (`*Running* Healdsburg`). Italics mark the obsession, not arbitrary emphasis.
+**The Weight-Not-Color Rule.** Within a title, emphasis (the obsession word) comes from a step up in weight, and at most a touch of oxblood on the light body, never from size jumps or a second color.
 
-**The Caps-Are-Labels-Only Rule.** Uppercase is reserved for short tracked labels (≤4 words), eyebrows, and metadata keys. Body copy is never set in caps, and mono body never goes above weight 300.
+**The Tabular-Truth Rule.** All comparable numbers (benchmarks, distances, times, dates, prices) use `font-variant-numeric: tabular-nums`. The data is the proof of seriousness; it aligns.
 
 ## 4. Elevation
 
-Flat by default. The system uses no box-shadows on paper; depth comes from the two-temperature contrast (ink sections advancing against paper sections) and from hairline rules, not from lifting elements off the page. The only depth effects live in the cinematic layers: the hero's stacked vignette gradients and the fixed film-grain multiply overlay, plus a single soft backdrop-blur behind the booking modal.
+Flat, fully. No shadows, no panels, no glass. Depth comes only from the dark film bookends (hero, footer) against the light body, from photographs sitting inside a hairline frame, and from the ground shift between bone and stone. Corners are square (`0px`) everywhere.
 
 ### Named Rules
-**The No-Shadow Rule.** Surfaces are flat. If something needs to feel separate, change its temperature (paper vs. ink) or rule it off, never drop a shadow under it. The grain and vignette are atmosphere, not elevation, and belong only to the cinematic (ink) sections.
+**The Hairline Rule.** Separation is a 1px rule or a change of ground, never a shadow or a box. Photographs get a 1px inset frame (`box-shadow: inset 0 0 0 1px var(--line)`); sections divide by ground and whitespace.
 
 ## 5. Components
 
 ### Buttons
-- **Shape:** Sharp rectangles (`0px` radius). No rounding anywhere in the system.
-- **Primary** (`button-primary`): Cream fill (`#ede6d4`), ink text, tracked uppercase mono label, `18px 30px` padding. Used for the waitlist and modal submit. Hover lifts the fill to pure white; a trailing `→` arrow slides right on hover.
-- **Ghost** (`button-ghost`): Transparent with a 1px ink border, ink text, `16px 28px`. The trip "Request to book" CTA. Hover inverts to a solid ink fill with paper text over a 0.35s ease; the `→` arrow slides.
-- **Inline link:** Terracotta with a 1px underline at 3px offset; hover drops opacity to 0.7.
+- **Shape:** Square (`0px`).
+- **Primary** (`button-primary`): Solid ink fill, bone text, tracked-caps label, `18px 32px`. Hover lifts the fill to oxblood (the one place the accent fills anything, briefly, on interaction). The trailing `→` slides.
+- **Ghost** (`button-ghost`): Transparent with a 1px ink border, ink tracked-caps text; hover inverts to the ink fill.
+- **Text link:** Tracked-caps, ink-dim, with a 1px underline rule that turns oxblood on hover.
 
 ### Chips
-- **Style:** Transparent with a 1px border (`#3a352f` on the ink waitlist ground), muted cream text, tracked uppercase mono, `11px 16px`, min-height 38px for touch.
-- **State:** Unselected is outline-only; hover warms the border and text toward cream. Selected (`chip-active`) inverts to a solid cream fill with ink text. These are multi-select interest toggles, not single-choice filters.
+- **Style:** Square, transparent, 1px border, tracked-caps ink-dim text, 44px min target.
+- **State:** Hover brightens to ink. Active (`chip-active`) fills ink with bone text, not oxblood. Multi-select; `aria-pressed` reflects state.
 
 ### Inputs / Fields
-- **Style:** No box. A transparent field over a single 1px bottom rule, cream text, mono weight 300, label tracked uppercase above. The line is the field.
-- **Focus:** Currently relies on the bottom rule; there is no distinct focus treatment yet (see Do's and Don'ts).
-- **Placeholder:** Italic mono. Note the shipped placeholder color (`#5a544c`) fails AA on the ink ground (~2.4:1) and needs lightening.
+- **Style:** Boxless. Transparent field over a single 1px bottom rule, ink text, tracked-caps label above, flat on the ground.
+- **Focus:** `:focus-within` shifts the bottom rule to oxblood. Placeholders are ink-faint, AA on the grounds.
 
 ### Navigation
-- **Style:** There is no nav bar. The hero presents a single centered serif-italic wordmark in terracotta, and the trip list itself is the primary navigation, hovering a trip name cross-fades the hero photograph behind it (mouse) or swaps it on tap (touch). Deliberate: the page is a single long scroll, not a sectioned site.
+- **Style:** No nav bar in the body. The hero carries a `freeks` wordmark and a single tracked-caps "Waitlist" link with an underline-on-hover. The trip index is the primary navigation; hover or keyboard-focus dims the siblings and cross-fades the photograph (1.8s) behind the type.
 
-### Signature Component — The Cinematic Trip Selector
-The hero's defining pattern: a vertical list of serif trip titles over a full-bleed photograph. Hovering one title dims the others to ~0.22 opacity and cross-fades its matching background image (1.4s) while a slow 16s scale pan runs. On touch, dimming is disabled (it would strand the user) and tap swaps the image. Dates ride as superscript mono on desktop, drop to captions below the title on mobile. This component is the brand's first impression; treat it as load-bearing.
+### Signature Component — The Quiet Index
+A left-aligned column of refined light-weight trip titles over a dark, dimmed film still. The obsession word steps up to medium weight; the date rides beside it in tracked tabular caps. Hover/focus dims the rest to ~0.32 and slowly cross-fades the matching image. Keyboard-reachable; the load-bearing first impression.
 
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** keep terracotta to a sliver (links, mark, selection). Its scarcity is the brand (**The One Voice Rule**).
-- **Do** set every surface as either warm paper or near-black ink, separated by hairline rules, never a gradient or a mid-gray.
-- **Do** set body copy in IBM Plex Mono weight 300 and cap measures near 90ch; let the typewriter cadence carry the field-journal voice.
-- **Do** mark the obsession in serif italic and the place in roman (**The Italic-Obsession Rule**).
-- **Do** lead with specificity: name the expert, the hotel, the trail, the exact time. Concrete detail is the luxury.
-- **Do** ship real cinematic photography full-bleed; the photograph is the design.
-- **Do** keep corners at `0px` and surfaces flat (**The No-Shadow Rule**).
+- **Do** bookend the page dark (hero, footer) around a light bone/stone editorial body (**The No-Bright-Surface Rule**).
+- **Do** ration the oxblood to two or fewer elements per viewport (**The Secret-Accent Rule**).
+- **Do** carry hierarchy with weight, scale, and whitespace within one typeface (Switzer) (**The Weight-Not-Color Rule**).
+- **Do** use tracked-uppercase labels (with the short oxblood rule) where they carry information.
+- **Do** keep surfaces flat and corners square; separate with hairlines and space (**The Hairline Rule**).
+- **Do** set every comparable number in tabular figures (**The Tabular-Truth Rule**).
+- **Do** let cinematic, full-color photography carry the body; the dark hero film still sets the mood.
 
 ### Don't:
-- **Don't** build a generic travel-operator layout: card grids, star ratings, "book now" clutter, or stock-smile photography.
-- **Don't** drift into hustle/retreat-bro wellness: countdown timers, neon gradients, transformation promises, mastermind-funnel energy.
-- **Don't** fall into corporate SaaS scaffolding: feature grids, the big-number hero-metric template, gradient-on-white, buzzword copy.
-- **Don't** chase mass-luxury influencer travel: over-filtered aspiration, conspicuous logos, FOMO marketing.
-- **Don't** add a second accent hue or a third typeface; two families, one chroma.
-- **Don't** use em dashes in copy (commas, colons, periods, or parentheses instead); en dashes for numeric ranges only.
-- **Don't** set placeholder or label text so light it fails 4.5:1, the shipped `#5a544c` placeholder and `#7a7367` footer text are too dim on ink.
-- **Don't** round corners, drop shadows, or use a card; the system is sharp and flat.
+- **Don't** introduce any bright color, the electric pink, a gradient mesh, or glassmorphism; this system is the deliberate opposite of those.
+- **Don't** let oxblood become a fill, a surface, or body text; it is a whisper, not a voice.
+- **Don't** add a second typeface or a third ground color.
+- **Don't** round corners or add shadows, panels, or cards.
+- **Don't** build a generic travel-operator layout (card grids, star ratings, "book now" clutter, stock-smile photography) or drift into hustle-retreat wellness, SaaS scaffolding, or influencer-luxury gloss.
+- **Don't** use em dashes in copy (commas, colons, periods, or parentheses); en dashes for numeric ranges only.
+- **Don't** crowd the page; whitespace is the luxury, so when in doubt, add space and remove elements.

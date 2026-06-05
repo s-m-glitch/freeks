@@ -1,4 +1,4 @@
-# freaks — Landing Page
+# freeks — Landing Page
 
 A single-file static site. Just `index.html`, no build step.
 
@@ -42,7 +42,7 @@ In the Vercel dashboard → Project → Settings → Domains → add your domain
 ## What's in the file
 
 - All CSS is inline (single `<style>` block)
-- Fonts loaded from Google Fonts CDN (IBM Plex Mono)
+- Fonts loaded from the Fontshare CDN (Switzer)
 - Background photos loaded from Unsplash CDN
 - ~15 lines of vanilla JS at the bottom for hero hover swap, chip toggling, and scroll reveal
 - No build step, no dependencies, no framework

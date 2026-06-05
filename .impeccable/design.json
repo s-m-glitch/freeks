@@ -1,140 +1,139 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-06-04",
-  "title": "Design System: freaks",
+  "title": "Design System: freeks",
   "extensions": {
     "colorMeta": {
-      "terracotta": {
+      "accent": {
         "role": "primary",
-        "displayName": "Terracotta",
-        "canonical": "#8a4a31",
-        "tonalRamp": ["#2a1610", "#3f2117", "#5a2f20", "#71402c", "#8a4a31", "#a8654a", "#c08b73", "#ddb9ab"]
+        "displayName": "Oxblood",
+        "canonical": "#743b2d",
+        "tonalRamp": ["#2a1610", "#3d2017", "#542c20", "#6a382a", "#743b2d", "#8f5040", "#b07d6d", "#d8bcb2"]
       },
-      "paper": {
+      "bg": {
         "role": "neutral",
-        "displayName": "Paper",
-        "canonical": "#ece7dc",
-        "tonalRamp": ["#1a1815", "#34302a", "#56514a", "#7a746b", "#a39c8c", "#c8c1b3", "#e3ddd0", "#f4f0e8"]
+        "displayName": "Bone",
+        "canonical": "#f1eee7",
+        "tonalRamp": ["#1c1a16", "#34312b", "#54504700", "#6e6a60", "#9a9588", "#cfcabb", "#e8e3d8", "#f1eee7"]
       },
-      "paper-stone": {
+      "bg-alt": {
         "role": "neutral",
-        "displayName": "Paper Stone",
-        "canonical": "#d9cfbb",
-        "tonalRamp": ["#211d16", "#3a342a", "#5c5443", "#827960", "#a89c80", "#c4b89c", "#d9cfbb", "#ece5d6"]
+        "displayName": "Stone",
+        "canonical": "#e8e3d8",
+        "tonalRamp": ["#1c1a16", "#34312b", "#544f45", "#6e6a60", "#9a9485", "#c7c1b2", "#e8e3d8", "#f1eee7"]
+      },
+      "dark": {
+        "role": "neutral",
+        "displayName": "Film Dark",
+        "canonical": "#100f0d",
+        "tonalRamp": ["#100f0d", "#1c1a16", "#34312b", "#544f45", "#6e6a60", "#9a9485", "#c7c1b2", "#ece8df"]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Ink",
-        "canonical": "#1a1815",
-        "tonalRamp": ["#0e0d0b", "#1a1815", "#3b3631", "#56514a", "#6e6862", "#908a82", "#b0aaa0", "#d4cfc6"]
-      },
-      "cream": {
-        "role": "neutral",
-        "displayName": "Cream",
-        "canonical": "#ede6d4",
-        "tonalRamp": ["#3a352c", "#56503f", "#7a7256", "#a39c7f", "#c4bca0", "#d8d0bd", "#ede6d4", "#f8f4ea"]
+        "displayName": "Warm Charcoal",
+        "canonical": "#1c1a16",
+        "tonalRamp": ["#100f0d", "#1c1a16", "#34312b", "#544f45", "#57534b", "#656157", "#9a9485", "#cfcabb"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero trip titles, set as a cinematic title sequence over the photograph." },
-      "headline": { "displayName": "Headline", "purpose": "Philosophy statement and waitlist heading." },
-      "title": { "displayName": "Title", "purpose": "Per-trip detail titles." },
-      "body": { "displayName": "Body", "purpose": "Monospaced long-form copy; the field-journal voice. Cap measures near 90ch." },
-      "label": { "displayName": "Label", "purpose": "Tracked uppercase eyebrows, field labels, metadata keys, chips. Short phrases only." }
+      "display": { "displayName": "Display", "purpose": "Hero trip titles over the dark film still; light weight, obsession word steps to 500." },
+      "headline": { "displayName": "Headline", "purpose": "Philosophy and waitlist headings; light, airy, generous." },
+      "title": { "displayName": "Title", "purpose": "Per-trip detail title; obsession word in oxblood." },
+      "body": { "displayName": "Body", "purpose": "Prose, capped ~60ch, text-wrap pretty." },
+      "label": { "displayName": "Label", "purpose": "Tracked-uppercase eyebrows, field labels, meta, nav, button text. The luxury signal; often paired with a short oxblood rule." }
     },
-    "shadows": [],
+    "shadows": [
+      { "name": "print-frame", "value": "inset 0 0 0 1px rgba(28,26,22,0.13)", "purpose": "Hairline frame around photographs. The only 'elevation'; the system is otherwise flat." }
+    ],
     "motion": [
-      { "name": "ease-cinematic", "value": "cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "House ease-out. Hero cross-fades, reveals, and CTA transitions all use it." },
-      { "name": "hero-crossfade", "value": "opacity 1.4s cubic-bezier(0.2,0.7,0.2,1)", "purpose": "Trip image swap behind the hero title sequence." },
-      { "name": "hero-pan", "value": "transform 16s ease-out", "purpose": "Slow 1.04x scale pan on the active hero image." },
-      { "name": "reveal", "value": "opacity 1.1s, transform 1.1s, cubic-bezier(0.2,0.7,0.2,1)", "purpose": "Scroll-in reveal. NOTE: currently gates content visibility; needs a reduced-motion + no-JS visible default." },
-      { "name": "cta-invert", "value": "all 0.35s ease", "purpose": "Ghost button fill inversion on hover." }
+      { "name": "ease-quiet", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "House ease for reveals, hover, and the hero cross-fade. Slow and elegant." },
+      { "name": "hero-crossfade", "value": "opacity 1.8s cubic-bezier(0.4,0,0.2,1)", "purpose": "Slow trip image swap behind the quiet index." },
+      { "name": "hero-push", "value": "transform 22s ease-out", "purpose": "Very slow 1.06x scale push on the active hero image." },
+      { "name": "reveal", "value": "opacity 1.4s, transform 1.4s, cubic-bezier(0.4,0,0.2,1)", "purpose": "Slow scroll-in reveal. Visible by default; JS-gated entrance with a transition-free safety net." }
     ],
     "breakpoints": [
-      { "name": "tablet", "value": "880px" },
+      { "name": "wide", "value": "880px" },
       { "name": "mobile", "value": "780px" },
-      { "name": "small", "value": "520px" },
-      { "name": "tiny", "value": "380px" }
+      { "name": "small", "value": "520px" }
     ]
   },
   "components": [
     {
+      "name": "Quiet Index Title",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Signature hero list item: refined light-weight trip title, obsession word stepped up in weight, tracked tabular date. Over the dark film still.",
+      "html": "<a class=\"ds-trip\"><span class=\"ds-trip__title\"><span class=\"ds-ob\">Running</span> Healdsburg</span><span class=\"ds-trip__date\">Jul 17–19</span></a>",
+      "css": ".ds-trip{display:flex;align-items:baseline;gap:0 22px;flex-wrap:wrap;text-decoration:none;color:#ece8df;padding:10px 0;cursor:pointer;transition:opacity .6s cubic-bezier(.4,0,.2,1)}.ds-trip__title{font-family:'Switzer',system-ui,sans-serif;font-weight:300;font-size:clamp(30px,4.6vw,66px);line-height:1.04;letter-spacing:-.02em}.ds-ob{font-weight:500}.ds-trip__date{font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,232,223,.52);font-variant-numeric:tabular-nums}.ds-trip:hover{opacity:1}"
+    },
+    {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Cream-on-ink submit for the waitlist and booking modal.",
-      "html": "<button class=\"ds-btn-primary\">Stay updated <span class=\"ds-arrow\">→</span></button>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:14px;background:#ede6d4;color:#1a1815;border:none;cursor:pointer;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:18px 30px;transition:background .3s ease}.ds-btn-primary:hover{background:#fff}.ds-btn-primary .ds-arrow{transition:transform .3s ease}.ds-btn-primary:hover .ds-arrow{transform:translateX(6px)}"
+      "description": "Solid ink, square, tracked-caps. Hover lifts the fill to oxblood (the one brief accent fill).",
+      "html": "<button class=\"ds-btn\">Request to book <span class=\"ds-arrow\">→</span></button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:14px;background:#1c1a16;color:#f1eee7;border:1px solid #1c1a16;font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:18px 32px;cursor:pointer;transition:background .4s ease,border-color .4s ease,color .4s ease}.ds-btn:hover{background:#743b2d;border-color:#743b2d;color:#ece8df}.ds-btn .ds-arrow{transition:transform .4s cubic-bezier(.4,0,.2,1)}.ds-btn:hover .ds-arrow{transform:translateX(6px)}"
     },
     {
-      "name": "Ghost Button",
-      "kind": "button",
-      "refersTo": "button-ghost",
-      "description": "Outlined 'Request to book' CTA on paper; inverts to solid ink on hover.",
-      "html": "<a class=\"ds-btn-ghost\">Request to book <span class=\"ds-arrow\">→</span></a>",
-      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:14px;background:transparent;border:1px solid #1a1815;color:#1a1815;text-decoration:none;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:16px 28px;cursor:pointer;transition:all .35s ease}.ds-btn-ghost:hover{background:#1a1815;color:#ece7dc}.ds-btn-ghost .ds-arrow{transition:transform .35s ease}.ds-btn-ghost:hover .ds-arrow{transform:translateX(6px)}"
+      "name": "Tracked Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The luxury signal: tracked-uppercase label, optionally preceded by a short oxblood rule.",
+      "html": "<span class=\"ds-label\">Trail freeks · Healdsburg</span>",
+      "css": ".ds-label{display:inline-flex;align-items:center;gap:16px;font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#656157}.ds-label::before{content:'';width:38px;height:1px;background:#743b2d;opacity:.85}"
     },
     {
       "name": "Interest Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Multi-select interest toggle on the ink waitlist ground.",
+      "description": "Square, tracked-caps interest toggle. Active fills ink, not the accent.",
       "html": "<button class=\"ds-chip\">Running</button><button class=\"ds-chip ds-chip--active\">Painting</button>",
-      "css": ".ds-chip{padding:11px 16px;min-height:38px;border:1px solid #3a352f;background:transparent;color:#bdb5a2;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all .25s ease}.ds-chip:hover{border-color:#7a7367;color:#ede6d4}.ds-chip--active{background:#ede6d4;color:#1a1815;border-color:#ede6d4}"
+      "css": ".ds-chip{padding:11px 18px;min-height:44px;border:1px solid rgba(28,26,22,.24);background:transparent;color:#57534b;font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease}.ds-chip:hover{border-color:#1c1a16;color:#1c1a16}.ds-chip--active{background:#1c1a16;color:#f1eee7;border-color:#1c1a16}"
     },
     {
       "name": "Underline Field",
       "kind": "input",
       "refersTo": "input-field",
-      "description": "Boxless field: cream mono text over a single bottom rule, tracked uppercase label above.",
-      "html": "<div class=\"ds-field\"><label class=\"ds-field__label\">Email</label><input class=\"ds-field__input\" placeholder=\"freak@somewhere.com\"></div>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #3a352f}.ds-field__label{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#a39c8c;font-weight:500}.ds-field__input{background:transparent;border:none;outline:none;color:#ede6d4;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-weight:300;font-size:20px;letter-spacing:-.02em;padding:6px 0}.ds-field__input::placeholder{color:#7a7367;font-style:italic}.ds-field__input:focus{border-bottom:0}.ds-field:focus-within{border-bottom-color:#8a4a31}"
-    },
-    {
-      "name": "Cinematic Trip Title",
-      "kind": "custom",
-      "refersTo": "display",
-      "description": "Signature hero list item: serif title with italic obsession word, mono superscript date.",
-      "html": "<h2 class=\"ds-trip\"><em>Running</em> Healdsburg<span class=\"ds-trip__date\">Jul 17-19</span></h2>",
-      "css": ".ds-trip{font-family:Fraunces,'Lyon Display',Times,serif;font-weight:400;font-size:clamp(42px,6vw,96px);line-height:1.02;letter-spacing:-.035em;color:#ede6d4;display:inline;position:relative;cursor:pointer;transition:opacity .55s cubic-bezier(.2,.7,.2,1)}.ds-trip em{font-style:italic}.ds-trip__date{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#c8c0ad;vertical-align:super;position:relative;top:-1.5em;margin-left:16px;opacity:.82}"
+      "description": "Boxless field flat on the ground: ink text over a bottom rule, tracked-caps label above. Focus rule turns oxblood.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field__label\">Email</label><input class=\"ds-field__input\" placeholder=\"freek@somewhere.com\"></div>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:10px;padding:22px 0;border-bottom:1px solid rgba(28,26,22,.13)}.ds-field__label{font-family:'Switzer',system-ui,sans-serif;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#656157}.ds-field__input{background:transparent;border:none;outline:none;color:#1c1a16;font-family:'Switzer',system-ui,sans-serif;font-weight:400;font-size:19px;padding:2px 0}.ds-field__input::placeholder{color:#656157;font-weight:300}.ds-field:focus-within{border-bottom-color:#743b2d}"
     }
   ],
   "narrative": {
-    "northStar": "The Cinematic Field Journal",
-    "overview": "freaks reads like the opening frames of an A24 film bound into a serious obsessive's logbook. The mood is cinematic: a full-bleed, grayscale-leaning photograph fills the first viewport, dimmed under a vignette and a film-grain overlay, with the trip names set as a hovering title sequence over the frame. Then the page settles into the field-journal half of its identity, warm paper stock, hairline rules, monospaced detail set in the cadence of a runner's training log. The serif supplies the cinema; the mono supplies the documentation. The system makes the right person recognize themselves and the wrong person move on: it states the bar plainly and trusts the reader to react.",
+    "northStar": "The Quiet Expedition",
+    "overview": "freeks reads like an expensive, understated travel house, an Aman that happens to be for obsessives. You enter through a dark film still (the hero): a full-bleed, dimmed photograph with the trip list set over it in a refined light-weight sans. Then the page opens into a calm, daylit editorial body on warm bone and stone, with enormous whitespace, hairline rules, and tracked-uppercase labels, and closes on a dark footer that bookends the hero. There is no bright color anywhere; the only chroma is a single deep oxblood, used so sparingly you almost miss it. Hierarchy comes from scale, weight contrast within one typeface, and space. Luxury here is the absence of noise.",
     "keyCharacteristics": [
-      "Cinematic full-bleed hero, photograph as the design, grain and vignette doing the mood work",
-      "Two-temperature palette: warm paper by day, near-black ink by night, one terracotta voice",
-      "Serif display (cinema) against monospaced body (field notes), no third typeface",
-      "Sharp corners, hairline rules, no shadows, no cards",
-      "Specificity as luxury: real names, real times, real benchmarks",
-      "One obsession per surface; long scroll, deliberate pacing"
+      "Cinematic dark film-still hero, light editorial body, dark footer (bookended dark)",
+      "Warm bone + stone grounds; deep restraint and enormous whitespace",
+      "One refined sans (Switzer) across weights; light display, medium tracked-caps labels",
+      "A single deep-oxblood accent, rationed so sparingly it's almost a secret",
+      "Square corners, hairline rules, flat surfaces, slow elegant motion",
+      "Specificity and tabular numbers as the luxury; no bright color anywhere"
     ],
     "rules": [
-      { "name": "The One Voice Rule", "body": "Terracotta is the only chroma in the system and appears on a sliver of any screen: links, the mark, selection. Everything else is paper or ink. Never introduce a second accent hue.", "section": "colors" },
-      { "name": "The Two-Temperature Rule", "body": "Every section is either paper (daylight, documentary) or ink (night, cinema). There is no in-between gray surface. Transitions are hard cuts across a hairline rule, never gradients.", "section": "colors" },
-      { "name": "The Italic-Obsession Rule", "body": "In display and title type, the thing you're obsessed with is serif italic and the place is roman. Italics mark the obsession, not arbitrary emphasis.", "section": "typography" },
-      { "name": "The Caps-Are-Labels-Only Rule", "body": "Uppercase is reserved for short tracked labels, eyebrows, and metadata keys. Body copy is never caps; mono body never goes above weight 300.", "section": "typography" },
-      { "name": "The No-Shadow Rule", "body": "Surfaces are flat. If something needs to feel separate, change its temperature (paper vs. ink) or rule it off, never drop a shadow. Grain and vignette are atmosphere, not elevation.", "section": "elevation" }
+      { "name": "The Secret-Accent Rule", "body": "Oxblood is the only color, and it is rationed. If you can spot more than two oxblood elements in a single viewport, you've used too much; pull it back. Its scarcity is the luxury.", "section": "colors" },
+      { "name": "The No-Bright-Surface Rule", "body": "No surface is ever saturated or bright: no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography and the rationed oxblood.", "section": "colors" },
+      { "name": "The Weight-Not-Color Rule", "body": "Within a title, emphasis (the obsession word) comes from a step up in weight, and at most a touch of oxblood on the light body, never from size jumps or a second color.", "section": "typography" },
+      { "name": "The Tabular-Truth Rule", "body": "All comparable numbers (benchmarks, distances, times, dates, prices) use tabular figures. The data is the proof of seriousness; it aligns.", "section": "typography" },
+      { "name": "The Hairline Rule", "body": "Separation is a 1px rule or a change of ground, never a shadow or a box. Photographs get a 1px inset frame; sections divide by ground and whitespace.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep terracotta to a sliver (links, mark, selection). Its scarcity is the brand.",
-      "Do set every surface as either warm paper or near-black ink, separated by hairline rules.",
-      "Do set body copy in IBM Plex Mono weight 300 and cap measures near 90ch.",
-      "Do mark the obsession in serif italic and the place in roman.",
-      "Do lead with specificity: name the expert, the hotel, the trail, the exact time.",
-      "Do ship real cinematic photography full-bleed; the photograph is the design.",
-      "Do keep corners at 0px and surfaces flat."
+      "Do bookend the page dark (hero, footer) around a light bone/stone editorial body.",
+      "Do ration the oxblood to two or fewer elements per viewport.",
+      "Do carry hierarchy with weight, scale, and whitespace within one typeface (Switzer).",
+      "Do use tracked-uppercase labels (with the short oxblood rule) where they carry information.",
+      "Do keep surfaces flat and corners square; separate with hairlines and space.",
+      "Do set every comparable number in tabular figures.",
+      "Do let cinematic, full-color photography carry the body; the dark hero film still sets the mood."
     ],
     "donts": [
-      "Don't build a generic travel-operator layout: card grids, star ratings, 'book now' clutter, stock-smile photography.",
-      "Don't drift into hustle/retreat-bro wellness: countdown timers, neon gradients, transformation promises.",
-      "Don't fall into corporate SaaS scaffolding: feature grids, big-number hero metrics, gradient-on-white, buzzword copy.",
-      "Don't chase mass-luxury influencer travel: over-filtered aspiration, conspicuous logos, FOMO marketing.",
-      "Don't add a second accent hue or a third typeface; two families, one chroma.",
+      "Don't introduce any bright color, the electric pink, a gradient mesh, or glassmorphism; this system is the deliberate opposite.",
+      "Don't let oxblood become a fill, a surface, or body text; it's a whisper, not a voice.",
+      "Don't add a second typeface or a third ground color.",
+      "Don't round corners or add shadows, panels, or cards.",
+      "Don't build a generic travel-operator layout or drift into hustle-retreat wellness, SaaS scaffolding, or influencer-luxury gloss.",
       "Don't use em dashes in copy; en dashes for numeric ranges only.",
-      "Don't set placeholder or label text so light it fails 4.5:1.",
-      "Don't round corners, drop shadows, or use a card."
+      "Don't crowd the page; whitespace is the luxury. When in doubt, add space and remove elements."
     ]
   }
 }

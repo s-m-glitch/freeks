@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-People who are all-in on a craft or pursuit — runners chasing a sub-3:20 marathon, painters, writers, gravel cyclists, fossil hunters, energy obsessives. They already travel for the things they love and hold themselves to real standards (the running trip lists pace benchmarks as a soft bar to entry). They're discerning about taste and allergic to anything that feels mass-market or sold-to. When they hit the page they're sizing up whether this is a serious group of fellow obsessives or another packaged tour. The job to be done: decide quickly that freaks is *for them*, then join the waitlist or request a specific trip.
+People who are all-in on a craft or pursuit — runners chasing a sub-3:20 marathon, painters, writers, gravel cyclists, fossil hunters, energy obsessives. They already travel for the things they love and hold themselves to real standards (the running trip lists pace benchmarks as a soft bar to entry). They're discerning about taste and allergic to anything that feels mass-market or sold-to. When they hit the page they're sizing up whether this is a serious group of fellow obsessives or another packaged tour. The job to be done: decide quickly that freeks is *for them*, then join the waitlist or request a specific trip.
 
 ## Product Purpose
 
-freaks runs expert-led, luxury long-weekends built around a single obsession — three days of going deep on one thing with a small group and a genuine expert leading it (e.g. an SFRC manager and ultrarunner hosting the Healdsburg running weekend). The landing page exists to communicate the taste and seriousness of the experience and to capture intent: waitlist signups and per-trip booking requests, both wired to live Vercel serverless endpoints (Resend + Google Sheets). Success looks like the right people — obsessives who meet the bar — self-selecting in, and the wrong people self-selecting out. It is a communicate-not-transact surface; there is no checkout, only requests that start a conversation.
+freeks runs expert-led, luxury long-weekends built around a single obsession — three days of going deep on one thing with a small group and a genuine expert leading it (e.g. an SFRC manager and ultrarunner hosting the Healdsburg running weekend). The landing page exists to communicate the taste and seriousness of the experience and to capture intent: waitlist signups and per-trip booking requests, both wired to live Vercel serverless endpoints (Resend + Google Sheets). Success looks like the right people — obsessives who meet the bar — self-selecting in, and the wrong people self-selecting out. It is a communicate-not-transact surface; there is no checkout, only requests that start a conversation.
 
 ## Brand Personality
 
