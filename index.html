@@ -32,7 +32,7 @@
     --ink: #1c1a16;           /* warm charcoal, primary text (~14:1 on bone) */
     --ink-dim: #57534b;       /* secondary text (~6.8:1) */
     --ink-faint: #656157;     /* tracked-caps labels / meta (~4.8:1 on stone, AA on both grounds) */
-    --accent: #743b2d;        /* deep oxblood, used very sparingly (~6.7:1 on bone) */
+    --accent: var(--fk);      /* unified with the brand name: one terracotta */
     --line: rgba(28,26,22,0.13);
     --line-strong: rgba(28,26,22,0.24);
 
@@ -220,9 +220,10 @@
   .benchmark-row .marks{font-size:15px;color:var(--ink);line-height:1.5;font-weight:400}
 
   .detail-meta{
-    display:flex;gap:clamp(28px,3.5vw,52px);flex-wrap:wrap;
+    display:flex;gap:clamp(14px,1.7vw,24px);flex-wrap:nowrap;
     padding-top:30px;border-top:1px solid var(--line-strong);
   }
+  .detail-meta > div{white-space:nowrap}
   .detail-meta .key{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
   .detail-meta .value{display:block;margin-top:9px;font-size:17px;font-weight:400;color:var(--ink);font-variant-numeric:tabular-nums}
 
@@ -236,7 +237,7 @@
     text-decoration:none;transition:background .4s ease,color .4s ease,border-color .4s ease;
   }
   .btn .arrow{transition:transform .4s cubic-bezier(.4,0,.2,1)}
-  .btn:hover{background:var(--accent);border-color:var(--accent);color:var(--on-dark)}
+  .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
   .btn:hover .arrow{transform:translateX(6px)}
   .btn-ghost{background:transparent;color:var(--ink)}
   .btn-ghost:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
@@ -269,6 +270,7 @@
     .detail-actions{flex-direction:column;align-items:stretch}
     .btn{justify-content:center}
     .benchmark-row{flex-direction:column;gap:3px}
+    .detail-meta{flex-wrap:wrap;gap:24px 30px}
   }
 
   /* ---------- WAITLIST ---------- */
@@ -433,7 +435,7 @@
           <div><span class="key">When</span><span class="value">Jul 17–19</span></div>
           <div><span class="key">Duration</span><span class="value">3 nights</span></div>
           <div><span class="key">Group</span><span class="value">8 runners</span></div>
-          <div><span class="key">Price</span><span class="value">$4,000 all-in</span></div>
+          <div><span class="key">Price</span><span class="value">$3,500 all-in</span></div>
           <div><span class="key">Apply by</span><span class="value">Jun 16</span></div>
         </div>
 
@@ -553,7 +555,7 @@
     <button class="modal-close" data-close aria-label="Close">×</button>
     <span class="label modal-label">Request to book</span>
     <h2 class="modal-title" id="book-modal-title"><span class="obsession">Running</span> Healdsburg</h2>
-    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $4,000 all-in</p>
+    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $3,500 all-in</p>
     <form id="book-form" novalidate>
       <input type="hidden" name="trip" value="Healdsburg · Jul 17-19, 2026" />
       <div class="field">

@@ -7,7 +7,7 @@ colors:
   ink: "#1c1a16"
   ink-dim: "#57534b"
   ink-faint: "#656157"
-  accent: "#743b2d"
+  accent: "#b8542a"
   dark: "#100f0d"
   on-dark: "#ece8df"
 typography:
@@ -72,9 +72,9 @@ components:
 
 **Creative North Star: "The Quiet Expedition"**
 
-freeks reads like an expensive, understated travel house, an Aman that happens to be for obsessives. The page is built on deep restraint and cinematic photography. You enter through a dark film still (the hero): a full-bleed, dimmed photograph with the trip list set over it in a refined light-weight sans. Then the page opens into a calm, daylit editorial body on warm bone and stone, with enormous whitespace, hairline rules, and tracked-uppercase labels. It closes on a dark footer that bookends the hero. There is no bright color anywhere; the only chroma is a single deep oxblood, used so sparingly you almost miss it.
+freeks reads like an expensive, understated travel house, an Aman that happens to be for obsessives. The page is built on deep restraint and cinematic photography. You enter through a dark film still (the hero): a full-bleed, dimmed photograph with the trip list set over it in a refined light-weight sans. Then the page opens into a calm, daylit editorial body on warm bone and stone, with enormous whitespace, hairline rules, and tracked-uppercase labels. It closes on a dark footer that bookends the hero. There is no bright color anywhere; the only chroma is a single terracotta, used so sparingly you almost miss it.
 
-The voice is confident and spare: it states the bar plainly (a sub-3:20 marathon, eight runners, $4,000 all-in) and trusts the right person to recognize themselves. Hierarchy comes from scale, weight contrast within one typeface, and space, never from decoration or color. Numbers are tabular and exact. Corners are square; motion is slow and elegant.
+The voice is confident and spare: it states the bar plainly (a sub-3:20 marathon, eight runners, $3,500 all-in) and trusts the right person to recognize themselves. Hierarchy comes from scale, weight contrast within one typeface, and space, never from decoration or color. Numbers are tabular and exact. Corners are square; motion is slow and elegant.
 
 It is modeled on Aman (warm, calm, expensive restraint), Satisfy Running (stark editorial, athletic), and A24 (cinematic, gallery-like). It rejects anything that reads loud or cheap: bright accents, the bygone electric-pink, gradient meshes, glassmorphism, generic SaaS scaffolding, generic travel-operator card grids, hustle-retreat energy, and influencer-luxury gloss. Luxury here is the absence of noise.
 
@@ -82,16 +82,16 @@ It is modeled on Aman (warm, calm, expensive restraint), Satisfy Running (stark 
 - Cinematic dark film-still hero, light editorial body, dark footer (the page is bookended dark)
 - Warm bone + stone grounds; deep restraint and enormous whitespace
 - One refined sans (Switzer) across weights; light for display, medium tracked caps for labels
-- A single deep-oxblood accent, used so sparingly it is almost a secret
+- A single terracotta accent, used so sparingly it is almost a secret
 - Square corners, hairline rules, flat surfaces, slow elegant motion
 - Specificity and tabular numbers as the luxury; no bright color anywhere
 
 ## 2. Colors
 
-A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) carry the editorial body; one dark tone carries the hero and footer; one deep oxblood is the only chroma, used as a whisper. Values are sRGB hex; the project does not use OKLCH, so the frontmatter hex is canonical. All text/background pairings are verified to WCAG AA.
+A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) carry the editorial body; one dark tone carries the hero and footer; one terracotta is the only chroma, used as a whisper. Values are sRGB hex; the project does not use OKLCH, so the frontmatter hex is canonical. All text/background pairings are verified to WCAG AA.
 
 ### Primary
-- **Oxblood** (`#743b2d`): The only chroma in the system, and used so sparingly it reads as restraint, not color. Permitted uses, and no others: inline-link underlines, the field focus rule, focus outlines, and the button-hover lift. Never a fill, never a surface, never body text, not on the obsession word (titles carry emphasis by weight alone), and not on the short label rule (now ink).
+- **Terracotta** (`#b8542a`): The only chroma in the system, and used so sparingly it reads as restraint, not color. Permitted uses, and no others: inline-link underlines, the field focus rule, focus outlines, and the button-hover lift. Never a fill, never a surface, never body text, not on the obsession word (titles carry emphasis by weight alone), and not on the short label rule (now ink).
 
 ### Neutral — Grounds
 - **Bone** (`#f1eee7`): The warm off-white primary ground. Body default, philosophy, waitlist, modal.
@@ -105,11 +105,11 @@ A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) car
 - **On-Dark** (`#ece8df`) + dim/faint tints: warm off-white text on the dark hero and footer.
 
 ### Named Rules
-**The Secret-Accent Rule.** Oxblood is the only color, and it is rationed. If you can spot more than two oxblood elements in a single viewport, you have used too much; pull it back. Its scarcity is the luxury.
+**The Secret-Accent Rule.** Terracotta is the only color. Beyond the brand name (which is always terracotta), keep it rationed, a link underline here, a focus rule there; if a viewport fills with terracotta, pull it back. Its scarcity is the luxury.
 
-**The No-Bright-Surface Rule.** No surface is ever saturated or bright, no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography, the rationed oxblood, and the brand name (below).
+**The No-Bright-Surface Rule.** No surface is ever saturated or bright, no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography, the rationed terracotta, and the brand name (below).
 
-**The Brand-Name Color.** The word **freeks** is always one terracotta / burnt orange, `--fk #b8542a`, every place it appears (hero wordmark, philosophy, trip eyebrow, waitlist heading, footer mark, footer copyright). The value is tuned to read on both the dark hero/footer and the light bone/stone, so it stays a single consistent color across the page. It is distinct from the oxblood `#743b2d` accent (links, focus, button-hover); terracotta is the name, oxblood is the interface accent.
+**The Brand-Name Color.** The word **freeks** is always one terracotta / burnt orange, `--fk #b8542a`, every place it appears (hero wordmark, philosophy, trip eyebrow, waitlist heading, footer mark, footer copyright). The value is tuned to read on both the dark hero/footer and the light bone/stone, so it stays a single consistent color across the page. It is the *same* terracotta as the interface accent (`--accent` now points at `--fk`): the brand name and the accent are one warm color throughout, the only chroma on the page.
 
 ## 3. Typography
 
@@ -122,10 +122,10 @@ A warm, quiet, almost-monochrome palette. Two light grounds (bone and stone) car
 - **Headline** (300, `clamp(30px, 4.4vw, 58px)`, lh 1.12): Philosophy and waitlist headings. Light, airy, generous.
 - **Title** (300, `clamp(34px, 4.4vw, 60px)`): Per-trip detail title; the obsession word steps up to weight 400 in ink (no color).
 - **Body** (400, `clamp(17px, 1.35vw, 20px)`, lh 1.7): Prose, capped ~60ch, `text-wrap: pretty`.
-- **Label** (500, 10–11px, ls 0.2em, UPPERCASE): Eyebrows, field labels, meta keys, nav, button text. The luxury signal. Often paired with a short oxblood rule (`.label--rule`).
+- **Label** (500, 10–11px, ls 0.2em, UPPERCASE): Eyebrows, field labels, meta keys, nav, button text. The luxury signal. Often paired with a short ink rule (`.label--rule`).
 
 ### Named Rules
-**The Weight-Not-Color Rule.** Within a title, emphasis (the obsession word) comes from a step up in weight, and at most a touch of oxblood on the light body, never from size jumps or a second color.
+**The Weight-Not-Color Rule.** Within a title, emphasis (the obsession word) comes from a step up in weight, and at most a touch of terracotta on the light body, never from size jumps or a second color.
 
 **The Tabular-Truth Rule.** All comparable numbers (benchmarks, distances, times, dates, prices) use `font-variant-numeric: tabular-nums`. The data is the proof of seriousness; it aligns.
 
@@ -140,17 +140,17 @@ Flat, fully. No shadows, no panels, no glass. Depth comes only from the dark fil
 
 ### Buttons
 - **Shape:** Square (`0px`).
-- **Primary** (`button-primary`): Solid ink fill, bone text, tracked-caps label, `18px 32px`. Hover lifts the fill to oxblood (the one place the accent fills anything, briefly, on interaction). The trailing `→` slides.
+- **Primary** (`button-primary`): Solid ink fill, bone text, tracked-caps label, `18px 32px`. Hover lifts the fill to terracotta (the one place the accent fills anything, briefly, on interaction). The trailing `→` slides.
 - **Ghost** (`button-ghost`): Transparent with a 1px ink border, ink tracked-caps text; hover inverts to the ink fill.
-- **Text link:** Tracked-caps, ink-dim, with a 1px underline rule that turns oxblood on hover.
+- **Text link:** Tracked-caps, ink-dim, with a 1px underline rule that turns terracotta on hover.
 
 ### Chips
 - **Style:** Square, transparent, 1px border, tracked-caps ink-dim text, 44px min target.
-- **State:** Hover brightens to ink. Active (`chip-active`) fills ink with bone text, not oxblood. Multi-select; `aria-pressed` reflects state.
+- **State:** Hover brightens to ink. Active (`chip-active`) fills ink with bone text, not terracotta. Multi-select; `aria-pressed` reflects state.
 
 ### Inputs / Fields
 - **Style:** Boxless. Transparent field over a single 1px bottom rule, ink text, tracked-caps label above, flat on the ground.
-- **Focus:** `:focus-within` shifts the bottom rule to oxblood. Placeholders are ink-faint, AA on the grounds.
+- **Focus:** `:focus-within` shifts the bottom rule to terracotta. Placeholders are ink-faint, AA on the grounds.
 
 ### Navigation
 - **Style:** No nav bar in the body. The hero carries a `freeks` wordmark and a single tracked-caps "Waitlist" link with an underline-on-hover. The trip index is the primary navigation; hover or keyboard-focus dims the siblings and cross-fades the photograph (1.8s) behind the type.
@@ -162,16 +162,16 @@ A left-aligned column of refined light-weight trip titles over a dark, dimmed fi
 
 ### Do:
 - **Do** bookend the page dark (hero, footer) around a light bone/stone editorial body (**The No-Bright-Surface Rule**).
-- **Do** ration the oxblood to two or fewer elements per viewport (**The Secret-Accent Rule**).
+- **Do** ration the terracotta to two or fewer elements per viewport (**The Secret-Accent Rule**).
 - **Do** carry hierarchy with weight, scale, and whitespace within one typeface (Switzer) (**The Weight-Not-Color Rule**).
-- **Do** use tracked-uppercase labels (with the short oxblood rule) where they carry information.
+- **Do** use tracked-uppercase labels (with the short terracotta rule) where they carry information.
 - **Do** keep surfaces flat and corners square; separate with hairlines and space (**The Hairline Rule**).
 - **Do** set every comparable number in tabular figures (**The Tabular-Truth Rule**).
 - **Do** let cinematic, full-color photography carry the body; the dark hero film still sets the mood.
 
 ### Don't:
 - **Don't** introduce any bright color, the electric pink, a gradient mesh, or glassmorphism; this system is the deliberate opposite of those.
-- **Don't** let oxblood become a fill, a surface, or body text; it is a whisper, not a voice.
+- **Don't** let terracotta become a fill, a surface, or body text; it is a whisper, not a voice.
 - **Don't** add a second typeface or a third ground color.
 - **Don't** round corners or add shadows, panels, or cards.
 - **Don't** build a generic travel-operator layout (card grids, star ratings, "book now" clutter, stock-smile photography) or drift into hustle-retreat wellness, SaaS scaffolding, or influencer-luxury gloss.
