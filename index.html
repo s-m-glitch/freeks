@@ -19,11 +19,15 @@
 <meta name="twitter:description" content="Expert-led, luxury long-weekends for people who travel to go deeper into the things they love." />
 
 <!-- Favicon (inline SVG, no extra request) -->
-<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23100f0d'/><text x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-size='20' font-weight='400' text-anchor='middle' fill='%23ece8df'>f</text></svg>" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23100f0d'/><text x='15' y='24' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='26' font-weight='500' text-anchor='middle' fill='%23ece8df'>f</text></svg>" />
 
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600&display=swap" rel="stylesheet" />
+<!-- Wordmark face -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,500&display=swap" rel="stylesheet" />
 <style>
   :root{
     /* Quiet luxury — light editorial body, dark film-still hero, one earth accent */
@@ -50,6 +54,7 @@
 
     --max: 1340px;
     --sans: 'Switzer', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    --script: 'Cormorant', 'Hoefler Text', Georgia, serif; /* wordmark only — used italic */
 
     /* Semantic z-index scale */
     --z-base: 1;
@@ -119,7 +124,8 @@
     display:flex;justify-content:space-between;align-items:center;
     color:var(--on-dark);
   }
-  .wordmark{font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:.02em;line-height:1;color:var(--fk)}
+  /* Wordmark logo: elegant script, neutral ink (cream on the dark hero, near-black on light). */
+  .wordmark{font-family:var(--script);font-style:italic;font-size:clamp(30px,2.6vw,38px);font-weight:500;letter-spacing:.005em;line-height:1;color:var(--on-dark)}
   .hero-nav .nav-link{
     font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
     color:var(--on-dark);text-decoration:none;
@@ -321,6 +327,8 @@
   footer{background:var(--dark);color:var(--on-dark-dim);padding:clamp(72px,9vh,104px) 0 48px}
   .foot-row{display:grid;grid-template-columns:2fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--dark-line)}
   .foot-mark{font-size:22px;font-weight:500;letter-spacing:.02em;color:var(--on-dark);margin-bottom:18px}
+  /* Footer logo lockup matches the header wordmark (script, cream) — overrides the inline brand terracotta. */
+  .foot-mark .fk{font-family:var(--script);font-style:italic;font-size:34px;font-weight:500;letter-spacing:.005em;color:var(--on-dark)}
   .foot-tag{font-size:15px;line-height:1.65;color:var(--on-dark-dim);max-width:40ch;font-weight:300}
   .foot-col h4{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-faint);margin-bottom:20px}
   .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
