@@ -2,7 +2,7 @@
 
 ## Project
 
-**freeks** — a single-file static landing page (`index.html`, no build step) for expert-led, luxury long-weekend trips built around one obsession (running, painting, gravel, energy, fossil hunting). All CSS is inline in one `<style>` block; ~100 lines of vanilla JS at the bottom drive the hero image swap, interest chips, scroll reveals, and the booking modal. Two Vercel serverless functions in `api/` (`subscribe.js`, `book-request.js`) handle the waitlist and per-trip booking requests via Resend + a Google Sheets webhook. Deployed on Vercel. See [README.md](README.md) for deploy steps.
+**freeks** — a single-file static landing page (`index.html`, no build step) for expert-led, luxury experiences built around one obsession (gravel, tennis, painting, running). All CSS is inline in one `<style>` block; ~100 lines of vanilla JS at the bottom drive the hero image swap, interest chips, scroll reveals, and the booking modal. Two Vercel serverless functions in `api/` (`subscribe.js`, `book-request.js`) handle the waitlist and per-trip booking requests via Resend + a Google Sheets webhook. Deployed on Vercel. See [README.md](README.md) for deploy steps.
 
 ## Design Context
 
@@ -17,7 +17,7 @@ This project uses the **impeccable** design skill. Two root files carry the desi
 
 **Personality:** quiet-luxury, editorial, obsessive, cinematic. References: **Aman** (warm, calm, expensive restraint), **Satisfy Running** (stark editorial, athletic), **A24** (cinematic, gallery-like). Warmth comes from craft, photography, and company, not from bright color or exclamation points.
 
-**Creative North Star:** "The Quiet Expedition" — an Aman that happens to be for obsessives. A cinematic dark film-still hero opening into a calm, daylit editorial body (warm bone + stone), one refined sans (Switzer) across weights, and a single deep-oxblood `#743b2d` accent rationed so sparingly it's almost a secret. Luxury is the absence of noise. No bright color, no gradients, no glass.
+**Creative North Star:** "The Quiet Expedition" — an Aman that happens to be for obsessives. A cinematic dark film-still hero opening into a calm, daylit editorial body (warm bone + stone), one refined sans (Switzer) across weights, and a fully monochrome palette (warm bone, stone, and ink) with no color accent at all. Luxury is the absence of noise. No bright color, no gradients, no glass; the only color on the page lives in the photography.
 
 **Design principles:**
 - Earn it, don't sell it — state the bar plainly, let people self-select.

@@ -10,7 +10,7 @@ People who are all-in on a craft or pursuit — runners chasing a sub-3:20 marat
 
 ## Product Purpose
 
-freeks runs expert-led, luxury long-weekends built around a single obsession — three days of going deep on one thing with a small group and a genuine expert leading it (e.g. an SFRC manager and ultrarunner hosting the Healdsburg running weekend). The landing page exists to communicate the taste and seriousness of the experience and to capture intent: waitlist signups and per-trip booking requests, both wired to live Vercel serverless endpoints (Resend + Google Sheets). Success looks like the right people — obsessives who meet the bar — self-selecting in, and the wrong people self-selecting out. It is a communicate-not-transact surface; there is no checkout, only requests that start a conversation.
+freeks runs expert-led, luxury experiences built around a single obsession — three days of going deep on one thing with a small group and a genuine expert leading it (e.g. a run-club manager and ultrarunner hosting a running experience). The landing page exists to communicate the taste and seriousness of the experience and to capture intent: waitlist signups and per-trip booking requests, both wired to live Vercel serverless endpoints (Resend + Google Sheets). Success looks like the right people — obsessives who meet the bar — self-selecting in, and the wrong people self-selecting out. It is a communicate-not-transact surface; there is no checkout, only requests that start a conversation.
 
 ## Brand Personality
 

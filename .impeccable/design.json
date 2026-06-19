@@ -5,10 +5,10 @@
   "extensions": {
     "colorMeta": {
       "accent": {
-        "role": "primary",
-        "displayName": "Terracotta",
-        "canonical": "#b8542a",
-        "tonalRamp": ["#2a1308", "#3e1d0e", "#5a2c16", "#79401f", "#9a4a24", "#b8542a", "#cf7a52", "#e6b09a"]
+        "role": "neutral",
+        "displayName": "Emphasis (Ink)",
+        "canonical": "#1c1a16",
+        "tonalRamp": ["#100f0d", "#1c1a16", "#34312b", "#544f45", "#57534b", "#656157", "#9a9485", "#cfcabb"]
       },
       "bg": {
         "role": "neutral",
@@ -62,7 +62,7 @@
       "name": "Quiet Index Title",
       "kind": "custom",
       "refersTo": "display",
-      "description": "Signature hero list item: refined light-weight trip title (obsession word stepped up in weight), tracked tabular date kept on the same line. Over the dark film still. The 'freeks' wordmark above it is terracotta.",
+      "description": "Signature hero list item: refined light-weight trip title (hobby, expert, and location given equal billing, separated by middots), tracked tabular date kept on the same line. Over the dark film still. The 'freeks' wordmark above it is set in Cormorant italic in warm cream.",
       "html": "<a class=\"ds-trip\"><span class=\"ds-trip__title\"><span class=\"ds-ob\">Running</span> Healdsburg</span><span class=\"ds-trip__date\">Jul 17–19</span></a>",
       "css": ".ds-trip{display:flex;align-items:baseline;gap:0 22px;flex-wrap:nowrap;text-decoration:none;color:#ece8df;padding:10px 0;cursor:pointer;transition:opacity .6s cubic-bezier(.4,0,.2,1)}.ds-trip__title{font-family:'Switzer',system-ui,sans-serif;font-weight:300;font-size:clamp(30px,4.6vw,66px);line-height:1.04;letter-spacing:-.02em}.ds-ob{font-weight:500}.ds-trip__date{font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,232,223,.52);font-variant-numeric:tabular-nums;flex-shrink:0}.ds-trip:hover{opacity:1}"
     },
@@ -70,9 +70,9 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Solid ink, square, tracked-caps. Hover lifts the fill to terracotta with white text (~4.8:1).",
+      "description": "Solid ink, square, tracked-caps. On hover it inverts to a bone fill with ink text and an ink border (an outlined state).",
       "html": "<button class=\"ds-btn\">Request to book <span class=\"ds-arrow\">→</span></button>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;gap:14px;background:#1c1a16;color:#f1eee7;border:1px solid #1c1a16;font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:18px 32px;cursor:pointer;transition:background .4s ease,border-color .4s ease,color .4s ease}.ds-btn:hover{background:#b8542a;border-color:#b8542a;color:#fff}.ds-btn .ds-arrow{transition:transform .4s cubic-bezier(.4,0,.2,1)}.ds-btn:hover .ds-arrow{transform:translateX(6px)}"
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:14px;background:#1c1a16;color:#f1eee7;border:1px solid #1c1a16;font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:18px 32px;cursor:pointer;transition:background .4s ease,border-color .4s ease,color .4s ease}.ds-btn:hover{background:#f1eee7;border-color:#1c1a16;color:#1c1a16}.ds-btn .ds-arrow{transition:transform .4s cubic-bezier(.4,0,.2,1)}.ds-btn:hover .ds-arrow{transform:translateX(6px)}"
     },
     {
       "name": "Tracked Label",
@@ -86,7 +86,7 @@
       "name": "Interest Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Square, tracked-caps interest toggle. Active fills ink, not the accent.",
+      "description": "Square, tracked-caps interest toggle. Active fills ink.",
       "html": "<button class=\"ds-chip\">Running</button><button class=\"ds-chip ds-chip--active\">Painting</button>",
       "css": ".ds-chip{padding:11px 18px;min-height:44px;border:1px solid rgba(28,26,22,.24);background:transparent;color:#57534b;font-family:'Switzer',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease}.ds-chip:hover{border-color:#1c1a16;color:#1c1a16}.ds-chip--active{background:#1c1a16;color:#f1eee7;border-color:#1c1a16}"
     },
@@ -94,32 +94,32 @@
       "name": "Underline Field",
       "kind": "input",
       "refersTo": "input-field",
-      "description": "Boxless field flat on the ground: ink text over a bottom rule, tracked-caps label above. Focus rule turns terracotta.",
+      "description": "Boxless field flat on the ground: ink text over a bottom rule, tracked-caps label above. Focus rule turns ink.",
       "html": "<div class=\"ds-field\"><label class=\"ds-field__label\">Email</label><input class=\"ds-field__input\" placeholder=\"freek@somewhere.com\"></div>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:10px;padding:22px 0;border-bottom:1px solid rgba(28,26,22,.13)}.ds-field__label{font-family:'Switzer',system-ui,sans-serif;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#656157}.ds-field__input{background:transparent;border:none;outline:none;color:#1c1a16;font-family:'Switzer',system-ui,sans-serif;font-weight:400;font-size:19px;padding:2px 0}.ds-field__input::placeholder{color:#656157;font-weight:300}.ds-field:focus-within{border-bottom-color:#b8542a}"
+      "css": ".ds-field{display:flex;flex-direction:column;gap:10px;padding:22px 0;border-bottom:1px solid rgba(28,26,22,.13)}.ds-field__label{font-family:'Switzer',system-ui,sans-serif;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#656157}.ds-field__input{background:transparent;border:none;outline:none;color:#1c1a16;font-family:'Switzer',system-ui,sans-serif;font-weight:400;font-size:19px;padding:2px 0}.ds-field__input::placeholder{color:#656157;font-weight:300}.ds-field:focus-within{border-bottom-color:#1c1a16}"
     }
   ],
   "narrative": {
     "northStar": "The Quiet Expedition",
-    "overview": "freeks reads like an expensive, understated travel house, an Aman that happens to be for obsessives. You enter through a dark film still (the hero): a full-bleed, dimmed photograph with the trip list over it in a refined light-weight sans. Then the page opens into a calm, daylit editorial body on warm bone and stone, with enormous whitespace, hairline rules, and tracked-uppercase labels, and closes on a dark footer that bookends the hero. The only chroma is a single terracotta, used as the brand-name color and the interface accent. Hierarchy comes from scale, weight, and space within one typeface (Switzer). Luxury here is the absence of noise.",
+    "overview": "freeks reads like an expensive, understated travel house, an Aman that happens to be for obsessives. You enter through a dark film still (the hero): a full-bleed, dimmed photograph with the trip list over it in a refined light-weight sans. Then the page opens into a calm, daylit editorial body on warm bone and stone, with enormous whitespace, hairline rules, and tracked-uppercase labels, and closes on a dark footer that bookends the hero. The palette is fully monochrome; there is no chroma, and the only color on the page is the photography. Hierarchy comes from scale, weight, and space within one typeface (Switzer). Luxury here is the absence of noise.",
     "keyCharacteristics": [
       "Cinematic dark film-still hero, light editorial body, dark footer (bookended dark)",
       "Warm bone + stone grounds; deep restraint and enormous whitespace",
       "One refined sans (Switzer) across weights; light display, medium tracked-caps labels",
-      "A single terracotta (#b8542a): both the brand name and the interface accent",
+      "Fully monochrome: emphasis is ink, weight, and space, with no color accent",
       "Square corners, hairline rules, flat surfaces, slow elegant motion",
       "Specificity and tabular numbers as the luxury; no bright color anywhere"
     ],
     "rules": [
-      { "name": "The One-Terracotta Rule", "body": "Terracotta #b8542a is the only chroma, and it is one color: the brand name 'freeks' everywhere it appears, plus the interface accent (link underlines, field focus, focus outlines, button-hover). Tuned to read on both the dark hero/footer and the light bone/stone. No second accent hue.", "section": "colors" },
-      { "name": "The No-Bright-Surface Rule", "body": "No surface is ever saturated or bright: no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography and the single terracotta.", "section": "colors" },
-      { "name": "The Weight-Not-Color Rule", "body": "Title emphasis (the obsession word) comes from a step up in weight, never from color or a size jump. The label rule before eyebrows is ink, not terracotta.", "section": "typography" },
+      { "name": "The Monochrome Rule", "body": "There is no color accent. Emphasis is ink: link underlines, field focus, the text-link hover, and form status messages; focus outlines use currentColor so they read on both the dark and light grounds. The brand name 'freeks' takes its surrounding color. Color lives only in the photography.", "section": "colors" },
+      { "name": "The No-Bright-Surface Rule", "body": "No surface is ever saturated or bright: no colored rooms, no gradients, no glass. Every ground is bone, stone, or near-black. Color lives only in the photography.", "section": "colors" },
+      { "name": "The Weight-Not-Color Rule", "body": "Emphasis and hierarchy come from weight, scale, and space within one typeface, never from color or a size jump. The label rule before eyebrows is ink. The page is monochrome.", "section": "typography" },
       { "name": "The Tabular-Truth Rule", "body": "All comparable numbers (benchmarks, distances, times, dates, prices) use tabular figures. The data is the proof of seriousness; it aligns.", "section": "typography" },
       { "name": "The Hairline Rule", "body": "Separation is a 1px rule or a change of ground, never a shadow or a box. Photographs get a 1px inset frame; sections divide by ground and whitespace.", "section": "elevation" }
     ],
     "dos": [
       "Do bookend the page dark (hero, footer) around a light bone/stone editorial body.",
-      "Do keep terracotta as the one warm color: the brand name plus a rationed interface accent.",
+      "Do keep the palette fully monochrome; carry emphasis with ink, weight, and space.",
       "Do carry hierarchy with weight, scale, and whitespace within one typeface (Switzer).",
       "Do use tracked-uppercase labels with a short ink rule where they carry information.",
       "Do keep surfaces flat and corners square; separate with hairlines and space.",
@@ -127,8 +127,8 @@
       "Do let cinematic, full-color photography carry the body; the dark hero film still sets the mood."
     ],
     "donts": [
-      "Don't introduce any second color, bright accent, gradient mesh, or glassmorphism.",
-      "Don't let terracotta become a fill or a surface (button-hover is the one brief exception); it is never body text.",
+      "Don't introduce any color accent, bright color, gradient mesh, or glassmorphism.",
+      "Don't reintroduce a color accent; the system is fully monochrome by design.",
       "Don't add a second typeface or a third ground color.",
       "Don't round corners or add shadows, panels, or cards.",
       "Don't build a generic travel-operator layout or drift into hustle-retreat wellness, SaaS scaffolding, or influencer-luxury gloss.",
