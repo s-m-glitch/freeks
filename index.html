@@ -387,12 +387,10 @@
 <header class="hero">
   <h1 class="visually-hidden">freeks: expert-led, luxury long-weekends for the obsessed</h1>
   <div class="hero-bg">
-    <div class="bg active" data-trip="1" role="img" aria-label="Vineyard rows climbing toward golden Sonoma hills at first light" style="background-image:url('https://images.unsplash.com/photo-1634844252257-a26d95c7fa16?auto=format&fit=crop&w=2200&q=80')"></div>
-    <div class="bg" data-trip="2" role="img" aria-label="Empty downtown Los Angeles boulevard in flat morning light" data-bg="url('https://images.unsplash.com/photo-1644022874903-e74eb675fc78?auto=format&fit=crop&w=2200&q=80')"></div>
-    <div class="bg" data-trip="3" role="img" aria-label="Wooded Catskills ridgeline above Woodstock" data-bg="url('https://images.unsplash.com/photo-1507371341162-763b5e419408?auto=format&fit=crop&w=2200&q=80')"></div>
-    <div class="bg" data-trip="6" role="img" aria-label="Mist over the Hudson Valley in autumn" data-bg="url('https://images.unsplash.com/photo-1560880944-796251b78b4c?auto=format&fit=crop&w=2200&q=80')"></div>
-    <div class="bg" data-trip="4" role="img" aria-label="Open West Texas plain under a wide Permian Basin sky" data-bg="url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=2200&q=80')"></div>
-    <div class="bg" data-trip="5" role="img" aria-label="Gulf shoreline at low tide near Sarasota" data-bg="url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg active" data-trip="1" role="img" aria-label="Lone figure on a winding road through the dry hills above Los Angeles" style="background-image:url('https://images.unsplash.com/photo-1644022874903-e74eb675fc78?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="2" role="img" aria-label="Hazy blue ridgelines of the Virginia mountains at golden hour" data-bg="url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="3" role="img" aria-label="Wooded Catskills ridgeline above the Hudson Valley" data-bg="url('https://images.unsplash.com/photo-1507371341162-763b5e419408?auto=format&fit=crop&w=2200&q=80')"></div>
+    <div class="bg" data-trip="4" role="img" aria-label="Mist over the Hudson Valley in autumn" data-bg="url('https://images.unsplash.com/photo-1560880944-796251b78b4c?auto=format&fit=crop&w=2200&q=80')"></div>
   </div>
   <div class="hero-scrim"></div>
 
@@ -404,12 +402,10 @@
   <div class="hero-content">
     <p class="hero-kicker">Expert-led, luxury long-weekends for the obsessed.</p>
     <ol class="hero-index">
-      <li><a href="#healdsburg" data-trip="1"><span class="title"><span class="obsession">Running</span> Healdsburg</span><span class="date">Jul 17–19</span></a></li>
-      <li><a href="#waitlist" data-trip="2"><span class="title"><span class="obsession">Gravel</span> Los Angeles</span><span class="date">Sep 2026</span></a></li>
-      <li><a href="#waitlist" data-trip="3"><span class="title"><span class="obsession">Painting</span> Woodstock</span><span class="date">Sep 2026</span></a></li>
-      <li><a href="#waitlist" data-trip="6"><span class="title"><span class="obsession">Running</span> Hudson Valley</span><span class="date">Oct 2026</span></a></li>
-      <li><a href="#waitlist" data-trip="4"><span class="title"><span class="obsession">Energy</span> Permian Basin</span><span class="date">Oct 2026</span></a></li>
-      <li><a href="#waitlist" data-trip="5"><span class="title"><span class="obsession">Fossil Hunting</span> Sarasota</span><span class="date">Nov 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="1"><span class="title"><span class="obsession">Gravel</span> Los Angeles</span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="2"><span class="title"><span class="obsession">Tennis</span> Charlottesville</span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="3"><span class="title"><span class="obsession">Painting</span> Hudson Valley</span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="4"><span class="title"><span class="obsession">Running</span> Hudson Valley</span><span class="date">Nov 2026</span></a></li>
     </ol>
   </div>
 </header>
@@ -427,69 +423,48 @@
   </div>
 </section>
 
-<!-- ============== HEALDSBURG DETAIL ============== -->
-<section id="healdsburg" class="trip-detail">
+<!-- ============== FEATURED TRIP (reusable template) ==============
+     Hidden by default. To publish a featured trip: fill in the placeholders
+     below, set the detail-figure data-bg to a real image, point a hero-index
+     item's href at #featured-trip, and remove the `hidden` attribute on the
+     <section>. The "Request to book" modal at the bottom of the page pairs
+     with this — update its title/dates/trip to match. -->
+<section id="featured-trip" class="trip-detail" hidden>
   <div class="container">
     <div class="detail-grid">
-      <div class="detail-figure reveal" role="img" aria-label="Runner on a Sonoma fire road through dry-grass hills" data-bg="url('https://images.unsplash.com/photo-1634844252257-a26d95c7fa16?auto=format&fit=crop&w=1500&q=80')"></div>
+      <div class="detail-figure reveal" role="img" aria-label="[Describe the trip photo]" data-bg="url('[image URL]')"></div>
       <div class="reveal">
-        <p class="label label--rule detail-label">Trail <span class="fk">freeks</span> · Healdsburg</p>
-        <h2 class="detail-title"><span class="obsession">Running</span> Healdsburg</h2>
-        <p class="detail-desc">Three days of running in Sonoma's wine country with <a href="https://www.instagram.com/_chrisbartholomew/" target="_blank" rel="noopener">Chris Bartholomew</a> — Western States 100 finisher, UTMB World Series racer in Chamonix, Thailand, and New Zealand, SFRC manager, and four-year lead of the club's Legendary Saturday trail runs. Stay at the beautiful <a href="https://hotelhealdsburg.com/" target="_blank" rel="noopener">Hotel Healdsburg</a>. Run hard, eat well, go wine tasting.</p>
+        <p class="label label--rule detail-label">[Obsession] <span class="fk">freeks</span> · [Location]</p>
+        <h2 class="detail-title"><span class="obsession">[Obsession]</span> [Location]</h2>
+        <p class="detail-desc">[A sentence or two: the expert (link their profile), the hotel (link it), and what the days feel like.]</p>
 
         <div class="benchmarks">
           <span class="label">Suggested benchmarks</span>
-          <div class="benchmark-row"><span class="who">Men</span><span class="marks">sub 3:20 marathon, sub 1:30 half, sub 19:00 5k</span></div>
-          <div class="benchmark-row"><span class="who">Women</span><span class="marks">sub 3:45 marathon, sub 1:40 half, sub 21:30 5k</span></div>
-          <div class="benchmark-row"><span class="who">Trail</span><span class="marks">sub 5-hour 50k with 5–10k vert, 8-min mile average on 12–15 mi run with 1,500+ vert</span></div>
+          <div class="benchmark-row"><span class="who">[Group]</span><span class="marks">[the bar to hold yourself to]</span></div>
         </div>
 
         <div class="detail-meta">
-          <div><span class="key">When</span><span class="value">Jul 17–19</span></div>
-          <div><span class="key">Duration</span><span class="value">3 nights</span></div>
-          <div><span class="key">Group</span><span class="value">8 runners</span></div>
-          <div><span class="key">Price</span><span class="value">$3,500 all inclusive</span></div>
-          <div><span class="key">Apply by</span><span class="value">Jun 16</span></div>
+          <div><span class="key">When</span><span class="value">[Dates]</span></div>
+          <div><span class="key">Duration</span><span class="value">[N nights]</span></div>
+          <div><span class="key">Group</span><span class="value">[N guests]</span></div>
+          <div><span class="key">Price</span><span class="value">[$ all inclusive]</span></div>
+          <div><span class="key">Apply by</span><span class="value">[Date]</span></div>
         </div>
 
         <div class="detail-actions">
-          <a href="#book-healdsburg" class="btn" data-action="request-book" data-trip="Healdsburg · Jul 17-19, 2026">Request to book <span class="arrow">→</span></a>
-          <a href="#healdsburg-itinerary" class="text-link">Full itinerary <span class="arrow">↓</span></a>
+          <a href="#book" class="btn" data-action="request-book" data-trip="[Obsession Location · Dates]">Request to book <span class="arrow">→</span></a>
+          <a href="#featured-itinerary" class="text-link">Full itinerary <span class="arrow">↓</span></a>
         </div>
       </div>
     </div>
 
-    <div class="itinerary reveal" id="healdsburg-itinerary">
+    <div class="itinerary reveal" id="featured-itinerary">
       <span class="label label--rule">The full itinerary</span>
       <div class="itin-days">
         <div class="itin-day">
-          <h4>Friday</h4>
+          <h4>[Day]</h4>
           <ul class="itin-list">
-            <li><span class="itin-time">3:00pm</span><span class="itin-act">Arrival</span></li>
-            <li><span class="itin-time">4:30pm</span><span class="itin-act">Group workout #1: 5–8mi shakeout running tour of Healdsburg @ Fitch Mountain (punchy climbs, river views, a true local classic)</span></li>
-            <li><span class="itin-time">—</span><span class="itin-act">Dip in the Russian River</span></li>
-            <li><span class="itin-time">7:30pm</span><span class="itin-act">Dinner at <a href="https://drycreekkitchen.com/" target="_blank" rel="noopener">Dry Creek Kitchen</a></span></li>
-          </ul>
-        </div>
-        <div class="itin-day">
-          <h4>Saturday</h4>
-          <ul class="itin-list">
-            <li><span class="itin-time">7:30am</span><span class="itin-act">Coffee at <a href="https://blackoakcoffee.com/pages/healdsburg" target="_blank" rel="noopener">Black Oak Coffee Roasters</a></span></li>
-            <li><span class="itin-time">8:30am</span><span class="itin-act">Group workout #2: 12–20mi long run @ Lake Sonoma (big trails, big hills, big miles)</span></li>
-            <li><span class="itin-time">11:00am</span><span class="itin-act">Smoothie at <a href="https://carmellacarmella.com/" target="_blank" rel="noopener">Carmella</a></span></li>
-            <li><span class="itin-time">12:30pm</span><span class="itin-act">Lunch at <a href="https://www.troubadourhbg.com/" target="_blank" rel="noopener">Troubadour Bread and Bistro</a></span></li>
-            <li><span class="itin-time">2:30pm</span><span class="itin-act">Optional shakeout &amp; form clinic: downhills + inclines</span></li>
-            <li><span class="itin-time">4:00pm</span><span class="itin-act"><a href="https://www.flowerswinery.com/" target="_blank" rel="noopener">Flowers Vineyard</a> tour &amp; tasting</span></li>
-            <li><span class="itin-time">7:30pm</span><span class="itin-act">Dinner at <a href="https://www.thematheson.com/" target="_blank" rel="noopener">The Matheson</a></span></li>
-          </ul>
-        </div>
-        <div class="itin-day">
-          <h4>Sunday</h4>
-          <ul class="itin-list">
-            <li><span class="itin-time">7:30am</span><span class="itin-act">Coffee at <a href="https://blackoakcoffee.com/pages/healdsburg" target="_blank" rel="noopener">Black Oak Coffee Roasters</a></span></li>
-            <li><span class="itin-time">8:30am</span><span class="itin-act">Group workout #3: 5–8mi @ Armstrong Redwoods State Park (running among the giants in their cathedral)</span></li>
-            <li><span class="itin-time">—</span><span class="itin-act">Pastries at <a href="https://www.quailandcondor.com/" target="_blank" rel="noopener">Quail and Condor</a></span></li>
-            <li><span class="itin-time">12:00pm</span><span class="itin-act">Departure</span></li>
+            <li><span class="itin-time">[time]</span><span class="itin-act">[what happens]</span></li>
           </ul>
         </div>
       </div>
@@ -571,10 +546,10 @@
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="book-modal-title">
     <button class="modal-close" data-close aria-label="Close">×</button>
     <span class="label modal-label">Request to book</span>
-    <h2 class="modal-title" id="book-modal-title"><span class="obsession">Running</span> Healdsburg</h2>
-    <p class="modal-trip" id="book-modal-trip">Jul 17–19, 2026 · 3 nights · $3,500 all inclusive</p>
+    <h2 class="modal-title" id="book-modal-title"><span class="obsession">[Obsession]</span> [Location]</h2>
+    <p class="modal-trip" id="book-modal-trip">[Dates] · [N nights] · [$ all inclusive]</p>
     <form id="book-form" novalidate>
-      <input type="hidden" name="trip" value="Healdsburg · Jul 17-19, 2026" />
+      <input type="hidden" name="trip" value="[Obsession Location · Dates]" />
       <div class="field">
         <label for="book-name">Name</label>
         <input id="book-name" name="name" type="text" placeholder="Your full name" autocomplete="name" autocapitalize="words" required />
