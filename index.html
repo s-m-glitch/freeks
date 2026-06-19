@@ -153,10 +153,12 @@
     transition:opacity .6s cubic-bezier(.4,0,.2,1);
   }
   .hero-index .title{
-    font-size:clamp(30px,4.6vw,66px);
-    line-height:1.04;letter-spacing:-.02em;font-weight:300;
+    font-size:clamp(24px,3.4vw,46px);
+    line-height:1.12;letter-spacing:-.015em;font-weight:300;
   }
-  .hero-index .title .obsession{font-weight:500}
+  /* Expert · hobby · location share equal billing; the middot is connective tissue. */
+  .hero-index .title .bill{font-weight:300;white-space:nowrap}
+  .hero-index .title .sep{color:var(--on-dark-faint)}
   .hero-index .date{
     font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
     color:var(--on-dark-faint);font-variant-numeric:tabular-nums;white-space:nowrap;
@@ -170,10 +172,10 @@
   @media (max-width:780px){
     .hero{min-height:600px}
     .hero-content{padding-bottom:56px}
-    /* Keep each title + date on one line; the date never drops below. */
-    .hero-index a{flex-wrap:nowrap;gap:0 12px}
-    .hero-index .title{font-size:clamp(18px,5.2vw,30px);line-height:1.18;flex-shrink:1;min-width:0}
-    .hero-index .date{flex-shrink:0;font-size:10px;letter-spacing:.12em}
+    /* Three-part billing wraps freely; stack the date beneath each trip. */
+    .hero-index a{flex-direction:column;align-items:flex-start;gap:5px 0;padding:8px 0}
+    .hero-index .title{font-size:clamp(16px,4.6vw,28px);line-height:1.3}
+    .hero-index .date{font-size:10px;letter-spacing:.12em}
     .hero-index:hover a{opacity:1}
   }
 
@@ -400,12 +402,12 @@
   </nav>
 
   <div class="hero-content">
-    <p class="hero-kicker">Expert-led, luxury long-weekends for the obsessed.</p>
+    <p class="hero-kicker">Expert-led luxury experiences for the obsessed.</p>
     <ol class="hero-index">
-      <li><a href="#waitlist" data-trip="1"><span class="title"><span class="obsession">Gravel</span> Los Angeles</span><span class="date">Oct 2026</span></a></li>
-      <li><a href="#waitlist" data-trip="2"><span class="title"><span class="obsession">Tennis</span> Charlottesville</span><span class="date">Oct 2026</span></a></li>
-      <li><a href="#waitlist" data-trip="3"><span class="title"><span class="obsession">Painting</span> Hudson Valley</span><span class="date">Oct 2026</span></a></li>
-      <li><a href="#waitlist" data-trip="4"><span class="title"><span class="obsession">Running</span> Hudson Valley</span><span class="date">Nov 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="1"><span class="title"><span class="bill">Gravel</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Isabel King</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Los Angeles</span></span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="2"><span class="title"><span class="bill">Tennis</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Denis Kudla</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Charlottesville</span></span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="3"><span class="title"><span class="bill">Painting</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Alex Maceda</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Hudson Valley</span></span><span class="date">Oct 2026</span></a></li>
+      <li><a href="#waitlist" data-trip="4"><span class="title"><span class="bill">Running</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Tom Black</span> <span class="sep" aria-hidden="true">·</span> <span class="bill">Hudson Valley</span></span><span class="date">Nov 2026</span></a></li>
     </ol>
   </div>
 </header>
@@ -524,7 +526,7 @@
     <div class="foot-row">
       <div>
         <div class="foot-mark"><span class="fk">freeks</span></div>
-        <p class="foot-tag">Expert-led, luxury long-weekends for the obsessed.</p>
+        <p class="foot-tag">Expert-led luxury experiences for the obsessed.</p>
       </div>
       <div class="foot-col">
         <h4>Follow</h4>
